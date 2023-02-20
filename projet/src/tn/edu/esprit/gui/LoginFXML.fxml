@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" fx:id="connecter" prefHeight="471.0" prefWidth="688.0" style="-fx-background-color: 00000;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.edu.esprit.gui.LoginFXMLController">
+   <children>
+      <AnchorPane layoutY="-8.0" prefHeight="484.0" prefWidth="344.0" style="-fx-background-color: #F1EDDF;">
+         <children>
+            <PasswordField fx:id="motDePasse" layoutX="83.0" layoutY="227.0" prefHeight="40.0" prefWidth="210.0" promptText="mot de passe" />
+            <Label layoutX="49.0" layoutY="45.0" prefHeight="71.0" prefWidth="327.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
+               <font>
+                  <Font name="Forte" size="62.0" />
+               </font>
+            </Label>
+            <Button fx:id="connexion" layoutX="135.0" layoutY="306.0" mnemonicParsing="false" onAction="#ConnexionFunction" style="-fx-background-color: FAD678;" text="Se connecter">
+               <effect>
+                  <Glow level="0.2">
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </Glow>
+               </effect>
+               <font>
+                  <Font name="Forte" size="16.0" />
+               </font>
+            </Button>
+            <Label fx:id="loginMessage" layoutX="78.0" layoutY="275.0" prefHeight="21.0" prefWidth="221.0" />
+            <TextField fx:id="email" layoutX="83.0" layoutY="162.0" prefHeight="40.0" prefWidth="210.0" promptText="e-mail" />
+            <Button fx:id="inscrire" layoutX="136.0" layoutY="376.0" mnemonicParsing="false" onAction="#inscrireFunction" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: FAD678;" text="S'inscrire" underline="true" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+      <ImageView fitHeight="229.0" fitWidth="262.0" layoutX="416.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Capture%20d'écran_20230201_082702.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
