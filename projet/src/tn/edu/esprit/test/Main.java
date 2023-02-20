@@ -12,7 +12,7 @@ import tn.edu.esprit.entities.Client;
 import tn.edu.esprit.services.InscriptionService;
 import tn.edu.esprit.services.LoginService;
 import tn.esprit.utils.MyConnection;
-
+//comment
 
 /**
  *
