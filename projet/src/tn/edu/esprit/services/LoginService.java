@@ -51,6 +51,7 @@ public class LoginService {
                   user.setDateDeNaissance(resultat.getString("dateDeNaissance"));
                   user.setNumTelephone(resultat.getInt("numTelephone"));
                   user.setAdresse(resultat.getString("adresse"));
+                  user.setCin(resultat.getInt("cin"));
                   
                   
                   

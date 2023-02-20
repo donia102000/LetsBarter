@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="835.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.edu.esprit.gui.InscrireFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="835.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.InscrireFXMLController">
     
     <children>
         <Button fx:id="btnInscrire" alignment="CENTER" layoutX="376.0" layoutY="461.0" mnemonicParsing="false" onAction="#Inscription" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #e8b833;" text="S'inscrire" textFill="WHITE">
@@ -30,10 +30,11 @@
                 <Image url="@../Images/Ressources-Humaines1.jpg" />
             </image>
         </ImageView>
-      <VBox layoutX="113.0" layoutY="141.0" prefHeight="235.0" prefWidth="184.0" spacing="10.0">
+      <VBox layoutX="113.0" layoutY="141.0" prefHeight="318.0" prefWidth="184.0" spacing="10.0">
          <children>
             <TextField fx:id="tfnom" promptText="Nom" />
             <TextField fx:id="tfprenom" layoutX="10.0" layoutY="10.0" promptText="Prenom" />
+            <TextField fx:id="tfCin" promptText="Cin" />
             <TextField fx:id="tfadresse" layoutX="10.0" layoutY="35.0" promptText="Adresse" />
             <TextField fx:id="tfemail" layoutX="10.0" layoutY="85.0" promptText="e-mail" />
             <TextField fx:id="tfmdp" promptText="Mot de passe" />
@@ -41,7 +42,7 @@
             <ComboBox fx:id="tfgenre" prefHeight="25.0" prefWidth="191.0" promptText="genre" />
          </children>
       </VBox>
-      <DatePicker fx:id="tfnaissance" layoutX="113.0" layoutY="430.0" prefHeight="25.0" prefWidth="184.0" promptText="Date de Naissance" />
+      <DatePicker fx:id="tfnaissance" layoutX="113.0" layoutY="465.0" prefHeight="25.0" prefWidth="184.0" promptText="Date de Naissance" />
       <Label fx:id="lbl" alignment="CENTER" layoutX="165.0" layoutY="528.0" prefHeight="32.0" prefWidth="593.0">
          <font>
             <Font name="Calibri" size="29.0" />

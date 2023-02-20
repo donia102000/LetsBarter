@@ -56,6 +56,9 @@ public class InscrireFXMLController implements Initializable {
 
     @FXML
     private TextField tftel;
+    
+     @FXML
+    private TextField tfCin;
 
     @FXML
     private ComboBox<String> tfgenre;
@@ -81,9 +84,9 @@ public class InscrireFXMLController implements Initializable {
                 !(tfnom.getText().isEmpty()) &&!(tfprenom.getText().isEmpty()) && 
                 !(tfadresse.getText().isEmpty()) && !(tfemail.getText().isEmpty()) && 
                 !(tfgenre.getPromptText().isEmpty())&& !(tftel.getText().isEmpty())  &&
-                !(tfnaissance.getEditor().getText().isEmpty()) &&!(tfmdp.getText().isEmpty())){
+                !(tfnaissance.getEditor().getText().isEmpty()) && !(tfCin.getText().isEmpty())&&!(tfmdp.getText().isEmpty())){
             
-            Client c = new Client (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(), tfgenre.getValue(), tfnaissance.getEditor().getText(),45878, tfadresse.getText(),"client", 0);
+            Client c = new Client (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(), tfgenre.getValue(), tfnaissance.getEditor().getText(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"client", 0,Integer.parseInt(tfCin.getText()));
            
             
             ins.inscrire(c);

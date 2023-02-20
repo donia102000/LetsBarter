@@ -30,7 +30,7 @@ public class InscriptionService {
     
    public void inscrire(Client client){
     
-    String requete1 ="INSERT INTO `utilisateur` (`nomUtilisateur`, `prenomUtilisateur`, `email`, `motDePasse`, `genre`, `dateDeNaissance`, `numTelephone`, `adresse`, `role`, `nbPoint`) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?) ";
+    String requete1 ="INSERT INTO `utilisateur` (`nomUtilisateur`, `prenomUtilisateur`, `email`, `motDePasse`, `genre`, `dateDeNaissance`, `numTelephone`, `adresse`, `role`, `nbPoint`,`cin`) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?,?) ";
    
         try {
              pst =connection.prepareStatement(requete1);
@@ -44,6 +44,7 @@ public class InscriptionService {
             pst.setString(8,client.getAdresse());
             pst.setString(9, client.getRole());
             pst.setInt(10, client.getPoint());
+            pst.setInt(11, client.getCin());
             pst.executeUpdate();
             
            

@@ -29,7 +29,7 @@ public class NewFXMain extends Application {
             Parent root = loader.load();
             Scene scene =new Scene(root);//creation d'une scene 
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Gestion de personnes");
+            primaryStage.setTitle("let's Barter");
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
