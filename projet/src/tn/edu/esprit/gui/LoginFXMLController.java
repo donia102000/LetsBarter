@@ -63,9 +63,14 @@ public class LoginFXMLController implements Initializable {
                user= login.findUserbyEmail(email, motDepass);
                if(user != null){
                    this.loginMessage.setText("");
-                if(user.getRole().equals("Admin")){
-                    System.out.println("Admin");
+                if(user.getRole().equals("admin")){
+                    
                     System.out.println(user.getIdUtilisateur());
+                    Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminAcceuiFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
                     
                 
                 }

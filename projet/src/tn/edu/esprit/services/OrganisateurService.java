@@ -45,7 +45,7 @@ public class OrganisateurService implements IServiceUtilisateur{
             pst.setString(6,org.getDateDeNaissance());
             pst.setInt(7,org.getNumTelephone());
             pst.setString(8,org.getAdresse());
-            pst.setString(9, org.getRole());
+            pst.setString(9,"organisateur");
             pst.setInt(10,0);
             pst.setInt(11, org.getCin());
             pst.executeUpdate();
@@ -87,12 +87,12 @@ public class OrganisateurService implements IServiceUtilisateur{
     }
 
     @Override
-    public void supprimerUtilisateur(int id) {
+    public void supprimerUtilisateur(int cin) {
         
-        String requete = "DELETE FROM `utilisateur` WHERE `idUtilisateur`=? ";
+        String requete = "DELETE FROM `utilisateur` WHERE `cin`=? ";
         try {
             pst = connection.prepareStatement(requete);
-            pst.setInt(1,id);
+            pst.setInt(1,cin);
             pst.executeUpdate();
             System.out.println("Organisateur supprimée");
     }
@@ -134,10 +134,11 @@ public class OrganisateurService implements IServiceUtilisateur{
     @Override
     public Utilisateur chercherUtilisateurParCin(int cin) {
          Organisateur org = new Organisateur();
-        String requete = "SELECT * FROM `utilisateur` WHERE cin =?";
+        String requete = "SELECT * FROM `utilisateur` WHERE cin =? and role=?";
         try {
             pst = connection.prepareStatement(requete);
             pst.setInt(1, cin);
+            pst.setString(2,"organisateur");
             ResultSet resultat = pst.executeQuery();
             while (resultat.next()) {
                 org.setIdUtilisateur(resultat.getInt(1));
@@ -168,7 +169,7 @@ public class OrganisateurService implements IServiceUtilisateur{
         try {
             
             pst = connection.prepareStatement(requete);
-            pst.setString(1, "client");
+            pst.setString(1, "organisateur");
             ResultSet resultat = pst.executeQuery();
             while (resultat.next()) {
                 Organisateur org = new Organisateur();

@@ -5,7 +5,6 @@
  */
 package tn.edu.esprit.gui;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -24,26 +23,27 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.edu.esprit.entities.Client;
-import tn.edu.esprit.services.InscriptionService;
+import tn.edu.esprit.entities.Organisateur;
+import tn.edu.esprit.services.OrganisateurService;
 
 /**
  * FXML Controller class
  *
  * @author Donia
  */
-public class InscrireFXMLController implements Initializable {
+public class AjouterOrganisateurFXMLController implements Initializable {
 
-
-
-
-    @FXML
-    private Button btnInscrire;
+     @FXML
+    private Button btnajouter;
 
     @FXML
     private TextField tfnom;
 
     @FXML
     private TextField tfprenom;
+
+    @FXML
+    private TextField tfCin;
 
     @FXML
     private TextField tfadresse;
@@ -56,48 +56,39 @@ public class InscrireFXMLController implements Initializable {
 
     @FXML
     private TextField tftel;
-    
-     @FXML
-    private TextField tfCin;
-
-    @FXML
+ @FXML
     private ComboBox<String> tfgenre;
     ObservableList<String> liste=FXCollections.observableArrayList("Homme","Femme","Autre");
+   
 
     @FXML
     private DatePicker tfnaissance;
 
     @FXML
     private Label lbl;
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tfgenre.setItems(liste);
+         tfgenre.setItems(liste);
     }    
-    
-    InscriptionService ins = new InscriptionService() ;
-   
+   OrganisateurService service = new OrganisateurService();
     @FXML
-    private void Inscription (ActionEvent event) throws IOException {
-     
-        if((event.getSource() == btnInscrire) && 
+    void ajouter(ActionEvent event) {
+ if((event.getSource() == btnajouter) && 
                 !(tfnom.getText().isEmpty()) &&!(tfprenom.getText().isEmpty()) && 
                 !(tfadresse.getText().isEmpty()) && !(tfemail.getText().isEmpty()) && 
-                !(tfgenre.getPromptText().isEmpty())&& !(tftel.getText().isEmpty())  &&
+                 !(tftel.getText().isEmpty())  &&
                 !(tfnaissance.getEditor().getText().isEmpty()) && !(tfCin.getText().isEmpty())&&!(tfmdp.getText().isEmpty())){
             
-            Client c = new Client (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(), tfgenre.getValue(), tfnaissance.getEditor().getText(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"client", 0,Integer.parseInt(tfCin.getText()));
+            Organisateur c = new Organisateur (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(),tfgenre.getValue(), tfnaissance.getEditor().getText(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"organisateur",Integer.parseInt(tfCin.getText()));
            
             
-            ins.inscrire(c);
+            service.ajouterUtilisateur(c);
             
             lbl.setText("Votre compte est ajouté avec succés");
             clearFields();
-            Parent root = FXMLLoader.load(getClass().getResource("../gui/LoginFXML.fxml"));
-                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                        Scene scene = new Scene(root);
-                        primaryStage.setScene(scene);
-                        primaryStage.show();
+            
            
             
 }
@@ -115,7 +106,6 @@ public class InscrireFXMLController implements Initializable {
         tfadresse.clear();
         tfemail.clear();
         tftel.clear();
-        tfgenre.setValue(null);
         tfmdp.clear();
         tfnaissance.setValue(null);
         tfCin.clear();
