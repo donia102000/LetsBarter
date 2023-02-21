@@ -15,16 +15,28 @@ public class Annonce {
     String categorie;
     String souscategorie;
     String description;
-    float valeurobjet;
+    String valeurobjet;
     String image;
     String video;
     String adresse;
-    int tel;
+    String tel;
 
     public Annonce() {
     }
 
-    public Annonce(int id, String titre, String categorie, String souscategorie, String description, float valeurobjet, String image, String video, String adresse, int tel) {
+    public Annonce(String titre, String categorie, String souscategorie, String description, String valeurobjet, String image, String video, String adresse, String tel) {
+        this.titre = titre;
+        this.categorie = categorie;
+        this.souscategorie = souscategorie;
+        this.description = description;
+        this.valeurobjet = valeurobjet;
+        this.image = image;
+        this.video = video;
+        this.adresse = adresse;
+        this.tel = tel;
+    }
+
+    public Annonce(int id, String titre, String categorie, String souscategorie, String description, String valeurobjet, String image, String video, String adresse, String tel) {
         this.id = id;
         this.titre = titre;
         this.categorie = categorie;
@@ -36,6 +48,8 @@ public class Annonce {
         this.adresse = adresse;
         this.tel = tel;
     }
+
+   
 
     
 
@@ -81,13 +95,23 @@ public class Annonce {
         this.description = description;
     }
 
-    public float getValeurobjet() {
+    public String getValeurobjet() {
         return valeurobjet;
     }
 
-    public void setValeurobjet(float valeurobjet) {
+    public void setValeurobjet(String valeurobjet) {
         this.valeurobjet = valeurobjet;
     }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+   
 
     public String getImage() {
         return image;
@@ -113,13 +137,7 @@ public class Annonce {
         this.adresse = adresse;
     }
 
-    public int getTel() {
-        return tel;
-    }
-
-    public void setTel(int tel) {
-        this.tel = tel;
-    }
+   
 
     @Override
     public String toString() {
@@ -128,17 +146,7 @@ public class Annonce {
 
    
 
-    public Annonce(String titre, String categorie, String souscategorie, String description, float valeurobjet, String image, String video, String adresse, int tel) {
-        this.titre = titre;
-        this.categorie = categorie;
-        this.souscategorie = souscategorie;
-        this.description = description;
-        this.valeurobjet = valeurobjet;
-        this.image = image;
-        this.video = video;
-        this.adresse = adresse;
-        this.tel = tel;
-    }
+   
 
     @Override
     public int hashCode() {

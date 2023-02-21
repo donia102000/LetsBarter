@@ -37,6 +37,7 @@ public class AfficheAnnonceFXMLController implements Initializable {
      private Label lSousc;
     @FXML
       private Label  lDesc;
+    @FXML
     private Label  lValeur;
      @FXML
     private Label                     lImage;
