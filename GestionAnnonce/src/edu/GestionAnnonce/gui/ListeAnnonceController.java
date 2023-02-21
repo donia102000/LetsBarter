@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -54,29 +55,35 @@ public class ListeAnnonceController implements Initializable {
      @FXML
     private Button btn;
       @FXML
+    private Button raf;
+      @FXML
     private Label file_path;
       @FXML
     private ImageView imgpreview;
       int idh;
 ServiceAnnonce ps=new ServiceAnnonce();
     @FXML
-    private TableColumn<Annonce, String> titre;
+    private TableColumn<Annonce, String> Titre;
     @FXML
-    private TableColumn<Annonce, String> categorie;
+    private TableColumn<Annonce, String> Categorie;
     @FXML
-    private TableColumn<Annonce, String> souscategorie;
+    private TableColumn<Annonce, String> SousCategorie;
     @FXML
-    private TableColumn<Annonce, String> description;
+    private TableColumn<Annonce, String> Description;
     @FXML
-    private TableColumn<Annonce, String> valeur;
+    private TableColumn<Annonce, String> Valeur;
     @FXML
-    private TableColumn<Annonce, String> image;
+    private TableColumn<Annonce, String> Image;
     @FXML
-    private TableColumn<Annonce, String> video;
+    private TableColumn<Annonce, String> Video;
     @FXML
-    private TableColumn<Annonce, String> adresse;
+    private TableColumn<Annonce, String> Adresse;
      @FXML
-    private TableColumn<Annonce, String> tel;
+    private TableColumn<Annonce, String> Tel;
+      @FXML
+    private TableColumn<Annonce, Void> modifier;
+     private  ObservableList<Annonce> Annonces = FXCollections.observableArrayList();
+     private ServiceAnnonce ServiceAnnonce;
     /**
      * Initializes the controller class.
      * @param url
@@ -84,36 +91,34 @@ ServiceAnnonce ps=new ServiceAnnonce();
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }   
-     public void selectEvenement(Annonce e)
-    {
-
-       idh=e.getId();
- 
-
-        
+         Titre.setCellValueFactory(new PropertyValueFactory<>("Titre"));
+        Categorie.setCellValueFactory(new PropertyValueFactory<>("Categorie"));
+        SousCategorie.setCellValueFactory(new PropertyValueFactory<>("Souscategorie"));
+        Description.setCellValueFactory(new PropertyValueFactory<>("Description"));
+        Valeur.setCellValueFactory(new PropertyValueFactory<>("Valeur"));
+        Image.setCellValueFactory(new PropertyValueFactory<>("Image"));
+        Video.setCellValueFactory(new PropertyValueFactory<>("Video"));
+        Adresse.setCellValueFactory(new PropertyValueFactory<>("Adresse"));
+          Tel.setCellValueFactory(new PropertyValueFactory<>("Tel"));
+          tabannonce.setItems(Annonces);
+     
     }
-       public void refresh(){
-         List Annonces = ps.getAll(idh);
-         ObservableList list = FXCollections.observableArrayList(Annonces);
-       tabannonce.setItems(list);
-        titre.setCellValueFactory(new PropertyValueFactory<>("Titre"));
-        categorie.setCellValueFactory(new PropertyValueFactory<>("Categorie"));
-        souscategorie.setCellValueFactory(new PropertyValueFactory<>("Souscategorie"));
-        description.setCellValueFactory(new PropertyValueFactory<>("Description"));
-        valeur.setCellValueFactory(new PropertyValueFactory<>("Valeur"));
-        image.setCellValueFactory(new PropertyValueFactory<>("Image"));
-        video.setCellValueFactory(new PropertyValueFactory<>("Video"));
-        adresse.setCellValueFactory(new PropertyValueFactory<>("Adresse"));
-          tel.setCellValueFactory(new PropertyValueFactory<>("Tel"));
-
-
-        ObservableList<Annonce> dataList = FXCollections.observableArrayList(Annonces);
-         tabannonce.setItems(dataList);
-        FilteredList<Annonce> filteredData = new FilteredList<>(dataList,b->true);
+     
+    
+    
+     
        
-
-    }
+    /**
+     *
+     * @param event
+     */
+    @FXML
+    public void affiche(ActionEvent event) {
+          List annonces= ps.getAll();
+        ObservableList<Annonce> Annonces= FXCollections.observableArrayList(annonces);
+        tabannonce.setItems(Annonces);
+               }
+     
+    
     
 }

@@ -68,6 +68,8 @@ public class AjouterAnnonceController implements Initializable {
     private ImageView imgpreview;
         @FXML
     private AnchorPane main;
+        @FXML
+        private String tfImage;
    
 
     /**
@@ -79,6 +81,7 @@ public class AjouterAnnonceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+    
 
     /**
      *
@@ -88,16 +91,17 @@ public class AjouterAnnonceController implements Initializable {
     @FXML
 public  void AjouterAnnonce(ActionEvent event) throws IOException {
  
-  if ( (tfTitre.getText().isEmpty() | tfCategorie.getText().isEmpty()) |tfSousc.getText().isEmpty() |tfDesc.getText().isEmpty()) {
+  if ( (tfTitre.getText().isEmpty() | tfCategorie.getText().isEmpty()) |tfSousc.getText().isEmpty() |tfDesc.getText().isEmpty() |tfValeur.getText().isEmpty() |file_path.getText().isEmpty() | tfVideo.getText().isEmpty() | tfAdresse.getText().isEmpty() | tfTel.getText().isEmpty() ) {
       Alert a = new Alert(Alert.AlertType.ERROR, "tout les champs doivent etre remplis SVP!!", ButtonType.OK);
       a.showAndWait();
   }
   
   
+  
           
    else  {
       ServiceAnnonce pc =new ServiceAnnonce();
-      Annonce p = new Annonce(tfTitre.getText(),tfCategorie.getText(),tfSousc.getText(), tfDesc.getText(), Integer.parseInt(tfValeur.getText()), file_path.getText(), tfVideo.getText(), tfAdresse.getText(), Integer.parseInt(tfTel.getText()));
+      Annonce p = new Annonce(tfTitre.getText(),tfCategorie.getText(),tfSousc.getText(), tfDesc.getText(),tfValeur.getText(), file_path.getText(), tfVideo.getText(), tfAdresse.getText(), tfTel.getText());
       //     sp.ajouter(new Annonce("echange","electro","vbn","bien",58,"fr","fghjvk","ghsjk",85));
       pc.ajouter(p);
       System.out.println("ajout avec succee");
