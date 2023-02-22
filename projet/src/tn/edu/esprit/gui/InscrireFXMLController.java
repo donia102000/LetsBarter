@@ -7,6 +7,7 @@ package tn.edu.esprit.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.edu.esprit.entities.Client;
 import tn.edu.esprit.services.InscriptionService;
+import tn.edu.esprit.verification.VerifierChamps;
 
 /**
  * FXML Controller class
@@ -78,18 +80,41 @@ public class InscrireFXMLController implements Initializable {
     InscriptionService ins = new InscriptionService() ;
    
     @FXML
-    private void Inscription (ActionEvent event) throws IOException {
-     
-        if((event.getSource() == btnInscrire) && 
+    private void Inscription (ActionEvent event) throws IOException, SQLException {
+        
+        if((tfnom.getText().isEmpty()) ||(tfprenom.getText().isEmpty()) || 
+                (tfadresse.getText().isEmpty()) || (tfemail.getText().isEmpty()) ||
+                (tfgenre.getPromptText().isEmpty())|| (tftel.getText().isEmpty())  ||
+                (tfnaissance.getEditor().getText().isEmpty()) || (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
+        
+            lbl.setText("Vous deviez remplir les champs");
+        }
+        
+        else if(!VerifierChamps.stringTest(tfnom.getText()) || 
+             !VerifierChamps.stringTest(tfprenom.getText()) || 
+              !VerifierChamps.isTelephoneValide(tftel.getText()) ||
+             !VerifierChamps.stringTest(tfadresse.getText())||
+             !VerifierChamps.isTelephoneValide(tfCin.getText())||
+             !VerifierChamps.isEmailAdress(tfemail.getText()) ||
+             !VerifierChamps.isValidPassword(tfmdp.getText())  
+             )
+     {
+         
+     lbl.setText("Champs invalides ! ");
+     }
+      else  if((event.getSource() == btnInscrire) && 
                 !(tfnom.getText().isEmpty()) &&!(tfprenom.getText().isEmpty()) && 
                 !(tfadresse.getText().isEmpty()) && !(tfemail.getText().isEmpty()) && 
                 !(tfgenre.getPromptText().isEmpty())&& !(tftel.getText().isEmpty())  &&
                 !(tfnaissance.getEditor().getText().isEmpty()) && !(tfCin.getText().isEmpty())&&!(tfmdp.getText().isEmpty())){
             
-            Client c = new Client (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(), tfgenre.getValue(), tfnaissance.getEditor().getText(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"client", 0,Integer.parseInt(tfCin.getText()));
+            Client c = new Client (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(), tfgenre.getValue(), tfnaissance.getEditor().getText(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"client",Integer.parseInt(tfCin.getText()),0);
            
-            
-            ins.inscrire(c);
+            if (ins.chercherUtilisateurParCin(Integer.parseInt(tfCin.getText()) ,tfemail.getText())){
+                lbl.setText("Votre compte existe déja ! ");
+            }
+            else if(!ins.chercherUtilisateurParCin(Integer.parseInt(tfCin.getText()) ,tfemail.getText()))
+            {ins.inscrire(c);
             
             lbl.setText("Votre compte est ajouté avec succés");
             clearFields();
@@ -99,10 +124,10 @@ public class InscrireFXMLController implements Initializable {
                         primaryStage.setScene(scene);
                         primaryStage.show();
            
-            
+           }
 }
         else {
-        lbl.setText("please inter the necessity information!");
+        lbl.setText("champs invalides ! ");
         }
         
         

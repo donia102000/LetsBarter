@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.edu.esprit.entities.Utilisateur;
 import tn.edu.esprit.services.LoginService;
+import tn.edu.esprit.verification.VerifierChamps;
 
 /**
  * FXML Controller class
@@ -57,6 +58,10 @@ public class LoginFXMLController implements Initializable {
         {
             loginMessage.setText("Vous deviez remplir les champs !");
         }
+    else if(VerifierChamps.isEmailAdress(email)==false || VerifierChamps.isValidPassword(motDepass)==false)
+    {
+     loginMessage.setText("Champs invalides !");
+    }
     else
     {
             try {

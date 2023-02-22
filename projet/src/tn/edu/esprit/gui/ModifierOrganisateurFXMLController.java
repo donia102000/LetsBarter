@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import tn.edu.esprit.entities.Organisateur;
 import tn.edu.esprit.entities.Utilisateur;
 import tn.edu.esprit.services.OrganisateurService;
+import tn.edu.esprit.verification.VerifierChamps;
 /**
  * FXML Controller class
  *
@@ -78,7 +79,22 @@ public class ModifierOrganisateurFXMLController implements Initializable {
     }    
     @FXML
     public void rechercherParCin(){
+        if(tfCinRechercher.getText().isEmpty()){
+            lbl.setText("vous devez entrer le cin");
+        }
+        else if(VerifierChamps.isTelephoneValide(tfCinRechercher.getText())==false){
+        lbl.setText("Champs invalide !");
+        }
+        else
+        {
     org =service.chercherUtilisateurParCin(Integer.parseInt(tfCinRechercher.getText()));
+            System.out.println(org);
+            if(org.getNomUtilisateur()==null){
+                lbl.setText("Organisateur introuvable");
+                clearFields();
+            }
+            else{
+    lbl.setText("");
     tfnom.setText(org.getNomUtilisateur());
     tfprenom.setText(org.getPrenomUtilisateur());
     tfCin.setText(String.valueOf( org.getCin()));
@@ -88,9 +104,30 @@ public class ModifierOrganisateurFXMLController implements Initializable {
     tftel.setText(String.valueOf(org.getNumTelephone()));
     tfnaissance.setPromptText(org.getDateDeNaissance());
     tfgenre.setPromptText(org.getGenre());
-   }
+                }}}
+   
     @FXML
     public void mofifier(){
+        if((tfnom.getText().isEmpty()) ||(tfprenom.getText().isEmpty()) || 
+                (tfadresse.getText().isEmpty()) || (tfemail.getText().isEmpty()) ||
+                (tfgenre.getPromptText().isEmpty())|| (tftel.getText().isEmpty())  ||
+                (tfnaissance.getEditor().getText().isEmpty()) || (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
+        
+            lbl.setText("Vous devez remplir les champs");
+        }
+        else if(!VerifierChamps.stringTest(tfnom.getText()) || 
+             !VerifierChamps.stringTest(tfprenom.getText()) || 
+              !VerifierChamps.isTelephoneValide(tftel.getText()) ||
+             !VerifierChamps.stringTest(tfadresse.getText())||
+             !VerifierChamps.isTelephoneValide(tfCin.getText())||
+             !VerifierChamps.isEmailAdress(tfemail.getText()) ||
+             !VerifierChamps.isValidPassword(tfmdp.getText())  
+             )
+     {
+         
+     lbl.setText("Champs invalides ! ");
+     }
+        else{
         org.setNomUtilisateur(tfnom.getText());
         org.setPrenomUtilisateur(tfprenom.getText());
         org.setCin(Integer.parseInt(tfCin.getText()));
@@ -101,13 +138,18 @@ public class ModifierOrganisateurFXMLController implements Initializable {
         org.setGenre(tfgenre.getValue().toString());
         org.setDateDeNaissance(tfnaissance.getValue().toString());
     service.modifierUtilisateur(org);
-    
+    lbl.setText("");
+        }
     }
     @FXML
     public void supprimer(){
-        
+        if(tfCinRechercher.getText().isEmpty()){
+        lbl.setText("vous devez entrer le cin de l'organisateur ");}
+        else{
     service.supprimerUtilisateur(Integer.parseInt(tfCinRechercher.getText()));
     clearFields();
+        lbl.setText("");
+        }
     
     }
     public void clearFields(){

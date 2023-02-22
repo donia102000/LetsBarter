@@ -13,6 +13,7 @@ import tn.edu.esprit.entities.Organisateur;
 import tn.edu.esprit.services.InscriptionService;
 import tn.edu.esprit.services.LoginService;
 import tn.edu.esprit.services.OrganisateurService;
+import tn.edu.esprit.verification.VerifierChamps;
 import tn.esprit.utils.MyConnection;
 
 
@@ -35,7 +36,7 @@ public class Main {
         //ser.modifierUtilisateur(org);
         //ser.supprimerUtilisateur(org.getIdUtilisateur());
        //inscr.inscrire(cl);
-       ser.ajouterUtilisateur(org);
+       //ser.ajouterUtilisateur(org);
         System.out.println(ser.chercherUtilisateurParId(24));
         System.out.println(ser.chercherUtilisateurParCin(0));
         ser.afficherToutUtilisateur().stream().forEach(x->System.out.println(x));
@@ -43,9 +44,14 @@ public class Main {
         System.out.println(   login.findUserbyEmail("hhhhssksyzszdjf","motDePasse"));
         System.out.println("///////////////////////");
         System.out.println(login.findUserbyEmail("huuj@hbhb.com","motDePasse"));
-
-       
-
+        String mdp ="20509980";
+        String c="45888881258";
+        System.out.println(VerifierChamps.isValidPassword(mdp));
+        System.out.println(VerifierChamps.isEmailAdress(mdp));
+        System.out.println(VerifierChamps.stringTest(mdp));
+         System.out.println("hhhhhhhhhh"+VerifierChamps.isTelephoneValide(c));
+        System.out.println("ggggggggggggg");
+         System.out.println(inscr.chercherUtilisateurParCin(78459645,"gggg@hhhh.ffggggggggggggggg"));
 
     }
     

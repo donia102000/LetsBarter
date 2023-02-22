@@ -6,6 +6,7 @@
 package tn.edu.esprit.gui;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +25,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.edu.esprit.entities.Client;
 import tn.edu.esprit.entities.Organisateur;
+import tn.edu.esprit.services.InscriptionService;
 import tn.edu.esprit.services.OrganisateurService;
+import tn.edu.esprit.verification.VerifierChamps;
 
 /**
  * FXML Controller class
@@ -66,7 +69,7 @@ public class AjouterOrganisateurFXMLController implements Initializable {
 
     @FXML
     private Label lbl;
-
+InscriptionService ins = new InscriptionService() ;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -74,8 +77,27 @@ public class AjouterOrganisateurFXMLController implements Initializable {
     }    
    OrganisateurService service = new OrganisateurService();
     @FXML
-    void ajouter(ActionEvent event) {
- if((event.getSource() == btnajouter) && 
+    void ajouter(ActionEvent event) throws SQLException {
+        if((tfnom.getText().isEmpty()) ||(tfprenom.getText().isEmpty()) || 
+                (tfadresse.getText().isEmpty()) || (tfemail.getText().isEmpty()) ||
+                (tfgenre.getPromptText().isEmpty())|| (tftel.getText().isEmpty())  ||
+                (tfnaissance.getEditor().getText().isEmpty()) || (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
+        
+            lbl.setText("Vous deviez remplir les champs");
+        }
+        else if(!VerifierChamps.stringTest(tfnom.getText()) || 
+             !VerifierChamps.stringTest(tfprenom.getText()) || 
+              !VerifierChamps.isTelephoneValide(tftel.getText()) ||
+             !VerifierChamps.stringTest(tfadresse.getText())||
+             !VerifierChamps.isTelephoneValide(tfCin.getText())||
+             !VerifierChamps.isEmailAdress(tfemail.getText()) ||
+             !VerifierChamps.isValidPassword(tfmdp.getText())  
+             )
+     {
+         
+     lbl.setText("Champs invalides ! ");
+     }
+        else if((event.getSource() == btnajouter) && 
                 !(tfnom.getText().isEmpty()) &&!(tfprenom.getText().isEmpty()) && 
                 !(tfadresse.getText().isEmpty()) && !(tfemail.getText().isEmpty()) && 
                  !(tftel.getText().isEmpty())  &&
@@ -83,18 +105,19 @@ public class AjouterOrganisateurFXMLController implements Initializable {
             
             Organisateur c = new Organisateur (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(),tfgenre.getValue(), tfnaissance.getEditor().getText(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"organisateur",Integer.parseInt(tfCin.getText()));
            
-            
+            if (ins.chercherUtilisateurPareMAIL(Integer.parseInt(tfCin.getText()) ,tfemail.getText())){
+                lbl.setText("Votre compte existe déja ! ");
+            }
+            else if(!ins.chercherUtilisateurParCin(Integer.parseInt(tfCin.getText()) ,tfemail.getText())){
             service.ajouterUtilisateur(c);
             
             lbl.setText("Votre compte est ajouté avec succés");
             clearFields();
             
-           
+            }   
             
 }
-        else {
-        lbl.setText("please inter the necessity information!");
-        }
+        
         
         
     }

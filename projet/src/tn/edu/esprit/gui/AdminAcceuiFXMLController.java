@@ -38,7 +38,13 @@ import tn.edu.esprit.services.OrganisateurService;
  */
 public class AdminAcceuiFXMLController implements Initializable {
  @FXML
-    private Label label;
+    private Label lblprenom;
+
+    @FXML
+    private Label lblnom;
+
+    @FXML
+    private Label lblcontact;
     @FXML
     private ListView<Utilisateur> listView ;
     OrganisateurService ser = new OrganisateurService();
@@ -52,10 +58,13 @@ public class AdminAcceuiFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
      listView.getItems().addAll(ser.afficherToutUtilisateur());
      listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Utilisateur>() {
+         
          @Override
          public void changed(ObservableValue<? extends Utilisateur> observable, Utilisateur oldValue, Utilisateur newValue) {
          currentFood =listView.getSelectionModel().getSelectedItem();
-         label.setText(currentFood.getNomUtilisateur()+ "\n"+currentFood.getAdresse());
+         lblnom.setText(currentFood.getNomUtilisateur());
+         lblprenom.setText(currentFood.getPrenomUtilisateur());
+         lblcontact.setText(currentFood.getEmail()+"\n"+currentFood.getAdresse());
          }
      });
     }    
