@@ -5,6 +5,7 @@
  */
 package edu.GestionAnnonce.services;
 
+import edu.GestionAnnonce.entities.Annonce;
 import java.util.List;
 
 /**
@@ -17,5 +18,7 @@ public interface IService <T>{
     public void supprimer(int id);
     public void modifier(T p);
     public List<T> getAll();
-    
+
+    Annonce chercherAnnonceParId(int id);
+     public void modifier(Annonce annonce);
 }

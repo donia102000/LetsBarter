@@ -24,8 +24,9 @@ public class gui2 extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-     // Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterAnnonce.fxml"));
-     Parent root = FXMLLoader.load(getClass().getResource("../gui/ListeAnnonce.fxml"));
+      Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterAnnonce.fxml"));
+    // Parent root = FXMLLoader.load(getClass().getResource("../gui/ListeAnnonce.fxml"));
+  //Parent root = FXMLLoader.load(getClass().getResource("../gui/ModifierAnnonce.fxml"));
         Scene scene = new Scene(root);
         
         primaryStage.setTitle("Hello World!");

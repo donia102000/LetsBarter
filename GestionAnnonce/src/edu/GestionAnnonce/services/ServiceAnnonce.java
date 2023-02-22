@@ -31,6 +31,7 @@ import static javax.management.remote.JMXConnectorFactory.connect;
  */
 public class ServiceAnnonce implements IService <Annonce> {
 Connection cnx = DataSource.getInstance().getCnx();
+
   //  @Override
   //  public void ajouter(Annonce p) {
      //   try {
@@ -76,18 +77,18 @@ Connection cnx = DataSource.getInstance().getCnx();
     }
 
    @Override
-    public void modifier(Annonce p) {
-        try {
-           //  String req = "UPDATE `annonce` SET `titre` = '" + p.getTitre() + "', `Categorie` = '" + p.getCategorie() + "' WHERE `annonce`.`id` = " + p.getId();
-            String req = "UPDATE `annonce` SET `titre` = '" + p.getTitre()+ "', `categorie` = '" + p.getCategorie()+ "',`souscategorie` = '" + p.getSouscategorie()+ "', `description` = '" + p.getDescription()+ "',`valeurobjet` = '" + p.getValeurobjet()+ "',`image` = '" + p.getImage()+ "',`video` = '" + p.getVideo() + "'WHERE `annonce`.`id` = " + p.getId();
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
-            System.out.println("annonce updated !");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+   public void modifier(Annonce p) {
+       try {
+      //    //  String req = "UPDATE `annonce` SET `titre` = '" + p.getTitre() + "', `Categorie` = '" + p.getCategorie() + "' WHERE `annonce`.`id` = " + p.getId();
+          String req = "UPDATE `annonce` SET `titre` = '" + p.getTitre()+ "', `categorie` = '" + p.getCategorie()+ "',`souscategorie` = '" + p.getSouscategorie()+ "', `description` = '" + p.getDescription()+ "',`valeurobjet` = '" + p.getValeurobjet()+ "',`image` = '" + p.getImage()+ "',`video` = '" + p.getVideo() + "'WHERE `annonce`.`id` = " + p.getId();
+        Statement st = cnx.createStatement();
+          st.executeUpdate(req);
+         System.out.println("annonce updated !");
+     } catch (SQLException ex) {
+         System.out.println(ex.getMessage());
+      }
         
-    }
+ }
     public Annonce getProductById(int id) {
     Annonce annonce = null;
     try {
@@ -116,52 +117,92 @@ Connection cnx = DataSource.getInstance().getCnx();
     }
     return annonce;
 }
-    public void updateProduct(Annonce annonce) {
-    try {
+//@Override
+  //  public void modifier(Annonce annonce) {
+ //   try {
        
-        String query = "UPDATE produits SET titre=?, categorie=?, souscategorie=?, description=? , valeur=? , image=? , video=? , adresse=? , tel=? WHERE id=?";
-        PreparedStatement ps = cnx.prepareStatement(query);
-        ps.setString(1, annonce.getTitre());
-        ps.setString(2, annonce.getCategorie());
-        ps.setString(3, annonce.getSouscategorie());
+   //     String query = "UPDATE `annonce` SET `titre`=?, `categorie`=?, `souscategorie`=?, `description`=? , `valeurobjet`=? , `image`=? , `video`=? , `adresse`=? , `tel`=? WHERE `id`=?";
+       // String requete = "UPDATE `utilisateur` SET `nomUtilisateur`= ?,`prenomUtilisateur`=?,`email`=?,`motDePasse`=?,`genre`=?,`dateDeNaissance`=?,`numTelephone`=?,`adresse`=?,`role`=?,`nbPoint`=?,`cin`=? WHERE `idUtilisateur`=?";
+     //   PreparedStatement ps = cnx.prepareStatement(query);
+    //    ps.setString(1, annonce.getTitre());
+    //    ps.setString(2, annonce.getCategorie());
+    //    ps.setString(3, annonce.getSouscategorie());
+    //    ps.setString(4, annonce.getDescription());
+    //      ps.setString(5, annonce.getValeurobjet());
+      //    ps.setString(6, annonce.getImage());
+      //      ps.setString(7, annonce.getVideo());
+       //       ps.setString(8, annonce.getAdresse());
+         //        ps.setString(9, annonce.getTel());
+       // ps.executeUpdate();
+      //  cnx.close();
+  //  } catch (SQLException ex) {
+    //    System.out.println(ex.getMessage());
+   // }
+   // }
+    
+  
+    public void modifierrr(Annonce annonce) {
+    
+       String query = "UPDATE `annonce` SET `titre`= ?,`categorie`=?,`souscategorie`=?,`description`=?,`valeurobjet`=?,`image`=?,`video`=?,`adresse`=?,`tel`=? WHERE id=?";
+        try {
+          PreparedStatement ps = cnx.prepareStatement(query);
+          
+      ps.setString(1, annonce.getTitre());
+        
+    ps.setString(2, annonce.getCategorie());
+       ps.setString(3, annonce.getSouscategorie());
         ps.setString(4, annonce.getDescription());
-          ps.setString(5, annonce.getValeurobjet());
-          ps.setString(6, annonce.getImage());
-            ps.setString(7, annonce.getVideo());
-              ps.setString(8, annonce.getAdresse());
-                 ps.setString(9, annonce.getTel());
-        ps.executeUpdate();
-        cnx.close();
-    } catch (SQLException ex) {
-        System.out.println(ex.getMessage());
+         ps.setString(5, annonce.getValeurobjet());
+         ps.setString(6, annonce.getImage());
+           ps.setString(7, annonce.getVideo());
+             ps.setString(8, annonce.getAdresse());
+                ps.setString(9, annonce.getTel());
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+            
+            System.out.println("erreur lors de la mise à jour " + ex.getMessage());
+        }
     }
+
+
+@Override
+      public Annonce chercherAnnonceParId(int id) {
+       Annonce annonce = new Annonce();
+       String requete = "SELECT * FROM `annonce` WHERE id=?";
+       try {
+         //  ps = cnx.prepareStatement(requete);
+            PreparedStatement ps = cnx.prepareStatement(requete);
+            ps.setInt(1, id);
+            ResultSet resultat = ps.executeQuery();
+            while (resultat.next()) {
+                annonce.setId(resultat.getInt(1));
+                  annonce.setTitre(resultat.getString("titre"));
+                  annonce.setCategorie(resultat.getString("categorie"));
+                 annonce.setSouscategorie(resultat.getString("souscategorie"));
+                  annonce.setDescription(resultat.getString("description"));
+                  annonce.setValeurobjet(resultat.getString("valeurobjet"));
+                  annonce.setImage(resultat.getString("image"));
+                  annonce.setVideo(resultat.getString("video"));
+                  annonce.setAdresse(resultat.getString("adresse"));
+                  annonce.setTel(resultat.getString("tel"));
+                          }
+           return annonce;
+
+      } catch (SQLException ex) {
+       System.out.println("erreur lors de la recherche du depot " + ex.getMessage());
+ return null;          
+// //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+     } 
+       
+       
+   
+
 }
 
 
 
 
-
-
-//@Override
-  //  public List<Annonce> getAll() {
-     //   List<Annonce> list = new ArrayList<>();
-       // try {
-         //   String req = "Select * from annonce";
-        //    Statement st = cnx.createStatement();
-         //   ResultSet rs = st.executeQuery(req);
-         //   while (rs.next()) {
-          
-                
-         // Livreur(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getInt(9),rs.getString(10),rs.getString(11),rs.getString(12));
-           //     Annonce p = new Annonce(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9));
-             //   list.add(p);
-         //   }
-     //   } catch (SQLException ex) {
-       //     System.out.println(ex.getMessage());
-    //    }
-
-      //  return list;
-    //}
     @Override
     public List<Annonce> getAll() {
        List<Annonce> list = new ArrayList<>();
