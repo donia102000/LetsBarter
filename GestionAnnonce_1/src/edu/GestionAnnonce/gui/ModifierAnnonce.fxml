@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="1022.0" style="-fx-background-color: #FAD678;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.GestionAnnonce.gui.ModifierAnnonceController">
+   <children>
+      <TextField fx:id="tftitre" layoutX="58.0" layoutY="91.0" promptText="Titre" />
+      <TextField fx:id="tfcategorie" layoutX="58.0" layoutY="145.0" promptText="Categorie" />
+      <TextField fx:id="tfsouscategorie" layoutX="58.0" layoutY="195.0" promptText="Sous_Categorie" />
+      <TextField fx:id="tfdescription" layoutX="58.0" layoutY="248.0" promptText="Description" />
+      <TextField fx:id="tfvaleur" layoutX="58.0" layoutY="299.0" promptText="Valeur" />
+      <TextField fx:id="tfImage" layoutX="58.0" layoutY="356.0" promptText="Image" />
+      <TextField fx:id="tfvideo" layoutX="58.0" layoutY="410.0" promptText="Video" />
+      <TextField fx:id="tfadresse" layoutX="58.0" layoutY="465.0" promptText="Adresse" />
+      <TextField fx:id="tftel" layoutX="58.0" layoutY="521.0" promptText="Tel" />
+      <Button fx:id="btnmodifier" layoutX="399.0" layoutY="231.0" mnemonicParsing="false" onAction="#modifier" prefHeight="65.0" prefWidth="135.0" text="Modifier" textFill="#baa373" />
+      <TextField fx:id="tfrechercher" layoutX="373.0" layoutY="60.0" promptText="Rechercher" />
+      <Button fx:id="btnrechercher" alignment="CENTER" layoutX="612.0" layoutY="60.0" mnemonicParsing="false" onAction="#rechercherParId" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #e8b833;" text="Rechercher" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnsupp" alignment="CENTER" layoutX="697.0" layoutY="226.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #e8b833;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
