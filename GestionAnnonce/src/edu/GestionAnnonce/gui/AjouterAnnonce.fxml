@@ -25,7 +25,7 @@
       <TextField fx:id="tfValeur" layoutX="481.0" layoutY="269.0" prefHeight="26.0" prefWidth="230.0" styleClass="input" stylesheets="" />
       <Label fx:id="file_path" layoutX="445.0" layoutY="447.0" prefHeight="18.0" prefWidth="82.0" text="Label" />
       <ImageView fx:id="imgpreview" fitHeight="88.0" fitWidth="218.0" layoutX="210.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="addimage" layoutX="274.0" layoutY="443.0" mnemonicParsing="false" onAction="#InsertImage" text="Choix image" />
+      <Button fx:id="addimage" layoutX="274.0" layoutY="443.0" mnemonicParsing="false" onAction="#uploadImage" text="Choix image" />
       <TextField fx:id="tfVideo" layoutX="481.0" layoutY="371.0" prefHeight="26.0" prefWidth="230.0" styleClass="input" stylesheets="" />
       <TextField fx:id="tfAdresse" layoutX="481.0" layoutY="435.0" prefHeight="26.0" prefWidth="230.0" styleClass="input" stylesheets="" />
       <TextField fx:id="tfTel" layoutX="481.0" layoutY="489.0" prefHeight="26.0" prefWidth="230.0" styleClass="input" stylesheets="" />

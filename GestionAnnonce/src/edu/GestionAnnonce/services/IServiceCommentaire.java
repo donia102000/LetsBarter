@@ -5,21 +5,16 @@
  */
 package edu.GestionAnnonce.services;
 
-import edu.GestionAnnonce.entities.Annonce;
 import java.util.List;
 
 /**
  *
  * @author NOURHENE
- * @param <T>
  */
-public interface IService <T>{
-    public void ajouter(T p);
+public interface IServiceCommentaire <T> {
+     public void ajouter(T c);
     public void supprimer(int id);
-    public void modifier(T p);
+    public void modifier(T c);
     public List<T> getAll();
-
-    Annonce chercherAnnonceParId(int id);
-     public void modifier(Annonce annonce);
-  
+    
 }

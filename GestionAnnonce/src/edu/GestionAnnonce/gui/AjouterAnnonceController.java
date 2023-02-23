@@ -9,6 +9,7 @@ import edu.GestionAnnonce.entities.Annonce;
 import edu.GestionAnnonce.services.ServiceAnnonce;
 import static edu.GestionAnnonce.tests.MainClass.main;
 import edu.GestionAnnonce.utils.DataSource;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +34,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import static jdk.nashorn.internal.objects.NativeString.length;
+import javafx.scene.input.KeyEvent;
 
 
 
@@ -70,6 +72,8 @@ public class AjouterAnnonceController implements Initializable {
     private AnchorPane main;
         @FXML
         private String tfImage;
+        @FXML
+        private File selectedImageFile;
    
 
     /**
@@ -79,8 +83,13 @@ public class AjouterAnnonceController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+      tfTel.addEventFilter(KeyEvent.KEY_TYPED, event -> {
+            if (!event.getCharacter().matches("[0-9]") || tfTel.getText().length() >= 8) {
+                event.consume();
+            }
+        });
     }
+    
     
 
     /**
@@ -91,7 +100,7 @@ public class AjouterAnnonceController implements Initializable {
     @FXML
 public  void AjouterAnnonce(ActionEvent event) throws IOException {
  
-  if ( (tfTitre.getText().isEmpty() | tfCategorie.getText().isEmpty()) |tfSousc.getText().isEmpty() |tfDesc.getText().isEmpty() |tfValeur.getText().isEmpty() |file_path.getText().isEmpty() | tfVideo.getText().isEmpty() | tfAdresse.getText().isEmpty() | tfTel.getText().isEmpty() ) {
+  if ( (tfTitre.getText().isEmpty() | tfCategorie.getText().isEmpty()) |tfSousc.getText().isEmpty() |tfDesc.getText().isEmpty() |tfValeur.getText().isEmpty() |file_path.getText().isEmpty() | tfVideo.getText().isEmpty() | tfAdresse.getText().isEmpty() | tfTel.getText().isEmpty() | selectedImageFile == null ) {
       Alert a = new Alert(Alert.AlertType.ERROR, "tout les champs doivent etre remplis SVP!!", ButtonType.OK);
       a.showAndWait();
   }
@@ -119,21 +128,33 @@ public  void AjouterAnnonce(ActionEvent event) throws IOException {
      *
      * @param event
      */
-    @FXML
-    public void InsertImage(ActionEvent event) {
+   // @FXML
+  //  public void InsertImage(ActionEvent event) {
         
-             FileChooser open = new FileChooser();
-        Stage stage =(Stage)main.getScene().getWindow();
-        File file = open.showOpenDialog(stage);
-        if(file != null){
-            String path = file.getAbsolutePath();
-             path = path.replace("\\", "\\\\");
+   //          FileChooser open = new FileChooser();
+   //     Stage stage =(Stage)main.getScene().getWindow();
+   //     File file = open.showOpenDialog(stage);
+    //    if(file != null){
+      //      String path = file.getAbsolutePath();
+       //      path = path.replace("\\", "\\\\");
 
-            file_path.setText(path);
-            Image image = new Image(file.toURI().toString(), 110,110,false,true);
+//            file_path.setText(path);
+  //          Image image = new Image(file.toURI().toString(), 110,110,false,true);
+    //        imgpreview.setImage(image);
+      //  }else{
+        //    System.out.println("No FILE EXIST");
+        //}
+    //}
+@FXML
+    private void uploadImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Product Image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+        selectedImageFile = fileChooser.showOpenDialog(imgpreview.getScene().getWindow());
+        if (selectedImageFile != null) {
+            Image image = new Image(selectedImageFile.toURI().toString());
             imgpreview.setImage(image);
-        }else{
-            System.out.println("No FILE EXIST");
         }
     }
 }

@@ -172,4 +172,8 @@ public class Annonce {
         }
         return true;
     }
+
+    public Object getAvis() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
