@@ -5,18 +5,25 @@
  */
 package tn.edu.esprit.gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import tn.edu.esprit.entities.Organisateur;
 import tn.edu.esprit.entities.Utilisateur;
 import tn.edu.esprit.services.OrganisateurService;
@@ -70,6 +77,25 @@ public class ModifierOrganisateurFXMLController implements Initializable {
 
     @FXML
     private Button btnrechercher;
+    
+
+    @FXML
+    private Button btnmodif;
+
+    @FXML
+    private Button btnajouter1;
+
+    @FXML
+    private Button lblAcceuil;
+
+    @FXML
+    private Button lbldeconnexion;
+
+    @FXML
+    private Button btnretour;
+
+    @FXML
+    private Button btnmodif1;
     
     OrganisateurService service =new OrganisateurService();
     Utilisateur org = new Utilisateur();
@@ -163,5 +189,35 @@ public class ModifierOrganisateurFXMLController implements Initializable {
         tfCin.clear();
         tfCinRechercher.clear();
         
+    }
+    public void SwitchToListeOrg(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminAcceuiFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+    
+    }
+     public void switchToAjouterOrganisateur(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterOrganisateurFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();}
+    
+    public void switchToModifSuppOrganisateur(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/ModifierOrganisateurFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();}
+    
+    public void deconnecter(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/LoginFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+    
     }
 }

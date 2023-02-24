@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/verification/VerifierChamps.java</file>
+            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/services/IServiceOffre.java</file>
+            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/services/OffreService.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/test/NewFXMain.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/services/InscriptionService.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/test/Main.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/services/OrganisateurService.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/gui/ModifierOrganisateurFXMLController.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/gui/InscrireFXMLController.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/gui/AjouterOrganisateurFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projet/src/tn/edu/esprit/entities/Offre.java</file>
         </group>
     </open-files>
 </project-private>

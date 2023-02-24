@@ -1,53 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="835.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.InscrireFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.InscrireFXMLController">
     
     <children>
-        <Button fx:id="btnInscrire" alignment="CENTER" layoutX="376.0" layoutY="461.0" mnemonicParsing="false" onAction="#Inscription" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #e8b833;" text="S'inscrire" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font></Button>
-        <Label alignment="CENTER" layoutX="148.0" layoutY="23.0" prefHeight="81.0" prefWidth="494.0" text="S'inscrire" textAlignment="RIGHT">
-            <font>
-                <Font name="Britannic Bold" size="40.0" />
-            </font>
-        </Label>
-        <Pane layoutX="-1.0" prefHeight="600.0" prefWidth="110.0" style="-fx-background-color: #afb8cc;" />
-        <ImageView fitHeight="220.0" fitWidth="291.0" layoutX="488.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../Images/Ressources-Humaines1.jpg" />
-            </image>
-        </ImageView>
-      <VBox layoutX="113.0" layoutY="141.0" prefHeight="318.0" prefWidth="184.0" spacing="10.0">
+      <AnchorPane layoutY="-5.0" prefHeight="812.0" prefWidth="667.0" style="-fx-background-color: #F1EDDF;">
          <children>
-            <TextField fx:id="tfnom" promptText="Nom" />
-            <TextField fx:id="tfprenom" layoutX="10.0" layoutY="10.0" promptText="Prenom" />
-            <TextField fx:id="tfCin" promptText="Cin" />
-            <TextField fx:id="tfadresse" layoutX="10.0" layoutY="35.0" promptText="Adresse" />
-            <TextField fx:id="tfemail" layoutX="10.0" layoutY="85.0" promptText="e-mail" />
-            <PasswordField fx:id="tfmdp" promptText="Mot de passe" />
-            <TextField fx:id="tftel" layoutX="10.0" layoutY="185.0" promptText="Telephone" />
-            <ComboBox fx:id="tfgenre" prefHeight="25.0" prefWidth="191.0" promptText="genre" />
+            <Label layoutX="67.0" layoutY="46.0" prefHeight="144.0" prefWidth="499.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
+               <font>
+                  <Font name="Forte" size="100.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnInscrire" layoutX="197.0" layoutY="706.0" mnemonicParsing="false" onAction="#Inscription" prefHeight="48.0" prefWidth="179.0" style="-fx-background-color: FAD678;" text="S'inscrire">
+               <effect>
+                  <Glow level="0.2">
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </Glow>
+               </effect>
+               <font>
+                  <Font name="Forte" size="27.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="39.0" fitWidth="33.0" layoutX="88.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/email.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="88.0" layoutY="474.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/fermer-a-cle.png" />
+               </image>
+            </ImageView>
+            <VBox layoutX="139.0" layoutY="216.0" prefHeight="428.0" prefWidth="280.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="tfnom" prefHeight="50.0" prefWidth="280.0" promptText="Nom" />
+                  <TextField fx:id="tfprenom" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="280.0" promptText="Prenom" />
+                  <TextField fx:id="tfCin" prefHeight="47.0" prefWidth="280.0" promptText="Cin" />
+                  <TextField fx:id="tfadresse" layoutX="10.0" layoutY="35.0" prefHeight="46.0" prefWidth="280.0" promptText="Adresse" />
+                  <TextField fx:id="tfemail" layoutX="10.0" layoutY="85.0" prefHeight="53.0" prefWidth="280.0" promptText="e-mail" />
+                  <PasswordField fx:id="tfmdp" prefHeight="48.0" prefWidth="280.0" promptText="Mot de passe" />
+                  <TextField fx:id="tftel" layoutX="10.0" layoutY="185.0" prefHeight="44.0" prefWidth="280.0" promptText="Telephone" />
+                  <ComboBox fx:id="tfgenre" prefHeight="25.0" prefWidth="191.0" promptText="genre" />
+                  <DatePicker fx:id="tfnaissance" prefHeight="25.0" prefWidth="184.0" promptText="Date de Naissance" />
+               </children>
+            </VBox>
+            <Label fx:id="lbl" alignment="CENTER" layoutX="37.0" layoutY="652.0" prefHeight="35.0" prefWidth="499.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+              <Label alignment="CENTER" layoutX="376.0" layoutY="150.0" prefHeight="81.0" prefWidth="261.0" text="S'inscrire" textAlignment="RIGHT" textFill="#e8a635">
+                  <font>
+                      <Font name="Forte" size="40.0" />
+                  </font>
+              </Label>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="88.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/id-card.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="88.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="88.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="88.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/adresse.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="88.0" layoutY="521.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/appel-telephonique.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="88.0" layoutY="567.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/les-genres.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="88.0" layoutY="612.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/date-danniversaire.png" />
+               </image>
+            </ImageView>
          </children>
-      </VBox>
-      <DatePicker fx:id="tfnaissance" layoutX="113.0" layoutY="465.0" prefHeight="25.0" prefWidth="184.0" promptText="Date de Naissance" />
-      <Label fx:id="lbl" alignment="CENTER" layoutX="165.0" layoutY="528.0" prefHeight="32.0" prefWidth="593.0">
-         <font>
-            <Font name="Calibri" size="29.0" />
-         </font>
-      </Label>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+      <ImageView fitHeight="365.0" fitWidth="390.0" layoutX="721.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Capture%20d'écran_20230201_082702.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

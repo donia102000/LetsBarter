@@ -22,6 +22,7 @@ import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -50,7 +51,30 @@ public class AdminAcceuiFXMLController implements Initializable {
     OrganisateurService ser = new OrganisateurService();
     Utilisateur currentFood;
     
-   
+    @FXML
+    private Label lbladresse;
+
+    @FXML
+    private Label lbltel;
+
+    @FXML
+    private Label lblgenre;
+
+    @FXML
+    private Label lblanniver;
+
+    @FXML
+    private Button btnmodif;
+
+    @FXML
+    private Button btnajouter;
+    @FXML
+    private Button btnretour;
+    @FXML
+    private Button lblAcceuil;
+
+    @FXML
+    private Button lbldeconnexion;
     
      
      
@@ -64,7 +88,11 @@ public class AdminAcceuiFXMLController implements Initializable {
          currentFood =listView.getSelectionModel().getSelectedItem();
          lblnom.setText(currentFood.getNomUtilisateur());
          lblprenom.setText(currentFood.getPrenomUtilisateur());
-         lblcontact.setText(currentFood.getEmail()+"\n"+currentFood.getAdresse());
+         lblcontact.setText(currentFood.getEmail());
+         lblanniver.setText(currentFood.getDateDeNaissance());
+         lblgenre.setText(currentFood.getGenre());
+         lbladresse.setText(currentFood.getAdresse());
+         lbltel.setText(String.valueOf(currentFood.getNumTelephone()));
          }
      });
     }    
@@ -86,5 +114,23 @@ public class AdminAcceuiFXMLController implements Initializable {
                         Scene scene = new Scene(root);
                         primaryStage.setScene(scene);
                         primaryStage.show();}
+    
+    public void deconnecter(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/LoginFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+    
+    }
+     public void SwitchToListeOrg(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminAcceuiFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+    
+    }
+     
     
 }
