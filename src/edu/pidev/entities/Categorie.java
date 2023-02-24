@@ -7,6 +7,7 @@ package edu.pidev.entities;
 
 import java.awt.Image;
 import java.util.ArrayList;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -45,6 +46,13 @@ import java.util.ArrayList;
         this.description = description;
         
     }
+  public Categorie(  String nomCategorie  ) { 
+         this.nomCategorie = nomCategorie;
+          
+        
+    }
+
+  
             
 
 

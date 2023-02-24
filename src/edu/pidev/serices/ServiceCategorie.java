@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;  
 
 /**
@@ -40,32 +41,60 @@ public class ServiceCategorie implements  IService <Categorie > {
 
 
     @Override
-    public void modifier(Categorie c) {
+   public void modifier(Categorie c) {
+        
+            try {
+         	   String req1 = "SELECT id FROM `categorie` WHERE `NomCategorie`='" + c.getNomCategorie() + "'";
+                Statement st = cnx.createStatement();
+                ResultSet rs = st.executeQuery(req1);
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+		                     
+		            String req = "UPDATE `categorie` SET `nomCategorie` = '" + c.getNomCategorie() +
+		            		"', `description` = '" + c.getDescription() 
+		            + "' WHERE `id` = " +id;
+		            st.executeUpdate(req);
+ 		            System.out.println("Categorie modifiée !");
+                } 
+                else {
+                    System.out.println("categorie on non trouvée !");
+                }
+        } catch (SQLException ex) { 
+            System.out.println(ex.getMessage());
+        } }// public void supprimer(int id ) { 
+//        try {
+//            String req = "DELETE FROM `categorie` WHERE id = " + id ;
+//            Statement st = cnx.createStatement();
+//            st.executeUpdate(req);
+//            System.out.println("categorie deleted !");
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        } 
+         
+     
+    public void supprimer(Categorie c) {
         try {
-            String req = "UPDATE `categorie` SET `nom` = '" + c.getNomCategorie() + "' WHERE `categorie`.`id` = " + c.getId();
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
-            System.out.println("Categorie  updated !") ;  
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage()); 
+     	   String req1 = "SELECT id FROM `categorie` WHERE `NomCategorie`='" + c.getNomCategorie() + "'";
+           Statement st = cnx.createStatement();
+           ResultSet rs = st.executeQuery(req1);
+           if (rs.next()) {
+               int id = rs.getInt("id");
+            String req = "DELETE FROM `categorie` WHERE `id` = "+id;
+            st.executeUpdate(req);             
+             System.out.println("Categorie supprimée !");
+           }
+           else {
+                 System.out.println("categorie on non trouvée !");
+             }
+        } catch (SQLException ex) { 
+            System.out.println(ex.getMessage());
         }
     }
- public void supprimer(int id ) { 
-        try {
-            String req = "DELETE FROM `categorie` WHERE id = " + id ;
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
-            System.out.println("categorie deleted !");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } 
-         
-        
   
         
         
         
-    } 
+  
 
    
 
@@ -85,29 +114,32 @@ public class ServiceCategorie implements  IService <Categorie > {
         }
         return categorie;
     }  
+
     
     
 
         
-    } 
-
-//    @Override
-//    public List<Categorie> trouverTous() {
-//     List<Categorie> categories = new ArrayList<>();
-//        try {
-//            String req = "SELECT * FROM `categorie`";
-//            Statement st = cnx.createStatement();
-//            ResultSet rs = st.executeQuery(req);
-//            while (rs.next()) {
-//                Categorie categorie = new Categorie(rs.getInt("id"), rs.getString("nomCategorie"), rs.getString("description"));
-//                categories.add(categorie);
-//            }
-//        } catch (SQLException ex) { 
-//            System.out.println(ex.getMessage());
-//        }
-//        return categories;
+      
   
-
+    public List<Categorie> trouverTous() {
+    	
+        List<Categorie> categories = new ArrayList<>();
+        try {
+            String req = "SELECT * FROM `categorie`";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                Categorie categorie = new Categorie(rs.getInt("id"),
+                		rs.getString("nomCategorie"), 
+                		rs.getString("description"));
+                categories.add(categorie);
+            }
+        } catch (SQLException ex) { 
+            System.out.println(ex.getMessage());
+        }
+        return categories;
+    }
+}
 
 
 

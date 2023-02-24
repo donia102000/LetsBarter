@@ -19,9 +19,9 @@ public interface IService  <  C>
     public void modifier(C c ); 
  
     
-	    public void supprimer(int id );
+	    public void supprimer( C c );
 
 	    public C trouverParId(int id);
 
-//	    public List<C> trouverTous();
+	    public List<C> trouverTous();
 }

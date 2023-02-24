@@ -19,14 +19,14 @@ public class Reclamation {
     private String type ; //rembrourssement , recommondation , compensation, reparation 
     private  String info_produit ; // des informations sur le produit ou le service qui fait l'objet de la réclamation, telles que la marque, le modèle, le numéro de série ou le numéro de commande.
     private String nom_prenom; 
-    private  int tel ; 
+    private  String tel ; 
     private  String mail ;  
     private String etat ; 
 
     public Reclamation() {
     }
 
-    public Reclamation(String date_reclamation, String description, String statut, String type, String info_produit, String nom_prenom, int tel, String mail, String etat) {
+    public Reclamation(String date_reclamation, String description, String statut, String type, String info_produit, String nom_prenom, String tel, String mail) {
         this.date_reclamation = date_reclamation;
         this.description = description;
         this.statut = statut;
@@ -35,11 +35,11 @@ public class Reclamation {
         this.nom_prenom = nom_prenom;
         this.tel = tel;
         this.mail = mail;
-        this.etat = etat;
+        
     } 
 
-    public Reclamation(int id, String date_reclamation, String description, String statut, String type, String info_produit, String nom_prenom, int tel, String mail, String etat) {
-        this.id = id;
+    public Reclamation( String date_reclamation, String description, String statut, String type, String info_produit, String nom_prenom, String tel, String mail, String etat) {
+        
         this.date_reclamation = date_reclamation;
         this.description = description;
         this.statut = statut;
@@ -49,7 +49,10 @@ public class Reclamation {
         this.tel = tel;
         this.mail = mail;
         this.etat = etat;
-    }
+    }  
+
+     
+    
 
 //    public Reclamation(String string) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -83,7 +86,7 @@ public class Reclamation {
         return nom_prenom;
     }
 
-    public int getTel() {
+    public String getTel() {
         return tel;
     }
 
@@ -123,7 +126,7 @@ public class Reclamation {
         this.nom_prenom = nom_prenom;
     }
 
-    public void setTel(int tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 

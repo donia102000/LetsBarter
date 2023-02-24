@@ -14,7 +14,8 @@ import edu.pidev.entities.Reclamation;
 public interface IService1  <Reclamation >{ 
     
     public void ajouter ( Reclamation r) ; 
-    public void  modifierReclamation (Reclamation reclamation, String role ) ;    
+    public void  modifierReclamation (Reclamation  reclamation , String role ) ;   
+//    public void supprimerReclamation (int id ) ;  
+//     public void modifier(Reclamation r) ; 
     
-    
-}
+}  
