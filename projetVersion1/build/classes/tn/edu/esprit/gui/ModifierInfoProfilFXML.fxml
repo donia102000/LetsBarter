@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: 000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.ModifierInfoProfilFXMLController">
+   <children>
+      <Label layoutX="126.0" prefHeight="97.0" prefWidth="355.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
+         <font>
+            <Font name="Forte" size="72.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="134.0" fitWidth="119.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Capture%20d'écran_20230201_082702.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="1006.0" prefHeight="802.0" prefWidth="198.0" style="-fx-background-color: #F1EDDF;">
+         <children>
+            <Button fx:id="btnmodif" layoutX="23.0" layoutY="262.0" mnemonicParsing="false" onAction="#switchToModifSuppOrganisateur" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Modifier/supprimer organisateurs" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnajouter" layoutX="23.0" layoutY="205.0" mnemonicParsing="false" onAction="#switchToAjouterOrganisateur" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Ajouter organisateu" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="lblAcceuil" layoutX="23.0" layoutY="146.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Acceuil" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="57.0" fitWidth="46.0" layoutX="76.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/power-off.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="lbldeconnexion" layoutX="38.0" layoutY="74.0" mnemonicParsing="false" onAction="#deconnecter" style="-fx-background-color: 00000000000000000;" text="Se deconnecter" />
+            <Button fx:id="btnretour" layoutX="94.0" layoutY="690.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="87.0" prefWidth="74.0" style="-fx-background-color: 00000000000;" />
+            <ImageView fitHeight="57.0" fitWidth="54.0" layoutX="91.0" layoutY="708.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/left-arrow.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnmodif1" layoutX="23.0" layoutY="318.0" mnemonicParsing="false" onAction="#SwitchToListeOrg" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste organisateurs" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnStatistiqueParDate" layoutX="23.0" layoutY="383.0" mnemonicParsing="false" onAction="#SwitchToStatisqueParDate" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Statistique des historique de Connexion Par Date" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnmodif11" layoutX="23.0" layoutY="437.0" mnemonicParsing="false" onAction="#SwitchToListeOrg" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste organisateurs" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnprofil" layoutX="59.0" layoutY="509.0" mnemonicParsing="false" onAction="#SwitchToProfil" text="Profil" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="38.0" layoutY="123.0" prefHeight="57.0" prefWidth="334.0" style="-fx-background-color: 000000;" text="Profil" textFill="#bf9d86">
+         <font>
+            <Font name="Forte" size="34.0" />
+         </font>
+      </Label>
+      <Button fx:id="modifInfobtn" layoutX="32.0" layoutY="207.0" mnemonicParsing="false" onAction="#switchToModifierInfo" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Modifier information" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="modMdpbtn" layoutX="32.0" layoutY="268.0" mnemonicParsing="false" onAction="#switchToModifierMdp" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Modifier mot de passe" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="481.0" layoutY="123.0" prefHeight="522.0" prefWidth="469.0" style="-fx-background-color: #FAD678;">
+         <children>
+            <AnchorPane layoutX="28.0" layoutY="17.0" prefHeight="488.0" prefWidth="414.0" style="-fx-background-color: #F1EDDF;">
+               <children>
+                  <VBox layoutX="80.0" layoutY="26.0" prefHeight="427.0" prefWidth="284.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="tfnom" prefHeight="51.0" prefWidth="258.0" promptText="Nom" />
+                        <TextField fx:id="tfprenom" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="284.0" promptText="Prenom" />
+                        <TextField fx:id="tfCin" prefHeight="46.0" prefWidth="284.0" promptText="Cin" />
+                        <TextField fx:id="tfadresse" layoutX="10.0" layoutY="35.0" prefHeight="41.0" prefWidth="284.0" promptText="Adresse" />
+                        <TextField fx:id="tfemail" layoutX="10.0" layoutY="85.0" prefHeight="49.0" prefWidth="284.0" promptText="e-mail" />
+                        <TextField fx:id="tftel" layoutX="10.0" layoutY="185.0" prefHeight="43.0" prefWidth="284.0" promptText="Telephone" />
+                        <ComboBox fx:id="tfgenre" prefHeight="25.0" prefWidth="191.0" promptText="genre" />
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="28.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../projet/src/tn/edu/esprit/Images/email.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="34.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../projet/src/tn/edu/esprit/Images/les-genres.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="32.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../projet/src/tn/edu/esprit/Images/appel-telephonique.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="46.0" layoutX="28.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../projet/src/tn/edu/esprit/Images/adresse.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="80.0" fitWidth="46.0" layoutX="24.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../projet/src/tn/edu/esprit/Images/id-card.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="24.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../projet/src/tn/edu/esprit/Images/user.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="46.0" layoutX="24.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../projet/src/tn/edu/esprit/Images/user.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnmodifier" alignment="CENTER" layoutX="654.0" layoutY="721.0" mnemonicParsing="false" onAction="#mofifier" prefHeight="67.0" prefWidth="123.0" style="-fx-background-color: #FAD678;" text="Modifier">
+         <font>
+            <Font name="Forte" size="22.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbl" alignment="CENTER" layoutX="413.0" layoutY="653.0" prefHeight="31.0" prefWidth="593.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -29,6 +29,7 @@ import tn.edu.esprit.entities.HistoriqueConnexion;
 import tn.edu.esprit.entities.Utilisateur;
 import tn.edu.esprit.services.HistoriqueConnexionService;
 import tn.edu.esprit.services.UtilisateurService;
+import tn.edu.esprit.util.Utility;
 
 import tn.edu.esprit.verification.VerifierChamps;
 
@@ -74,6 +75,7 @@ public class LoginFXMLControllerr implements Initializable {
     {
             try {
                user= login.findUserbyEmail(email, motDepass);
+               Utility.utilisateur=user;
                if(user != null){
                    this.loginMessage.setText("");
                    System.err.println("kkkkkkkkkkkkkkkkk");
@@ -96,8 +98,8 @@ public class LoginFXMLControllerr implements Initializable {
                  
                 if(historisque.getDateParUtilisateurEtDateActuel(new java.sql.Date(currentDate.getTime()), user.getIdUtilisateur(),user.getRole()).getDateConnexion()== null){
                     hisCnx.setDateConnexion(new java.sql.Date(currentDate.getTime()));
-                    hisCnx.setIdUtilisateur(user.getIdUtilisateur());
-                    hisCnx.setSysExploitation("linux");
+                    hisCnx.setUtilisateur(user);
+                    hisCnx.setSysExploitation(System.getProperty("os.name"));
                     hisCnx.setNbConnexion(1);
                     historisque.ajouter(hisCnx);
                     System.out.println("hello");
@@ -106,8 +108,8 @@ public class LoginFXMLControllerr implements Initializable {
                HistoriqueConnexion his = new HistoriqueConnexion();
                     his.setIdHistorique(historisque.getDateParUtilisateurEtDateActuel(new java.sql.Date(currentDate.getTime()), user.getIdUtilisateur(),user.getRole()).getIdHistorique());
                 his.setDateConnexion(new java.sql.Date(currentDate.getTime()));
-                his.setIdUtilisateur(user.getIdUtilisateur());
-                his.setSysExploitation("mac");
+                his.setUtilisateur(user);
+                his.setSysExploitation(System.getProperty("os.name"));
                 nbreTentativeConnexion = historisque.getDateParUtilisateurEtDateActuel(new java.sql.Date(currentDate.getTime()), user.getIdUtilisateur(),user.getRole()).getNbConnexion();
                 his.setNbConnexion(nbreTentativeConnexion+1);
                     System.out.println("hi"+nbreTentativeConnexion);

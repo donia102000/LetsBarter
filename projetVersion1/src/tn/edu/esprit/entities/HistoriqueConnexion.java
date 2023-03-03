@@ -20,24 +20,24 @@ public class HistoriqueConnexion {
     private int idHistorique;
     private Date dateConnexion;
     private String sysExploitation;
-    private int idUtilisateur;
+    private Utilisateur utilisateur;
     private int nbConnexion;
 
     public HistoriqueConnexion() {
     }
 
-    public HistoriqueConnexion(int idHistorique, Date dateConnexion, String sysExploitation, int idUtilisateur, int nbConnexion) {
+    public HistoriqueConnexion(int idHistorique, Date dateConnexion, String sysExploitation, Utilisateur utilisateur, int nbConnexion) {
         this.idHistorique = idHistorique;
         this.dateConnexion = dateConnexion;
         this.sysExploitation = sysExploitation;
-        this.idUtilisateur = idUtilisateur;
+        this.utilisateur = utilisateur;
         this.nbConnexion = nbConnexion;
     }
 
-    public HistoriqueConnexion(Date dateConnexion, String sysExploitation, int idUtilisateur, int nbConnexion) {
+    public HistoriqueConnexion(Date dateConnexion, String sysExploitation, Utilisateur utilisateur, int nbConnexion) {
         this.dateConnexion = dateConnexion;
         this.sysExploitation = sysExploitation;
-        this.idUtilisateur = idUtilisateur;
+        this.utilisateur = utilisateur;
         this.nbConnexion = nbConnexion;
     }
 
@@ -65,12 +65,12 @@ public class HistoriqueConnexion {
         this.sysExploitation = sysExploitation;
     }
 
-    public int getIdUtilisateur() {
-        return idUtilisateur;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
-    public void setIdUtilisateur(int idUtilisateur) {
-        this.idUtilisateur = idUtilisateur;
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 
     public int getNbConnexion() {
@@ -83,7 +83,7 @@ public class HistoriqueConnexion {
 
     @Override
     public String toString() {
-        return "HistoriqueConnexion{" + "idHistorique=" + idHistorique + ", dateConnexion=" + dateConnexion + ", sysExploitation=" + sysExploitation + ", idUtilisateur=" + idUtilisateur + ", nbConnexion=" + nbConnexion + '}';
+        return "HistoriqueConnexion{" + "idHistorique=" + idHistorique + ", dateConnexion=" + dateConnexion + ", sysExploitation=" + sysExploitation + ", idUtilisateur=" + utilisateur + ", nbConnexion=" + nbConnexion + '}';
     }
 
     @Override

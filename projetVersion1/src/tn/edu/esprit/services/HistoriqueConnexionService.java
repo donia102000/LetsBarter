@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import tn.edu.esprit.entities.HistoriqueConnexion;
+import tn.edu.esprit.entities.Utilisateur;
 import tn.edu.esprit.util.MyConnector;
 
 /**
@@ -38,7 +39,7 @@ Connection connection;
              pst =connection.prepareStatement(requete1);
              pst.setDate(1,p.getDateConnexion());
             pst.setString(2,p.getSysExploitation());
-            pst.setInt(3,p.getIdUtilisateur());
+            pst.setInt(3,p.getUtilisateur().getIdUtilisateur());
             pst.setInt(4,p.getNbConnexion());
            
             pst.executeUpdate();
@@ -58,7 +59,7 @@ Connection connection;
            
             pst.setDate(1,p.getDateConnexion());
             pst.setString(2,p.getSysExploitation());
-            pst.setInt(3,p.getIdUtilisateur());
+            pst.setInt(3,p.getUtilisateur().getIdUtilisateur());
             pst.setInt(4,p.getNbConnexion());
             
             
@@ -99,7 +100,9 @@ Connection connection;
                   historique.setIdHistorique(resultat.getInt(1));
                   historique.setDateConnexion(resultat.getDate("dateDeConnexion"));
                   historique.setSysExploitation(resultat.getString("systemeExploitation"));
-                  historique.setIdUtilisateur(resultat.getInt("idUtilisateur"));
+                  Utilisateur user = new Utilisateur();
+                  user.setIdUtilisateur(resultat.getInt("idUtilisateur"));
+                  historique.setUtilisateur(user);
                   historique.setNbConnexion(resultat.getInt("nbConnexion"));
                   
 
@@ -155,7 +158,9 @@ Connection connection;
                   historique.setIdHistorique(resultat.getInt(1));
                   historique.setDateConnexion(resultat.getDate("dateDeConnexion"));
                   historique.setSysExploitation(resultat.getString("systemeExploitation"));
-                  historique.setIdUtilisateur(resultat.getInt("idUtilisateur"));
+                  Utilisateur user = new Utilisateur();
+                  user.setIdUtilisateur(resultat.getInt("idUtilisateur"));
+                  historique.setUtilisateur(user);
                   historique.setNbConnexion(resultat.getInt("nbConnexion"));
                   
 
@@ -168,5 +173,31 @@ Connection connection;
             System.out.println("erreur lors du chargement des depots " + ex.getMessage());
             return null;
         }
+    
 }
+    public List<Integer> getAllNbrePointParDate(String date) throws SQLException {
+    List<Integer> liste = new ArrayList();
+    String requete = "SELECT nbConnexion  FROM `historiquedeconnexion` WHERE dateDeConnexion=?";
+    try {
+    pst = connection.prepareStatement(requete);
+            pst.setString(1, date);
+            ResultSet resultat = pst.executeQuery();
+            while (resultat.next()) {
+                int nbre;
+                  nbre =resultat.getInt(1);
+                  
+            liste.add(nbre);
+            
+            }
+            return liste ;
+    }
+    catch (SQLException ex) {
+            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des depots " + ex.getMessage());
+            return null;
+        }
+    
+    
+    }
+    
 }

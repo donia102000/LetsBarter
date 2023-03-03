@@ -7,42 +7,26 @@ package tn.edu.esprit.gui;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import tn.edu.esprit.util.Utility;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import tn.edu.esprit.entities.Organisateur;
-import tn.edu.esprit.entities.Utilisateur;
-import tn.edu.esprit.services.UtilisateurService;
-
-
-
-
 /**
  * FXML Controller class
  *
  * @author Donia
  */
-public class AdminAcceuiFXMLController implements Initializable {
- @FXML
+
+public class ProfilFXMLController implements Initializable {
+@FXML
     private Label lblprenom;
 
     @FXML
@@ -50,11 +34,7 @@ public class AdminAcceuiFXMLController implements Initializable {
 
     @FXML
     private Label lblcontact;
-    @FXML
-    private ListView<Utilisateur> listView ;
-    UtilisateurService ser = new UtilisateurService();
-    Utilisateur currentFood;
-    
+
     @FXML
     private Label lbladresse;
 
@@ -65,52 +45,45 @@ public class AdminAcceuiFXMLController implements Initializable {
     private Label lblgenre;
 
     @FXML
-    private Label lblanniver;
-
-    @FXML
     private Button btnmodif;
 
     @FXML
     private Button btnajouter;
-    @FXML
-    private Button btnretour;
+
     @FXML
     private Button lblAcceuil;
 
     @FXML
     private Button lbldeconnexion;
-    
+
+    @FXML
+    private Button btnretour;
+
+    @FXML
+    private Button btnmodif1;
+
     @FXML
     private Button btnStatistiqueParDate;
+
+    @FXML
+    private Button btnmodif11;
+
     @FXML
     private Button btnprofil;
+
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     try {
-         listView.getItems().addAll(ser.getAll());
-     } catch (SQLException ex) {
-         Logger.getLogger(AdminAcceuiFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-     }
-     listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Utilisateur>() {
-         
-         @Override
-         public void changed(ObservableValue<? extends Utilisateur> observable, Utilisateur oldValue, Utilisateur newValue) {
-         currentFood =listView.getSelectionModel().getSelectedItem();
-         lblnom.setText(currentFood.getNomUtilisateur());
-         lblprenom.setText(currentFood.getPrenomUtilisateur());
-         lblcontact.setText(currentFood.getEmail());
-         
-         lblgenre.setText(currentFood.getGenre());
-         lbladresse.setText(currentFood.getAdresse());
-         lbltel.setText(String.valueOf(currentFood.getNumTelephone()));
-         }
-     });
+        // TODO
+        lblnom.setText(Utility.utilisateur.getNomUtilisateur());
+       lblprenom.setText(Utility.utilisateur.getPrenomUtilisateur());
+       lblgenre.setText(Utility.utilisateur.getGenre());
+       lbladresse.setText(Utility.utilisateur.getAdresse());
+       lblcontact.setText(Utility.utilisateur.getEmail());
+       lbltel.setText(String.valueOf( Utility.utilisateur.getNumTelephone()));
+       
     }    
     
-    
-         
-     
-     
     public void switchToAjouterOrganisateur(ActionEvent event) throws IOException{
     Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterOrganisateurFXML.fxml"));
                         Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -157,5 +130,18 @@ public class AdminAcceuiFXMLController implements Initializable {
                         primaryStage.setScene(scene);
                         primaryStage.show();
      }
-
+    public void switchToModifierInfo(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/ModifierInfoProfilFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
+     public void switchToModifierMdp (ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/ModifierMdpFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
 }

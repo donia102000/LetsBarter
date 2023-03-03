@@ -7,6 +7,7 @@ package tn.edu.esprit.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -67,8 +68,7 @@ public class InscrireFXMLController implements Initializable {
     private ComboBox<String> tfgenre;
     ObservableList<String> liste=FXCollections.observableArrayList("Homme","Femme");
 
-    @FXML
-    private DatePicker tfnaissance;
+    
 
     @FXML
     private Label lbl;
@@ -86,7 +86,7 @@ public class InscrireFXMLController implements Initializable {
         if((tfnom.getText().isEmpty()) ||(tfprenom.getText().isEmpty()) || 
                 (tfadresse.getText().isEmpty()) || (tfemail.getText().isEmpty()) ||
                 (tfgenre.getPromptText().isEmpty())|| (tftel.getText().isEmpty())  ||
-                (tfnaissance.getEditor().getText().isEmpty()) || (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
+                 (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
         
             lbl.setText("Vous deviez remplir les champs");
         }
@@ -107,9 +107,9 @@ public class InscrireFXMLController implements Initializable {
                 !(tfnom.getText().isEmpty()) &&!(tfprenom.getText().isEmpty()) && 
                 !(tfadresse.getText().isEmpty()) && !(tfemail.getText().isEmpty()) && 
                 !(tfgenre.getPromptText().isEmpty())&& !(tftel.getText().isEmpty())  &&
-                !(tfnaissance.getEditor().getText().isEmpty()) && !(tfCin.getText().isEmpty())&&!(tfmdp.getText().isEmpty())){
+                !(tfCin.getText().isEmpty())&&!(tfmdp.getText().isEmpty())){
             
-            Client c = new Client (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(), tfgenre.getValue(), tfnaissance.getEditor().getText(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"client",Integer.parseInt(tfCin.getText()),0);
+            Client c = new Client (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(), tfgenre.getValue(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"client",Integer.parseInt(tfCin.getText()),0);
            
             if (ins.chercherUtilisateurParCinMail(Integer.parseInt(tfCin.getText()) ,tfemail.getText())){
                 lbl.setText("Votre compte existe déja ! ");
@@ -143,7 +143,7 @@ public class InscrireFXMLController implements Initializable {
         tftel.clear();
         tfgenre.setValue(null);
         tfmdp.clear();
-        tfnaissance.setValue(null);
+        
         tfCin.clear();
         
     }

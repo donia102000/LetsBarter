@@ -1,6 +1,9 @@
 
 package tn.edu.esprit.entities;
 
+import java.sql.Date;
+import org.mindrot.jbcrypt.BCrypt;
+
 /**
  *
  * @author Donia
@@ -13,7 +16,7 @@ public class Utilisateur {
     protected String email;
     protected String motDePasse;
     protected String genre ;
-    protected String dateDeNaissance;
+    
     protected int numTelephone;
     protected String adresse;
     protected String role;
@@ -22,27 +25,25 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
-    public Utilisateur(int idUtilisateur, String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, String dateDeNaissance, int numTelephone, String adresse, String role,int cin) {
+    public Utilisateur(int idUtilisateur, String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre,  int numTelephone, String adresse, String role,int cin) {
         this.idUtilisateur = idUtilisateur;
         this.nomUtilisateur = nomUtilisateur;
         this.prenomUtilisateur = prenomUtilisateur;
         this.email = email;
         this.motDePasse = motDePasse;
         this.genre = genre;
-        this.dateDeNaissance = dateDeNaissance;
         this.numTelephone = numTelephone;
         this.adresse = adresse;
         this.role = role;
         this.cin=cin;
     }
 
-    public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, String dateDeNaissance, int numTelephone, String adresse, String role,int cin) {
+    public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, int numTelephone, String adresse, String role,int cin) {
         this.nomUtilisateur = nomUtilisateur;
         this.prenomUtilisateur = prenomUtilisateur;
         this.email = email;
         this.motDePasse = motDePasse;
         this.genre = genre;
-        this.dateDeNaissance = dateDeNaissance;
         this.numTelephone = numTelephone;
         this.adresse = adresse;
         this.role = role;
@@ -84,7 +85,8 @@ public class Utilisateur {
     }
 
     public String getMotDePasse() {
-        return motDePasse;
+        String cryptMdp =BCrypt.gensalt(6);
+        return BCrypt.hashpw(motDePasse, cryptMdp);
     }
 
     public void setMotDePasse(String motDePasse) {
@@ -99,14 +101,7 @@ public class Utilisateur {
         this.genre = genre;
     }
 
-    public String getDateDeNaissance() {
-        return dateDeNaissance;
-    }
-
-    public void setDateDeNaissance(String dateDeNaissance) {
-        this.dateDeNaissance = dateDeNaissance;
-    }
-
+    
     public int getNumTelephone() {
         return numTelephone;
     }
@@ -170,7 +165,7 @@ public class Utilisateur {
 
     @Override
     public String toString() {
-        return "Nom : " + nomUtilisateur + "\nPrenom : " + prenomUtilisateur + "\nE-mail : " + email +   "\nDate De Naissance : " + dateDeNaissance + "\nTelephone : " + numTelephone + "\nAdresse : " + adresse + "\nRole : " + role + "\nCin : " + cin ;
+        return "Nom : " + nomUtilisateur + "\nPrenom : " + prenomUtilisateur + "\nE-mail : " + email + "\nTelephone : " + numTelephone + "\nAdresse : " + adresse + "\nRole : " + role + "\nCin : " + cin ;
     }
 
    

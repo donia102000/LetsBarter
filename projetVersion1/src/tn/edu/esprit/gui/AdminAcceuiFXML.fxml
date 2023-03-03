@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: 000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.AdminAcceuiFXMLController">
    <children>
-      <ListView fx:id="listView" fixedCellSize="200.0" layoutX="37.0" layoutY="181.0" prefHeight="549.0" prefWidth="513.0" style="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.control.Label?&gt;&lt;?import javafx.scene.text.Font?&gt;&lt;Label layoutX=&quot;49.0&quot; layoutY=&quot;45.0&quot; prefHeight=&quot;71.0&quot; prefWidth=&quot;327.0&quot; style=&quot;-fx-background-color: 000000; &quot; text=&quot;Let's Barter&quot; textFill=&quot;#ab8165&quot; xmlns=&quot;http: //javafx.com/javafx/8.0.171&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;font&gt;      &lt;Font name=&quot;Forte&quot; size=&quot;62.0&quot; /&gt;   &lt;/font&gt;&lt;/Label&gt;: FAD678; -fx-background-color: #ab8165; -fx-border-style: #ab8165;">
+      <ListView fx:id="listView" fixedCellSize="200.0" layoutX="37.0" layoutY="181.0" prefHeight="549.0" prefWidth="513.0" style="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.control.Label?&gt;&lt;?import javafx.scene.text.Font?&gt;&lt;Label layoutX=&quot;49.0&quot; layoutY=&quot;45.0&quot; prefHeight=&quot;71.0&quot; prefWidth=&quot;327.0&quot; style=&quot;-fx-background-color: 000000; &quot; text=&quot;Let's Barter&quot; textFill=&quot;#ab8165&quot; xmlns=&quot;http: //javafx.com/javafx/8.0.171&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;font&gt;      &lt;Font name=&quot;Forte&quot; size=&quot;62.0&quot; /&gt;   &lt;/font&gt;&lt;/Label&gt;: FAD678; -fx-background-color: #ab8165; -fx-border-style: #ab8165; -fx-shape: .list-cell:odd {    -fx-background-color: lightgray;}.list-cell:even {    -fx-background-color: white;};" stylesheets="@newCascadeStyleSheet.css">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -140,6 +140,17 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
+            <Button fx:id="btnStatistiqueParDate" layoutX="23.0" layoutY="383.0" mnemonicParsing="false" onAction="#SwitchToStatisqueParDate" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Statistique des historique de Connexion Par Date" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnmodif11" layoutX="23.0" layoutY="437.0" mnemonicParsing="false" onAction="#SwitchToListeOrg" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste organisateurs" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnprofil" layoutX="59.0" layoutY="509.0" mnemonicParsing="false" onAction="#SwitchToProfil" text="Profil" />
          </children>
       </AnchorPane>
       <Label layoutX="37.0" layoutY="116.0" prefHeight="57.0" prefWidth="334.0" style="-fx-background-color: 000000;" text="Liste des organisateurs" textFill="#bf9d86">

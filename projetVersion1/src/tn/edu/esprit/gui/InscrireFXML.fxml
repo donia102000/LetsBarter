@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -57,7 +56,6 @@
                   <PasswordField fx:id="tfmdp" prefHeight="48.0" prefWidth="280.0" promptText="Mot de passe" />
                   <TextField fx:id="tftel" layoutX="10.0" layoutY="185.0" prefHeight="44.0" prefWidth="280.0" promptText="Telephone" />
                   <ComboBox fx:id="tfgenre" prefHeight="25.0" prefWidth="191.0" promptText="genre" />
-                  <DatePicker fx:id="tfnaissance" prefHeight="25.0" prefWidth="184.0" promptText="Date de Naissance" />
                </children>
             </VBox>
             <Label fx:id="lbl" alignment="CENTER" layoutX="37.0" layoutY="652.0" prefHeight="35.0" prefWidth="499.0">

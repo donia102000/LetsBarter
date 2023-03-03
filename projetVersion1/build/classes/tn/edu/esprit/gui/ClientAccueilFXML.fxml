@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: 000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.AdminAcceuiFXMLController">
    <children>
-      <ListView fx:id="listView" fixedCellSize="200.0" layoutX="37.0" layoutY="181.0" prefHeight="549.0" prefWidth="513.0" style="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.control.Label?&gt;&lt;?import javafx.scene.text.Font?&gt;&lt;Label layoutX=&quot;49.0&quot; layoutY=&quot;45.0&quot; prefHeight=&quot;71.0&quot; prefWidth=&quot;327.0&quot; style=&quot;-fx-background-color: 000000; &quot; text=&quot;Let's Barter&quot; textFill=&quot;#ab8165&quot; xmlns=&quot;http: //javafx.com/javafx/8.0.171&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;font&gt;      &lt;Font name=&quot;Forte&quot; size=&quot;62.0&quot; /&gt;   &lt;/font&gt;&lt;/Label&gt;: FAD678; -fx-background-color: #ab8165; -fx-border-style: #ab8165;">
+      <ListView fx:id="listView" fixedCellSize="200.0" layoutX="37.0" layoutY="181.0" prefHeight="549.0" prefWidth="513.0" style="-fx-background-color: #ab8165; cellFactory: #ab8165;" stylesheets="@newCascadeStyleSheet.css">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

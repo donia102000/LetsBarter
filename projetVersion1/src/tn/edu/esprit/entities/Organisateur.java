@@ -5,6 +5,8 @@
  */
 package tn.edu.esprit.entities;
 
+import java.sql.Date;
+
 /**
  *
  * @author Donia
@@ -14,12 +16,12 @@ public class Organisateur extends Utilisateur{
     public Organisateur() {
     }
 
-    public Organisateur(int idUtilisateur, String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, String dateDeNaissance, int numTelephone, String adresse, String role, int cin) {
-        super(idUtilisateur, nomUtilisateur, prenomUtilisateur, email, motDePasse, genre, dateDeNaissance, numTelephone, adresse, role, cin);
+    public Organisateur(int idUtilisateur, String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, int numTelephone, String adresse, String role, int cin) {
+        super(idUtilisateur, nomUtilisateur, prenomUtilisateur, email, motDePasse, genre, numTelephone, adresse, role, cin);
     }
 
-    public Organisateur(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, String dateDeNaissance, int numTelephone, String adresse, String role, int cin) {
-        super(nomUtilisateur, prenomUtilisateur, email, motDePasse, genre, dateDeNaissance, numTelephone, adresse, role, cin);
+    public Organisateur(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, int numTelephone, String adresse, String role, int cin) {
+        super(nomUtilisateur, prenomUtilisateur, email, motDePasse, genre, numTelephone, adresse, role, cin);
     }
     
     

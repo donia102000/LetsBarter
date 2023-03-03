@@ -7,6 +7,7 @@ package tn.edu.esprit.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -67,8 +68,7 @@ public class AjouterOrganisateurFXMLController implements Initializable {
     ObservableList<String> liste=FXCollections.observableArrayList("Homme","Femme");
    
 
-    @FXML
-    private DatePicker tfnaissance;
+   
 
     @FXML
     private Label lbl;
@@ -84,7 +84,7 @@ public class AjouterOrganisateurFXMLController implements Initializable {
         if((tfnom.getText().isEmpty()) ||(tfprenom.getText().isEmpty()) || 
                 (tfadresse.getText().isEmpty()) || (tfemail.getText().isEmpty()) ||
                 (tfgenre.getPromptText().isEmpty())|| (tftel.getText().isEmpty())  ||
-                (tfnaissance.getEditor().getText().isEmpty()) || (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
+                (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
         
             lbl.setText("Vous deviez remplir les champs");
         }
@@ -104,9 +104,9 @@ public class AjouterOrganisateurFXMLController implements Initializable {
                 !(tfnom.getText().isEmpty()) &&!(tfprenom.getText().isEmpty()) && 
                 !(tfadresse.getText().isEmpty()) && !(tfemail.getText().isEmpty()) && 
                  !(tftel.getText().isEmpty())  &&
-                !(tfnaissance.getEditor().getText().isEmpty()) && !(tfCin.getText().isEmpty())&&!(tfmdp.getText().isEmpty())){
+                  !(tfCin.getText().isEmpty())&&!(tfmdp.getText().isEmpty())){
             
-            Organisateur c = new Organisateur (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(),tfgenre.getValue(), tfnaissance.getEditor().getText(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"organisateur",Integer.parseInt(tfCin.getText()));
+            Organisateur c = new Organisateur (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(),tfgenre.getValue(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"organisateur",Integer.parseInt(tfCin.getText()));
            
             if (ins.chercherUtilisateurParCinMail(Integer.parseInt(tfCin.getText()) ,tfemail.getText())){
                 lbl.setText("Votre compte existe déja ! ");
@@ -133,7 +133,7 @@ public class AjouterOrganisateurFXMLController implements Initializable {
         tfemail.clear();
         tftel.clear();
         tfmdp.clear();
-        tfnaissance.setValue(null);
+        
         tfCin.clear();
         
     }

@@ -10,12 +10,16 @@ import java.sql.SQLException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
+import org.mindrot.jbcrypt.BCrypt;
 
 
 
 import tn.edu.esprit.entities.HistoriqueConnexion;
+import tn.edu.esprit.entities.Utilisateur;
 import tn.edu.esprit.services.HistoriqueConnexionService;
+import tn.edu.esprit.services.UtilisateurService;
 
 /**
  *
@@ -44,6 +48,13 @@ public class Main {
         System.out.println(his.getAllDate());
         System.out.println(his.getDateParUtilisateurEtDateActuel(new java.sql.Date(currentDate.getTime()), 22, "client"));
         System.out.println(( his.getDateParUtilisateurEtDateActuel(new java.sql.Date(currentDate.getTime()), 22, "client")).getNbConnexion());
+       Utilisateur u =new Utilisateur("nomUtilisateur", "prenomUtilisateur", "donia", "helloo", "genre", 0, "adresse", "admin", 0);
+        UtilisateurService ser = new UtilisateurService();
+      //ser.ajouter(u);
+       // System.out.println(ser.findUserbyEmail("donia", "hello"));
+        //System.out.println(BCrypt.checkpw("motDePasse","$2a$12$k/fORz0x589nnsXa/oRVy.Jj/Ar8k18iH34ga3itJK1RrKsr7ARZy"));
+        ser.modifierMdp(u);
+        System.out.println(ser.findUserbyEmail("donia", "hello")+"kkkkkkk");
     }
     
 }

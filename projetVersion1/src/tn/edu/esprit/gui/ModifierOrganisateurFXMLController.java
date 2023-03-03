@@ -7,8 +7,9 @@ package tn.edu.esprit.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
-import java.util.Date;
+//import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,8 +66,7 @@ public class ModifierOrganisateurFXMLController implements Initializable {
     private ComboBox<String> tfgenre;
     ObservableList<String> liste=FXCollections.observableArrayList("Homme","Femme");
 
-    @FXML
-    private DatePicker tfnaissance;
+    
 
     @FXML
     private Label lbl;
@@ -130,7 +130,6 @@ public class ModifierOrganisateurFXMLController implements Initializable {
     tfemail.setText(org.getEmail());
     tfmdp.setText(org.getMotDePasse());
     tftel.setText(String.valueOf(org.getNumTelephone()));
-    tfnaissance.setPromptText(org.getDateDeNaissance());
     tfgenre.setPromptText(org.getGenre());
                 }}}
    
@@ -139,7 +138,7 @@ public class ModifierOrganisateurFXMLController implements Initializable {
         if((tfnom.getText().isEmpty()) ||(tfprenom.getText().isEmpty()) || 
                 (tfadresse.getText().isEmpty()) || (tfemail.getText().isEmpty()) ||
                 (tfgenre.getPromptText().isEmpty())|| (tftel.getText().isEmpty())  ||
-                (tfnaissance.getEditor().getText().isEmpty()) || (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
+                 (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
         
             lbl.setText("Vous devez remplir les champs");
         }
@@ -164,7 +163,7 @@ public class ModifierOrganisateurFXMLController implements Initializable {
         org.setMotDePasse(tfmdp.getText());
         org.setNumTelephone(Integer.parseInt(tftel.getText()));
         org.setGenre(tfgenre.getValue().toString());
-        org.setDateDeNaissance(tfnaissance.getValue().toString());
+        
     service.modifier(org);
     lbl.setText("");
         }
@@ -187,7 +186,7 @@ public class ModifierOrganisateurFXMLController implements Initializable {
         tfemail.clear();
         tftel.clear();
         tfmdp.clear();
-        tfnaissance.setValue(null);
+        
         tfCin.clear();
         tfCinRechercher.clear();
         
