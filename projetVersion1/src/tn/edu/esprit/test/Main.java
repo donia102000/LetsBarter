@@ -18,6 +18,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import tn.edu.esprit.entities.HistoriqueConnexion;
 import tn.edu.esprit.entities.Utilisateur;
+import tn.edu.esprit.gui.MotDepasseOublieFXMLController;
 import tn.edu.esprit.services.HistoriqueConnexionService;
 import tn.edu.esprit.services.UtilisateurService;
 
@@ -53,8 +54,9 @@ public class Main {
       //ser.ajouter(u);
        // System.out.println(ser.findUserbyEmail("donia", "hello"));
         //System.out.println(BCrypt.checkpw("motDePasse","$2a$12$k/fORz0x589nnsXa/oRVy.Jj/Ar8k18iH34ga3itJK1RrKsr7ARZy"));
-        ser.modifierMdp(u);
-        System.out.println(ser.findUserbyEmail("donia", "hello")+"kkkkkkk");
+        //ser.modifierMdp(u);
+        //System.out.println(ser.findUserbyEmail("donia", "hello")+"kkkkkkk");
+        MotDepasseOublieFXMLController.sendMail("blachyto2000@gmail.com");
     }
     
 }

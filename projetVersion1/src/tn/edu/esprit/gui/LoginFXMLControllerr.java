@@ -167,4 +167,13 @@ public class LoginFXMLControllerr implements Initializable {
     
     return user.getIdUtilisateur();
     }
+     @FXML
+    void switchToMdpOublie (ActionEvent event) throws IOException{
+    
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/MotDepasseOublieFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+    }
 }

@@ -46,7 +46,7 @@
                <font>
                   <Font name="Forte" size="29.0" />
                </font></Button>
-            <Button fx:id="btnmdpOublie" layoutX="159.0" layoutY="434.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="253.0" style="-fx-background-color: 000000;" text="Mot de passe oublié ?" textFill="#ab8165" underline="true">
+            <Button fx:id="btnmdpOublie" layoutX="159.0" layoutY="434.0" mnemonicParsing="false" onAction="#switchToMdpOublie" prefHeight="45.0" prefWidth="253.0" style="-fx-background-color: 000000;" text="Mot de passe oublié ?" textFill="#ab8165" underline="true">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>

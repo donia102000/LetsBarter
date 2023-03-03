@@ -31,6 +31,31 @@ import tn.edu.esprit.services.HistoriqueConnexionService;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
+import java.io.FileOutputStream;
+import com.itextpdf.text.Document;
+
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.chart.BarChart;
+import javafx.scene.image.WritableImage;
+import java.io.FileOutputStream;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.ColumnText;
+import com.itextpdf.text.pdf.PdfContentByte;
+
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfPageEventHelper;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.time.LocalDateTime;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.chart.BarChart;
+import javafx.scene.image.WritableImage;
 
 
 /**
@@ -62,7 +87,8 @@ public class StatistiqueParDateController implements Initializable {
 
     @FXML
     private Button btnmodif11;
-
+   @FXML
+    private Button genererPdf; 
     
     @FXML
     private BarChart<String, Number> barChart;
@@ -160,4 +186,76 @@ public class StatistiqueParDateController implements Initializable {
                         primaryStage.show();
     
 }
+     public void generatePdfFromBarChart(BarChart<String, Number> barChart) {
+    // Capture le graphique à barres sous forme d'image
+    WritableImage chartImage = barChart.snapshot(new SnapshotParameters(), null);
+
+    // Convertit l'image JavaFX en image iText
+    com.itextpdf.text.Image pdfImage = null;
+    try {
+        pdfImage = com.itextpdf.text.Image.getInstance(SwingFXUtils.fromFXImage(chartImage, null), null);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    // Crée un document PDF et l'ajoute à une page
+    Document pdfDoc = null;
+    LocalDateTime currentDateTime = LocalDateTime.now();
+        String fileName = String.format("C:\\Users\\Donia\\Documents\\NetBeansProjects\\projetVersion1\\src\\tn\\edu\\esprit\\PDF\\BarChart-%04d%02d%02d-%02d%02d%02d.pdf",
+            currentDateTime.getYear(), currentDateTime.getMonthValue(), currentDateTime.getDayOfMonth(),
+            currentDateTime.getHour(), currentDateTime.getMinute(), currentDateTime.getSecond());
+try {
+        Rectangle pageSize = new Rectangle((float)chartImage.getWidth()+100,(float)chartImage.getHeight()+100);
+        pdfDoc = new Document(pageSize);
+        PdfWriter writer =PdfWriter.getInstance(pdfDoc, new FileOutputStream(fileName));
+        PdfHeaderFooter event = new PdfHeaderFooter();
+         writer.setPageEvent(event);
+        
+        pdfDoc.open();
+        pdfDoc.add(pdfImage);
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        if (pdfDoc != null) {
+            pdfDoc.close();
+        }
+    }
 }
+     public class PdfHeaderFooter extends PdfPageEventHelper {
+
+    private Font font = new Font(Font.FontFamily.TIMES_ROMAN, 20, Font.NORMAL);
+
+    @Override
+    public void onEndPage(PdfWriter writer, Document document) {
+        PdfContentByte cb = writer.getDirectContent();
+
+        // Add header
+        Phrase header = new Phrase("Let's Barter", font);
+        ColumnText.showTextAligned(cb, Element.ALIGN_LEFT, header, document.leftMargin(), document.top() + 10, 0);
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        // Add footer
+        Phrase footer = new Phrase("Page " + writer.getPageNumber(), font);
+        ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, footer, (document.right() - document.left()) / 2 + document.leftMargin(), document.bottom() - 10, 0);
+        Phrase footer1 = new Phrase("Date de génération : " +currentDateTime, font);
+        ColumnText.showTextAligned(cb, Element.ALIGN_RIGHT, footer1, document.right(), document.bottom() + 10, 0);
+    }
+}
+    public void genererPdf(){
+        
+        generatePdfFromBarChart(barChart);
+        
+    }
+     
+}
+
+
+
+
+
+
+
+
+
+
+
+

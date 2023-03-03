@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.edu.esprit.gui.StatistiqueParDateController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.StatistiqueParDateController">
 <children>
       <Label layoutX="126.0" prefHeight="97.0" prefWidth="355.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
          <font>
@@ -73,7 +73,7 @@
             <Font name="Forte" size="34.0" />
          </font>
       </Label>
-       <BarChart fx:id="barChart" layoutX="56.0" layoutY="173.0" prefHeight="617.0" prefWidth="928.0" style="-fx-bar-: #ab8165;" stylesheets="@newCascadeStyleSheet.css" title="Nombre total de connexions ">
+       <BarChart fx:id="barChart" layoutX="56.0" layoutY="173.0" prefHeight="572.0" prefWidth="928.0" style="-fx-bar-: #ab8165;" stylesheets="@newCascadeStyleSheet.css" title="Nombre total de connexions ">
         <xAxis>
             <CategoryAxis />
         </xAxis>
@@ -81,6 +81,7 @@
             <NumberAxis />
         </yAxis>
     </BarChart>
+      <Button fx:id="genererPdf" layoutX="858.0" layoutY="745.0" mnemonicParsing="false" onAction="#genererPdf" text="Génerer PDF" />
    </children>
    
 </AnchorPane>
