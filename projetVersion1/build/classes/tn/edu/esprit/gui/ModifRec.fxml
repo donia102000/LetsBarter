@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pidev.gui.ModifRecController">
+   <children>
+      <Pane layoutY="-2.0" prefHeight="407.0" prefWidth="602.0" style="-fx-background-color: #FFF1B8;">
+         <children>
+            <Text layoutX="192.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tariter les réclamations " textAlignment="CENTER" wrappingWidth="209.03564453125" />
+            <TextField fx:id="idRec" layoutX="228.0" layoutY="119.0" />
+            <Text layoutX="22.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="entrer l'id de la reclamation" />
+            <Button fx:id="btntrouver" layoutX="228.0" layoutY="173.0" mnemonicParsing="false" onAction="#trouverParId" text="trouver " />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

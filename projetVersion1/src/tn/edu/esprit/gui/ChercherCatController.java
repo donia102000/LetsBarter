@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application.edu.pidev.gui;
+package edu.pidev.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,23 +11,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
  *
  * @author Dell
  */
-public class FXMLController implements Initializable {
+public class ChercherCatController implements Initializable {
 
     @FXML
-    private Button bntajouter;
+    private ListView<?> listCat;
     @FXML
-    private Button btnsupprimer;
+    private Button btntrouver;
     @FXML
-    private Button btnmodifier;
-    @FXML
-    private TableView<?> listCategorie;
+    private TextField idcat;
 
     /**
      * Initializes the controller class.
@@ -38,15 +37,11 @@ public class FXMLController implements Initializable {
     }    
 
     @FXML
-    private void ajouter(ActionEvent event) {
-    }
-
-    @FXML
-    private void supprimer(ActionEvent event) {
-    }
-
-    @FXML
-    private void modifier(ActionEvent event) {
+    private void trouverParId(ActionEvent event) { 
+        
+        
+        
+        
     }
     
 }

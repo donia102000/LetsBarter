@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pidev.tests;
+package tn.edu.esprit.test;
 
-import edu.pidev.entities.Categorie;
-import edu.pidev.entities.Reclamation;
-import edu.pidev.serices.ServiceCategorie;
-import edu.pidev.serices.Servicereclamation;
-import edu.pidev.utils.DataSource;
+import tn.edu.esprit.entities.Categorie;
+import tn.edu.esprit.entities.Reclamation;
+import tn.edu.esprit.services.ServiceCategorie;
+import tn.edu.esprit.services.Servicereclamation;
+import tn.edu.esprit.util.MyConnector;
 
 /** 
  * 
@@ -19,7 +19,7 @@ public class MainClass {
     
      public static void main(String[] args) {
         
-         DataSource.getInstance(); 
+         MyConnector.getInstance(); 
   ServiceCategorie sc  = new ServiceCategorie(); 
           Categorie c1 = new Categorie ("vehicule " ) ;    
 //        Categorie c2 = new Categorie ("nourriture " , "consommable") ; 
@@ -56,10 +56,10 @@ public class MainClass {
 //
 //     
 //    
-////        Reclamation r1 = new Reclamation("Titre réclamation 1", "Contenu réclamation 1");
- //r.ajouter(r1,"oumaima.ayari@esprit.tn") ;   
+//        Reclamation r1 = new Reclamation("Titre réclamation 1", "Contenu réclamation 1");
+ r.ajouter(r77,"oumaima.ayari@esprit.tn") ;   
 //// r.ajouter(r2) ;  
-    r.ajouter(r77,"") ;     
+       
 //
 ////r.supprimerReclamation(5);   
 //r.modifierReclamation(r3,"admin");  

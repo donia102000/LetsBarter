@@ -23,5 +23,6 @@ public interface IService  <  C>
 
 	    public C trouverParId(int id);
 
-	    public List<C> trouverTous();
+	    public List<C> trouverTous(); 
+        
 }
