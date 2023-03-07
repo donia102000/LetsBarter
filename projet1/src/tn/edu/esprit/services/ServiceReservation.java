@@ -6,6 +6,7 @@
 package tn.edu.esprit.services;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,13 +19,13 @@ import tn.edu.esprit.utils.DataBase1;
  *
  * @author Ghazoua
  */
-public class ServiceReservation implements IService2 <Reservation>{
+public class ServiceReservation implements IService <Reservation>{
     Connection cnx = DataBase1.getInstance().getCnx();
 
     @Override
     public void ajouter(Reservation r) {
-         try {
-            String req = "INSERT INTO `reservation` (`nbrPlace`) VALUES ('" + r.getNbrPace()+ "')";
+        try {
+            String req = "INSERT INTO `reservation` (`nbrPlace`,`idUtilisateur`,`idEvenement`) VALUES ('"+r.getNbrPace()+"','"+r.getId_client()+"','"+r.getEvenement().getId_evenement()+"')";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("Reservation created !");
@@ -45,17 +46,6 @@ public class ServiceReservation implements IService2 <Reservation>{
         }
     }
 
-    @Override
-    public void modifier(int id, int nbrPlace) {
-        try {
-            String req = "UPDATE `reservation` SET `nbrPlace` = '" +nbrPlace+ "' WHERE `reservation`.`idReservation` = " + id;
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
-            System.out.println("Evenement updated !");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
 
     @Override
     public List<Reservation> afficher() {
@@ -74,22 +64,36 @@ public class ServiceReservation implements IService2 <Reservation>{
 
         return list;
     }
-
-    @Override
-    public Reservation rechercher(int id) {
-        Reservation r = null;
+    
+    public List<Reservation> afficherParEvenement(int idEvent) {
+        List<Reservation> list = new ArrayList<>();
         try {
-            String req = "Select * from `reservation` WHERE `idReservation` = " +id;
+            String req = "Select * from `reservation` WHERE `idEvenement` ="+idEvent;
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
-               r = new Reservation(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getInt(4));
+                Reservation r = new Reservation(rs.getInt("idReservation"),rs.getInt("nbrPlace"),rs.getInt("idUtilisateur"),rs.getInt("idEvenement"));
+                list.add(r);
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
 
-        return r;
+        return list;
     }
+
+ 
+
+    @Override
+    public void modifier(Reservation t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Reservation rechercher(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
    
 }

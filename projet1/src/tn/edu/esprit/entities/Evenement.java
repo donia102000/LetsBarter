@@ -7,6 +7,7 @@ package tn.edu.esprit.entities;
 
 
 import java.util.Objects;
+import tn.edu.esprit.services.ServiceEvenement;
 
 /**
  *
@@ -14,39 +15,75 @@ import java.util.Objects;
  */
 public class Evenement {
     private int id_evenement;
+    private String matricule;
     private String libelle;
     private String date;
     private String lieu;
-    private int nbrPlaceMax;
-    private int id_client;
+    private String nbrPlaceMax;
+    public Organisateur organisateur;
+    int idUtilisateur;
+    
+    ServiceEvenement se= new ServiceEvenement();
 
     public Evenement() {
     }
 
-    public Evenement(int id_evenement, String libelle, String date, String lieu, int nbrPlaceMax, int id_client) {
+    public Evenement(int id_evenement, String matricule, String libelle, String date, String lieu, String nbrPlaceMax, Organisateur organisateur) {
         this.id_evenement = id_evenement;
+        this.matricule = matricule;
         this.libelle = libelle;
         this.date = date;
         this.lieu = lieu;
         this.nbrPlaceMax = nbrPlaceMax;
-        this.id_client = id_client;
+        this.organisateur = organisateur;
     }
 
-    public Evenement(String libelle, String date, String lieu, int nbrPlaceMax, int id_client) {
+    public Evenement(int id_evenement, String matricule, String libelle, String date, String lieu, String nbrPlaceMax, int idUtilisateur) {
+        this.id_evenement = id_evenement;
+        this.matricule = matricule;
         this.libelle = libelle;
         this.date = date;
         this.lieu = lieu;
         this.nbrPlaceMax = nbrPlaceMax;
-        this.id_client = id_client;
+        this.idUtilisateur = idUtilisateur;
     }
-    public Evenement(String libelle, String date, String lieu, int nbrPlaceMax) {
+     
+
+    
+    public Evenement(String matricule, String libelle, String date, String lieu, String nbrPlaceMax, int idUtilisateur) {
+        this.matricule = matricule;
+        this.libelle = libelle;
+        this.date = date;
+        this.lieu = lieu;
+        this.nbrPlaceMax = nbrPlaceMax;
+        this.idUtilisateur = idUtilisateur;
+    }
+
+    public Evenement(String matricule, String libelle, String date, String lieu, String  nbrPlaceMax, Organisateur organisateur) {
+        this.matricule = matricule;
+        this.libelle = libelle;
+        this.date = date;
+        this.lieu = lieu;
+        this.nbrPlaceMax = nbrPlaceMax;
+        this.organisateur = organisateur;
+    }
+
+    public Evenement(String matricule, String libelle, String date, String lieu, String nbrPlaceMax) {
+        this.matricule = matricule;
         this.libelle = libelle;
         this.date = date;
         this.lieu = lieu;
         this.nbrPlaceMax = nbrPlaceMax;
     }
+    
+    
+
     public int getId_evenement() {
         return id_evenement;
+    }
+
+    public String  getMatricule() {
+        return matricule;
     }
 
     public String getLibelle() {
@@ -61,16 +98,24 @@ public class Evenement {
         return lieu;
     }
 
-    public int getNbrPlaceMax() {
+    public String  getNbrPlaceMax() {
         return nbrPlaceMax;
     }
 
-    public int getId_client() {
-        return id_client;
+    public Organisateur getOrganisateur() {
+        return organisateur;
+    }
+
+    public int getIdUtilisateur() {
+        return idUtilisateur;
     }
 
     public void setId_evenement(int id_evenement) {
         this.id_evenement = id_evenement;
+    }
+
+    public void setMatricule(String  matricule) {
+        this.matricule = matricule;
     }
 
     public void setLibelle(String libelle) {
@@ -85,23 +130,29 @@ public class Evenement {
         this.lieu = lieu;
     }
 
-    public void setNbrPlaceMax(int nbrPlaceMax) {
+    public void setNbrPlaceMax(String  nbrPlaceMax) {
         this.nbrPlaceMax = nbrPlaceMax;
     }
 
-    public void setId_client(int id_client) {
-        this.id_client = id_client;
+    public void setOrganisateur(Organisateur organisateur) {
+        this.organisateur = organisateur;
+    }
+
+    public void setIdUtilisateur(int idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.id_evenement;
-        hash = 89 * hash + Objects.hashCode(this.libelle);
-        hash = 89 * hash + Objects.hashCode(this.date);
-        hash = 89 * hash + Objects.hashCode(this.lieu);
-        hash = 89 * hash + this.nbrPlaceMax;
-        hash = 89 * hash + this.id_client;
+        hash = 53 * hash + this.id_evenement;
+        hash = 53 * hash + Objects.hashCode(this.matricule);
+        hash = 53 * hash + Objects.hashCode(this.libelle);
+        hash = 53 * hash + Objects.hashCode(this.date);
+        hash = 53 * hash + Objects.hashCode(this.lieu);
+        hash = 53 * hash + Objects.hashCode(this.nbrPlaceMax);
+        hash = 53 * hash + Objects.hashCode(this.organisateur);
+        hash = 53 * hash + this.idUtilisateur;
         return hash;
     }
 
@@ -120,10 +171,13 @@ public class Evenement {
         if (this.id_evenement != other.id_evenement) {
             return false;
         }
-        if (this.nbrPlaceMax != other.nbrPlaceMax) {
+        if (!Objects.equals(this.matricule, other.matricule)) {
             return false;
         }
-        if (this.id_client != other.id_client) {
+        if (!Objects.equals(this.nbrPlaceMax, other.nbrPlaceMax)) {
+            return false;
+        }
+        if (this.idUtilisateur != other.idUtilisateur) {
             return false;
         }
         if (!Objects.equals(this.libelle, other.libelle)) {
@@ -135,13 +189,16 @@ public class Evenement {
         if (!Objects.equals(this.lieu, other.lieu)) {
             return false;
         }
+        if (!Objects.equals(this.organisateur, other.organisateur)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Evenement{" + "id_evenement=" + id_evenement + ", libelle=" + libelle + ", date=" + date + ", lieu=" + lieu + ", nbrPlaceMax=" + nbrPlaceMax + ", id_client=" + id_client + '}';
+        return "Evenement{" + "Matricule=" + matricule + ", Libelle=" + libelle + ", Date=" + date + ", Lieu=" + lieu + ", NombrePlaceMax=" + nbrPlaceMax + ", idUtilisateur=" + idUtilisateur + '}';
     }
-   
+
     
 }

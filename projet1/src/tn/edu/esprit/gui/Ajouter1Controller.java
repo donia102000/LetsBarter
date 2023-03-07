@@ -41,6 +41,9 @@ public class Ajouter1Controller implements Initializable {
      */
     
     @FXML
+    private TextField matricule;
+    
+    @FXML
     private TextField libelle;
 
     @FXML
@@ -53,7 +56,13 @@ public class Ajouter1Controller implements Initializable {
     private Button btnAjouter;
     
     @FXML
-    private Button btnRetour;
+    private Button btnAcceuil;
+
+    @FXML
+    private Button btnRetourEvenement;
+
+    @FXML
+    private Button btnRetourReservation;
 
     @FXML
     private DatePicker date;
@@ -69,32 +78,65 @@ public class Ajouter1Controller implements Initializable {
     }  
      @FXML
     public void AjouterEvenement(ActionEvent event) throws IOException {
-       if ((libelle.getText().isEmpty()) || (lieu.getText().isEmpty()) || (date.getEditor().getText().isEmpty()) || (nbrPlaceMax.getText().isEmpty())){
+        if((matricule.getText().isEmpty()) || (libelle.getText().isEmpty()) || (lieu.getText().isEmpty()) || (date.getEditor().getText().isEmpty()) || (nbrPlaceMax.getText().isEmpty())){
            Alert a = new Alert(Alert.AlertType.ERROR, "Veillez remplir tous les champs!!", ButtonType.OK);
            a.showAndWait();
-       }
-       else{
+        }
+        else if(!matricule.getText().matches("^[a-zA-Z]{2,3}[a-zA-Z]$") && matricule.getText().length() > 8){
+            Alert a = new Alert(Alert.AlertType.ERROR, "Matricule doit étre de 8 chiffres et lettres", ButtonType.OK);
+            a.showAndWait();
+            matricule.clear();
+        }
+        else if(!libelle.getText().matches("^[a-zA-Z0-9]$") && libelle.getText().length() > 10){
+            Alert a = new Alert(Alert.AlertType.ERROR, "Libelle doit étre de 10 chiffres et lettres", ButtonType.OK);
+            a.showAndWait();
+            libelle.clear();
+        }
+        else if(!lieu.getText().matches("^[a-zA-Z]$")){
+            Alert a = new Alert(Alert.AlertType.ERROR, "Lieu doit contenir que de lettres", ButtonType.OK);
+            a.showAndWait();
+            lieu.clear();
+        }
+        else if(!nbrPlaceMax.getText().matches("^[0-9]$")){
+            Alert a = new Alert(Alert.AlertType.ERROR, "Nombre de place max doit contenir que des chiffres ", ButtonType.OK);
+            a.showAndWait();
+            nbrPlaceMax.clear();
+        }
+//       if((){
+//           Alert a = new Alert(Alert.AlertType.ERROR, "Matricule doit contenir que des chiffres!!", ButtonType.OK);
+//           a.showAndWait();  
+//       }
+//       if(matricule.getText().length() !=8){
+//           Alert a = new Alert(Alert.AlertType.ERROR, "Matricule doit étre de 8 chiffres!!", ButtonType.OK);
+//           a.showAndWait();  
+//       }
+        else{
            ServiceEvenement se = new ServiceEvenement();
-           Evenement e = new Evenement (libelle.getText(),date.getEditor().getText(),lieu.getText(),Integer.parseInt(nbrPlaceMax.getText()));
+           Evenement e = new Evenement (matricule.getText(),libelle.getText(),date.getEditor().getText(),lieu.getText(),nbrPlaceMax.getText());
            se.ajouter(e);
-           System.out.println("Evenement ajoutée avec succée");
+           //se.SendSms();
            Alert alert = new Alert(Alert.AlertType.INFORMATION);
            alert.setTitle("Evenement ajoutée avec succée");
            alert.setHeaderText(null);
            alert.setContentText("Evenement ajoutée avec succée");
            alert.showAndWait();
-           Parent root = FXMLLoader.load(getClass().getResource("../gui/Afficher.fxml"));
-           Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-           Scene scene = new Scene(root);
-           primaryStage.setScene(scene);
-           primaryStage.show();
        }
 
     }
+
     
     @FXML
-    private void Retour(ActionEvent event) throws IOException {
+    private void RetourEv(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Afficher.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+    
+    @FXML
+    private void RetourReserv(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ReservationOrganisateur.fxml"));
         Stage mainStage = new Stage();
         Scene scene = new Scene(root);
         mainStage.setScene(scene);
@@ -106,3 +148,4 @@ public class Ajouter1Controller implements Initializable {
 
     
 }
+

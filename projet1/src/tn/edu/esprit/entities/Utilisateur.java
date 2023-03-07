@@ -21,12 +21,26 @@ public class Utilisateur {
     protected String dateDeNaissance;
     protected int numTelephone;
     protected String adresse;
-    protected String statut;
+    protected String role;
+    protected int cin;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(int idUtilisateur, String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, String dateDeNaissance, int numTelephone, String adresse, String statut) {
+    public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, String dateDeNaissance, int numTelephone, String adresse, String role, int cin) {
+        this.nomUtilisateur = nomUtilisateur;
+        this.prenomUtilisateur = prenomUtilisateur;
+        this.email = email;
+        this.motDePasse = motDePasse;
+        this.genre = genre;
+        this.dateDeNaissance = dateDeNaissance;
+        this.numTelephone = numTelephone;
+        this.adresse = adresse;
+        this.role = role;
+        this.cin = cin;
+    }
+
+    public Utilisateur(int idUtilisateur, String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, String dateDeNaissance, int numTelephone, String adresse, String role, int cin) {
         this.idUtilisateur = idUtilisateur;
         this.nomUtilisateur = nomUtilisateur;
         this.prenomUtilisateur = prenomUtilisateur;
@@ -36,19 +50,8 @@ public class Utilisateur {
         this.dateDeNaissance = dateDeNaissance;
         this.numTelephone = numTelephone;
         this.adresse = adresse;
-        this.statut = statut;
-    }
-
-    public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, String dateDeNaissance, int numTelephone, String adresse, String statut) {
-        this.nomUtilisateur = nomUtilisateur;
-        this.prenomUtilisateur = prenomUtilisateur;
-        this.email = email;
-        this.motDePasse = motDePasse;
-        this.genre = genre;
-        this.dateDeNaissance = dateDeNaissance;
-        this.numTelephone = numTelephone;
-        this.adresse = adresse;
-        this.statut = statut;
+        this.role = role;
+        this.cin = cin;
     }
 
     public int getIdUtilisateur() {
@@ -87,8 +90,12 @@ public class Utilisateur {
         return adresse;
     }
 
-    public String getStatut() {
-        return statut;
+    public String getRole() {
+        return role;
+    }
+
+    public int getCin() {
+        return cin;
     }
 
     public void setIdUtilisateur(int idUtilisateur) {
@@ -127,14 +134,28 @@ public class Utilisateur {
         this.adresse = adresse;
     }
 
-    public void setStatut(String statut) {
-        this.statut = statut;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setCin(int cin) {
+        this.cin = cin;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 17 * hash + this.idUtilisateur;
+        hash = 17 * hash + Objects.hashCode(this.nomUtilisateur);
+        hash = 17 * hash + Objects.hashCode(this.prenomUtilisateur);
+        hash = 17 * hash + Objects.hashCode(this.email);
+        hash = 17 * hash + Objects.hashCode(this.motDePasse);
+        hash = 17 * hash + Objects.hashCode(this.genre);
+        hash = 17 * hash + Objects.hashCode(this.dateDeNaissance);
+        hash = 17 * hash + this.numTelephone;
+        hash = 17 * hash + Objects.hashCode(this.adresse);
+        hash = 17 * hash + Objects.hashCode(this.role);
+        hash = 17 * hash + this.cin;
         return hash;
     }
 
@@ -154,6 +175,9 @@ public class Utilisateur {
             return false;
         }
         if (this.numTelephone != other.numTelephone) {
+            return false;
+        }
+        if (this.cin != other.cin) {
             return false;
         }
         if (!Objects.equals(this.nomUtilisateur, other.nomUtilisateur)) {
@@ -177,7 +201,7 @@ public class Utilisateur {
         if (!Objects.equals(this.adresse, other.adresse)) {
             return false;
         }
-        if (!Objects.equals(this.statut, other.statut)) {
+        if (!Objects.equals(this.role, other.role)) {
             return false;
         }
         return true;
@@ -185,8 +209,8 @@ public class Utilisateur {
 
     @Override
     public String toString() {
-        return "Utilisateur{" + "idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur + ", prenomUtilisateur=" + prenomUtilisateur + ", email=" + email + ", motDePasse=" + motDePasse + ", genre=" + genre + ", dateDeNaissance=" + dateDeNaissance + ", numTelephone=" + numTelephone + ", adresse=" + adresse + ", statut=" + statut + '}';
+        return "Utilisateur{" + "idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur + ", prenomUtilisateur=" + prenomUtilisateur + ", email=" + email + ", motDePasse=" + motDePasse + ", genre=" + genre + ", dateDeNaissance=" + dateDeNaissance + ", numTelephone=" + numTelephone + ", adresse=" + adresse + ", role=" + role + ", cin=" + cin + '}';
     }
-  
+
     
 }
