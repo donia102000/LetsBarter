@@ -5,6 +5,10 @@
  */
 package edu.GestionAnnonce.entities;
 
+import java.io.File;
+import java.util.Base64;
+import javafx.scene.image.Image;
+
 /**
  *
  * @author NOURHENE
@@ -16,27 +20,81 @@ public class Annonce {
     String souscategorie;
     String description;
     String valeurobjet;
-    String image;
-    String video;
+ String image;
+  
     String adresse;
     String tel;
-
-    public Annonce() {
+    boolean estAimee;
+private Avis avis;
+  public Annonce annonce;
+public Annonce(Avis avis) {
+        this.avis = avis;
     }
 
-    public Annonce(String titre, String categorie, String souscategorie, String description, String valeurobjet, String image, String video, String adresse, String tel) {
-        this.titre = titre;
+    public Annonce(String titre, String categorie, String souscategorie, String description, String valeurobjet, String image, String adresse, String tel) {
+         this.titre = titre;
         this.categorie = categorie;
         this.souscategorie = souscategorie;
         this.description = description;
         this.valeurobjet = valeurobjet;
         this.image = image;
-        this.video = video;
+     
         this.adresse = adresse;
         this.tel = tel;
     }
 
-    public Annonce(int id, String titre, String categorie, String souscategorie, String description, String valeurobjet, String image, String video, String adresse, String tel) {
+    public Annonce(String titre, String categorie, String description, String valeurobjet, String image, String adresse, String tel) {
+         this.titre = titre;
+        this.categorie = categorie;
+      
+        this.description = description;
+        this.valeurobjet = valeurobjet;
+        this.image = image;
+     
+        this.adresse = adresse;
+        this.tel = tel;
+    }
+    public String getImage() {
+        return image;
+    }
+     public Annonce getAnnonce() {
+        return annonce;
+    }
+
+    public boolean estAimee() {
+        return estAimee;
+    }
+
+    public void setAimee(boolean estAimee) {
+        this.estAimee = estAimee;
+    }
+
+    @Override
+    public String toString() {
+        return "Annonce{" + "id=" + id + ", titre=" + titre + ", categorie=" + categorie + ", souscategorie=" + souscategorie + ", description=" + description + ", valeurobjet=" + valeurobjet + ", image=" + image + ", adresse=" + adresse + ", tel=" + tel + '}';
+    }
+
+  
+
+   
+
+    
+
+    
+
+    public Annonce(int id, String titre, String description, String image) {
+        this.id = id;
+        this.titre = titre;
+        this.description = description;
+        this.image = image;
+    }
+ 
+    public Annonce() {
+    }
+
+   
+
+    public Annonce(int id, String titre, String categorie, String souscategorie, String description, String valeurobjet, String image, String adresse, String tel) {
         this.id = id;
         this.titre = titre;
         this.categorie = categorie;
@@ -44,7 +102,7 @@ public class Annonce {
         this.description = description;
         this.valeurobjet = valeurobjet;
         this.image = image;
-        this.video = video;
+      
         this.adresse = adresse;
         this.tel = tel;
     }
@@ -111,23 +169,17 @@ public class Annonce {
         this.tel = tel;
     }
 
-   
-
-    public String getImage() {
-        return image;
-    }
+  
 
     public void setImage(String image) {
         this.image = image;
     }
 
-    public String getVideo() {
-        return video;
-    }
+   
 
-    public void setVideo(String video) {
-        this.video = video;
-    }
+   
+
+  
 
     public String getAdresse() {
         return adresse;
@@ -139,10 +191,7 @@ public class Annonce {
 
    
 
-    @Override
-    public String toString() {
-        return "Annonce{" + "titre=" + titre + ", categorie=" + categorie + ", souscategorie=" + souscategorie + ", description=" + description + ", valeurobjet=" + valeurobjet + ", image=" + image + ", video=" + video + ", adresse=" + adresse + ", tel=" + tel + '}';
-    }
+   
 
    
 
@@ -172,8 +221,5 @@ public class Annonce {
         }
         return true;
     }
-
-    public Object getAvis() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
 }
