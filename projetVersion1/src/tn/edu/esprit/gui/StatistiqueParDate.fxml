@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.StatistiqueParDateController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.StatistiqueParDateController">
 <children>
       <Label layoutX="126.0" prefHeight="97.0" prefWidth="355.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
          <font>
@@ -24,17 +24,12 @@
       </ImageView>
       <AnchorPane layoutX="1006.0" prefHeight="802.0" prefWidth="198.0" style="-fx-background-color: #F1EDDF;">
          <children>
-            <Button fx:id="btnmodif" layoutX="23.0" layoutY="262.0" mnemonicParsing="false" onAction="#switchToModifSuppOrganisateur" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Modifier/supprimer organisateurs" textFill="#f8f8f8">
+            <Button fx:id="btnajouter" layoutX="23.0" layoutY="296.0" mnemonicParsing="false" onAction="#switchToAjouterOrganisateur" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Ajouter organisateu" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnajouter" layoutX="23.0" layoutY="205.0" mnemonicParsing="false" onAction="#switchToAjouterOrganisateur" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Ajouter organisateu" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="lblAcceuil" layoutX="23.0" layoutY="146.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Acceuil" textFill="WHITE">
+            <Button fx:id="lblAcceuil" layoutX="22.0" layoutY="240.0" mnemonicParsing="false" onAction="#SwitchToAcceuil" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Acceuil" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -45,27 +40,28 @@
                </image>
             </ImageView>
             <Button fx:id="lbldeconnexion" layoutX="38.0" layoutY="74.0" mnemonicParsing="false" onAction="#deconnecter" style="-fx-background-color: 00000000000000000;" text="Se deconnecter" />
-            <Button fx:id="btnretour" layoutX="94.0" layoutY="690.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="87.0" prefWidth="74.0" style="-fx-background-color: 00000000000;" />
+            <Button fx:id="btnretour" layoutX="94.0" layoutY="690.0" mnemonicParsing="false" onAction="#SwitchToAcceuil" prefHeight="87.0" prefWidth="74.0" style="-fx-background-color: 00000000000;" />
             <ImageView fitHeight="57.0" fitWidth="54.0" layoutX="91.0" layoutY="708.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/left-arrow.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnmodif1" layoutX="23.0" layoutY="318.0" mnemonicParsing="false" onAction="#SwitchToListeOrg" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste organisateurs" textFill="#f8f8f8">
+            <Button fx:id="btnmodif1" layoutX="23.0" layoutY="358.0" mnemonicParsing="false" onAction="#SwitchToListeOrg" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste organisateurs" textFill="#f8f8f8">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnStatistiqueParDate" layoutX="23.0" layoutY="383.0" mnemonicParsing="false" onAction="#SwitchToStatisqueParDate" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Statistique des historique de Connexion Par Date" textFill="#f8f8f8">
+            <Button fx:id="btnStatistiqueParDate" layoutX="23.0" layoutY="418.0" mnemonicParsing="false" onAction="#SwitchToStatisqueParDate" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Statistique des historique de Connexion Par Date" textFill="#f8f8f8">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnmodif11" layoutX="23.0" layoutY="437.0" mnemonicParsing="false" onAction="#SwitchToListeOrg" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste organisateurs" textFill="#f8f8f8">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
+            <Button fx:id="btnprofil" layoutX="63.0" layoutY="174.0" mnemonicParsing="false" onAction="#SwitchToProfil" style="-fx-background-color: 00000;" text="Compte" />
+            <ImageView fitHeight="63.0" fitWidth="55.0" layoutX="72.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/profil.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <Label layoutX="37.0" layoutY="116.0" prefHeight="57.0" prefWidth="498.0" style="-fx-background-color: 000000;" text="Historique de connexions par date" textFill="#bf9d86">
@@ -81,7 +77,12 @@
             <NumberAxis />
         </yAxis>
     </BarChart>
-      <Button fx:id="genererPdf" layoutX="858.0" layoutY="745.0" mnemonicParsing="false" onAction="#genererPdf" text="Génerer PDF" />
+      <Button fx:id="genererPdf" layoutX="877.0" layoutY="728.0" mnemonicParsing="false" onAction="#genererPdf" prefHeight="57.0" prefWidth="73.0" style="-fx-background-color: #f4c973;" text="Génerer PDF" textFill="#f4c973" />
+      <ImageView fitHeight="54.0" fitWidth="55.0" layoutX="887.0" layoutY="731.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/telecharger-le-pdf.png" />
+         </image>
+      </ImageView>
    </children>
    
 </AnchorPane>

@@ -139,6 +139,13 @@ UtilisateurService service =new UtilisateurService();
                         primaryStage.setScene(scene);
                         primaryStage.show();
      }
+    public void SwitchToAcceuil (ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminAcceuilOfficielFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
     @FXML
     public void mofifier() throws SQLException{
         if((tfmdp.getText().isEmpty()) ||(tfmdpverif.getText().isEmpty()) ){
@@ -146,7 +153,7 @@ UtilisateurService service =new UtilisateurService();
             lbl.setText("Vous devez remplir les champs");
         }
         else if(!VerifierChamps.isValidPassword(tfmdp.getText()) || 
-             !VerifierChamps.isValidPassword(tfmdpverif.getText())  )  
+             !VerifierChamps.isValidPassword(tfmdpverif.getText())|| !tfmdpverif.getText().equals(tfmdp.getText())  )  
              
      {
          

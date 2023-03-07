@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +18,7 @@
             <Insets />
          </opaqueInsets>
       </ListView>
-      <Pane layoutX="602.0" layoutY="185.0" prefHeight="541.0" prefWidth="328.0" style="-fx-background-color: #FAD678;">
+      <Pane layoutX="602.0" layoutY="184.0" prefHeight="542.0" prefWidth="343.0" style="-fx-background-color: #FAD678;">
          <children>
             <Label fx:id="lblprenom" layoutX="38.0" layoutY="70.0" prefHeight="44.0" prefWidth="175.0" text="Prenom">
                <font>
@@ -34,11 +35,7 @@
                   <Font name="Book Antiqua" size="16.0" />
                </font>
             </Label>
-            <ImageView fitHeight="111.0" fitWidth="109.0" layoutX="207.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/profil.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="imageView" fitHeight="111.0" fitWidth="109.0" layoutX="207.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="80.0" fitWidth="46.0" layoutX="23.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/email.png" />
@@ -71,7 +68,7 @@
             </Label>
             <ImageView fitHeight="44.0" fitWidth="37.0" layoutX="28.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/date-danniversaire.png" />
+                  <Image url="@../Images/id-card.png" />
                </image>
             </ImageView>
             <Label fx:id="lbladresse" layoutX="86.0" layoutY="248.0" prefHeight="46.0" prefWidth="230.0" text="Adresse">
@@ -89,7 +86,7 @@
                   <Font name="Book Antiqua" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblanniver" layoutX="86.0" layoutY="479.0" prefHeight="46.0" prefWidth="230.0" text="Date de naissance">
+            <Label fx:id="lblCin" layoutX="86.0" layoutY="479.0" prefHeight="46.0" prefWidth="230.0" text="CIN">
                <font>
                   <Font name="Book Antiqua" size="16.0" />
                </font>
@@ -108,17 +105,12 @@
       </ImageView>
       <AnchorPane layoutX="1006.0" prefHeight="802.0" prefWidth="198.0" style="-fx-background-color: #F1EDDF;">
          <children>
-            <Button fx:id="btnmodif" layoutX="23.0" layoutY="262.0" mnemonicParsing="false" onAction="#switchToModifSuppOrganisateur" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Modifier/supprimer organisateurs" textFill="#f8f8f8">
+            <Button fx:id="btnajouter" layoutX="19.0" layoutY="292.0" mnemonicParsing="false" onAction="#switchToAjouterOrganisateur" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Ajouter organisateu" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnajouter" layoutX="23.0" layoutY="205.0" mnemonicParsing="false" onAction="#switchToAjouterOrganisateur" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Ajouter organisateu" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="lblAcceuil" layoutX="23.0" layoutY="146.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Acceuil" textFill="WHITE">
+            <Button fx:id="lblAcceuil" layoutX="22.0" layoutY="236.0" mnemonicParsing="false" onAction="#SwitchToAcceuil" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Acceuil" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -129,28 +121,28 @@
                </image>
             </ImageView>
             <Button fx:id="lbldeconnexion" layoutX="38.0" layoutY="74.0" mnemonicParsing="false" onAction="#deconnecter" style="-fx-background-color: 00000000000000000;" text="Se deconnecter" />
-            <Button fx:id="btnretour" layoutX="94.0" layoutY="690.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="87.0" prefWidth="74.0" style="-fx-background-color: 00000000000;" />
+            <Button fx:id="btnretour" layoutX="94.0" layoutY="690.0" mnemonicParsing="false" onAction="#SwitchToAcceuil" prefHeight="87.0" prefWidth="74.0" style="-fx-background-color: 00000000000;" />
             <ImageView fitHeight="57.0" fitWidth="54.0" layoutX="91.0" layoutY="708.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/left-arrow.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnmodif1" layoutX="23.0" layoutY="318.0" mnemonicParsing="false" onAction="#SwitchToListeOrg" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste organisateurs" textFill="#f8f8f8">
+            <Button fx:id="btnmodif1" layoutX="22.0" layoutY="350.0" mnemonicParsing="false" onAction="#SwitchToListeOrg" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste organisateurs" textFill="#f8f8f8">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnStatistiqueParDate" layoutX="23.0" layoutY="383.0" mnemonicParsing="false" onAction="#SwitchToStatisqueParDate" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Statistique des historique de Connexion Par Date" textFill="#f8f8f8">
+            <Button fx:id="btnStatistiqueParDate" layoutX="22.0" layoutY="413.0" mnemonicParsing="false" onAction="#SwitchToStatisqueParDate" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Statistique des historique de Connexion Par Date" textFill="#f8f8f8">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnmodif11" layoutX="23.0" layoutY="437.0" mnemonicParsing="false" onAction="#SwitchToListeOrg" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste organisateurs" textFill="#f8f8f8">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnprofil" layoutX="59.0" layoutY="509.0" mnemonicParsing="false" onAction="#SwitchToProfil" text="Profil" />
+            <Button fx:id="btnprofil" layoutX="63.0" layoutY="170.0" mnemonicParsing="false" onAction="#SwitchToProfil" style="-fx-background-color: 0000;" text="Compte" />
+            <ImageView fitHeight="63.0" fitWidth="55.0" layoutX="72.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/profil.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <Label layoutX="37.0" layoutY="116.0" prefHeight="57.0" prefWidth="334.0" style="-fx-background-color: 000000;" text="Liste des organisateurs" textFill="#bf9d86">
@@ -158,5 +150,23 @@
             <Font name="Forte" size="34.0" />
          </font>
       </Label>
+      <TextField fx:id="rechercheTf" layoutX="501.0" layoutY="108.0" prefHeight="37.0" prefWidth="187.0" />
+      <Label fx:id="lbl" layoutX="491.0" layoutY="152.0" prefHeight="21.0" prefWidth="256.0" />
+      <Button fx:id="supprimerBtn" layoutX="932.0" layoutY="730.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="54.0" prefWidth="55.0" style="-fx-background-color: #e8b833;" />
+      <Button fx:id="rechercherBtn" alignment="CENTER" layoutX="699.0" layoutY="108.0" mnemonicParsing="false" onAction="#rechercher" prefHeight="37.0" prefWidth="54.0" style="-fx-background-color: #e8b833;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="710.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/search.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="938.0" layoutY="735.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/effacer.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

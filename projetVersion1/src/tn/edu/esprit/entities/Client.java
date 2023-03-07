@@ -45,6 +45,11 @@ private int nbPoint;
         this.nbPoint = point;
     }
 
+    public Client(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, int numTelephone, String adresse, String role, int cin, byte[] image,int nbPoint) {
+        super(nomUtilisateur, prenomUtilisateur, email, motDePasse, genre, numTelephone, adresse, role, cin, image);
+        this.nbPoint = nbPoint;
+    }
+
    
     
     

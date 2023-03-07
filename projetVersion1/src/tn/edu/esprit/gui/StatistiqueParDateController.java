@@ -89,7 +89,8 @@ public class StatistiqueParDateController implements Initializable {
     private Button btnmodif11;
    @FXML
     private Button genererPdf; 
-    
+    @FXML
+    private Button btnprofil;
     @FXML
     private BarChart<String, Number> barChart;
     @Override
@@ -245,7 +246,19 @@ try {
         generatePdfFromBarChart(barChart);
         
     }
-     
+     public void SwitchToAcceuil (ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminAcceuilOfficielFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();}
+     public void SwitchToProfil(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/ProfilFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
 }
 
 

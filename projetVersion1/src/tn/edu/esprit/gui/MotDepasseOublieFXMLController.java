@@ -82,7 +82,7 @@ public class MotDepasseOublieFXMLController implements Initializable {
      }
       else  if((event.getSource() == enregistrerBtn) && 
                 !(cin.getText().isEmpty()) &&!(email.getText().isEmpty()) && 
-                !(motDePasse.getText().isEmpty()) && !(verifMdp.getText().isEmpty()) ){
+                !(motDePasse.getText().isEmpty()) && !(verifMdp.getText().isEmpty()) && verifMdp.getText().equals(motDePasse.getText()) ){
             
            // Client c = new Client (.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(), tfgenre.getValue(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"client",Integer.parseInt(tfCin.getText()),0);
            
@@ -94,6 +94,7 @@ public class MotDepasseOublieFXMLController implements Initializable {
             
             user = ins.chercherUtilisateurParCin(Integer.parseInt(cin.getText()));
             user.setMotDePasse(motDePasse.getText());
+                System.out.println("motdepasse"+motDePasse.getText());
             ins.modifierMdp(user);
             sendMail(email.getText());
             loginMessage.setText("Votre mot de passe est modifié avec succés");

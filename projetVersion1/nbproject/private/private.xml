@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ModifierInfoProfilFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/AdminAcceuiFXMLController.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/services/UtilisateurService.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ProfilFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ClientModifierMdpFXMLController.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ModifierMdpFXMLController.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/test/Main.java</file>
+            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ClientProfilFXML.fxml</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/LoginFXMLControllerr.java</file>
+            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/MotDepasseOublieFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ClientProfilFXMLController.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/InscrireFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/OrganisateurModifierInfoProfilFXMLController.java</file>
         </group>
     </open-files>
 </project-private>

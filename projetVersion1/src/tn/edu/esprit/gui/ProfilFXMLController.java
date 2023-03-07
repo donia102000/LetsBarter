@@ -5,7 +5,9 @@
  */
 package tn.edu.esprit.gui;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -18,6 +20,8 @@ import javafx.scene.Scene;
 import tn.edu.esprit.util.Utility;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 /**
  * FXML Controller class
@@ -70,7 +74,10 @@ public class ProfilFXMLController implements Initializable {
 
     @FXML
     private Button btnprofil;
-
+    @FXML
+    private Label lblCin;
+     @FXML
+    private ImageView imageView;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,6 +88,13 @@ public class ProfilFXMLController implements Initializable {
        lbladresse.setText(Utility.utilisateur.getAdresse());
        lblcontact.setText(Utility.utilisateur.getEmail());
        lbltel.setText(String.valueOf( Utility.utilisateur.getNumTelephone()));
+       lblCin.setText(String.valueOf( Utility.utilisateur.getCin()));
+       byte[] imageData =Utility.utilisateur.getImage();
+    // Conversion des données de l'image en un objet Image
+      InputStream in = new ByteArrayInputStream(imageData);
+      Image image = new Image(in);
+       imageView.setImage(image);
+       
        
     }    
     
@@ -144,4 +158,10 @@ public class ProfilFXMLController implements Initializable {
                         primaryStage.setScene(scene);
                         primaryStage.show();
      }
+     public void SwitchToAcceuil (ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminAcceuilOfficielFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();}
 }

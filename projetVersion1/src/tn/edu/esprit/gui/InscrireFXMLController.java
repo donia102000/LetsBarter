@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.edu.esprit.entities.Client;
@@ -63,7 +64,8 @@ public class InscrireFXMLController implements Initializable {
     
      @FXML
     private TextField tfCin;
-
+    @FXML
+    private PasswordField tfverifmdp;
     @FXML
     private ComboBox<String> tfgenre;
     ObservableList<String> liste=FXCollections.observableArrayList("Homme","Femme");
@@ -86,7 +88,7 @@ public class InscrireFXMLController implements Initializable {
         if((tfnom.getText().isEmpty()) ||(tfprenom.getText().isEmpty()) || 
                 (tfadresse.getText().isEmpty()) || (tfemail.getText().isEmpty()) ||
                 (tfgenre.getPromptText().isEmpty())|| (tftel.getText().isEmpty())  ||
-                 (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())){
+                 (tfCin.getText().isEmpty())||(tfmdp.getText().isEmpty())||(tfverifmdp.getText().isEmpty()) ){
         
             lbl.setText("Vous deviez remplir les champs");
         }
@@ -97,7 +99,9 @@ public class InscrireFXMLController implements Initializable {
              !VerifierChamps.stringTest(tfadresse.getText())||
              !VerifierChamps.isTelephoneValide(tfCin.getText())||
              !VerifierChamps.isEmailAdress(tfemail.getText()) ||
-             !VerifierChamps.isValidPassword(tfmdp.getText())  
+             !VerifierChamps.isValidPassword(tfmdp.getText()) ||
+             !VerifierChamps.isValidPassword(tfverifmdp.getText())||
+             !tfverifmdp.getText().equals(tfmdp.getText())
              )
      {
          
@@ -107,7 +111,7 @@ public class InscrireFXMLController implements Initializable {
                 !(tfnom.getText().isEmpty()) &&!(tfprenom.getText().isEmpty()) && 
                 !(tfadresse.getText().isEmpty()) && !(tfemail.getText().isEmpty()) && 
                 !(tfgenre.getPromptText().isEmpty())&& !(tftel.getText().isEmpty())  &&
-                !(tfCin.getText().isEmpty())&&!(tfmdp.getText().isEmpty())){
+                !(tfCin.getText().isEmpty())&&!(tfmdp.getText().isEmpty())&& tfverifmdp.getText().equals(tfmdp.getText())){
             
             Client c = new Client (tfnom.getText(),tfprenom.getText(), tfemail.getText(), tfmdp.getText(), tfgenre.getValue(),Integer.parseInt(tftel.getText()), tfadresse.getText(),"client",Integer.parseInt(tfCin.getText()),0);
            
@@ -143,7 +147,7 @@ public class InscrireFXMLController implements Initializable {
         tftel.clear();
         tfgenre.setValue(null);
         tfmdp.clear();
-        
+        tfverifmdp.clear();
         tfCin.clear();
         
     }

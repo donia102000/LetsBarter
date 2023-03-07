@@ -5,10 +5,12 @@
  */
 package tn.edu.esprit.services;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import org.mindrot.jbcrypt.BCrypt;
@@ -48,7 +50,7 @@ public class UtilisateurService implements IService<Utilisateur>{
         else if(p instanceof Organisateur){
         role ="organisateur";
         }
-        String requete1 ="INSERT INTO `utilisateur` (`nomUtilisateur`, `prenomUtilisateur`, `email`, `motDePasse`, `genre`, `numTelephone`, `adresse`, `role`, `nbPoint`,`cin`) VALUES (?, ?, ?, ?,?, ?, ?,?,?,?) ";
+        String requete1 ="INSERT INTO `utilisateur` (`nomUtilisateur`, `prenomUtilisateur`, `email`, `motDePasse`, `genre`, `numTelephone`, `adresse`, `role`, `nbPoint`,`cin`,`image`) VALUES (?, ?, ?, ?,?, ?, ?,?,?,?,?) ";
         
     try {
              pst =connection.prepareStatement(requete1);
@@ -63,6 +65,7 @@ public class UtilisateurService implements IService<Utilisateur>{
             pst.setString(8,role);
             pst.setInt(9,0);
             pst.setInt(10,p.getCin());
+            pst.setBytes(11,p.getImage());
             pst.executeUpdate();
             
            
@@ -73,7 +76,7 @@ public class UtilisateurService implements IService<Utilisateur>{
       
     }
 public void modifierMdp (Utilisateur p) throws SQLException {
-    String role="admin";
+    /*String role="admin";
         
         if( (p instanceof Client)){
         role ="client";
@@ -83,15 +86,15 @@ public void modifierMdp (Utilisateur p) throws SQLException {
         }
         else if(p instanceof Organisateur){
         role ="organisateur";
-        }
-    String requete = "UPDATE `utilisateur` SET `motDePasse`=?,`role`=? WHERE `email`=? AND `cin`=? ";
+        }*/
+    String requete = "UPDATE `utilisateur` SET `motDePasse`=? WHERE `email`=? AND `cin`=? ";
         try {
            pst = connection.prepareStatement(requete);
            
             pst.setString(1,p.getMotDePasse());
-            pst.setString(2,role);
-            pst.setString(3,p.getEmail());
-            pst.setInt(4,p.getCin());
+            //pst.setString(2,role);
+            pst.setString(2,p.getEmail());
+            pst.setInt(3,p.getCin());
             
             pst.executeUpdate();
             System.out.println("Mise à jour effectuée avec succès");
@@ -102,7 +105,7 @@ public void modifierMdp (Utilisateur p) throws SQLException {
 }
     @Override
     public void modifier(Utilisateur p) throws SQLException {
-        String role="admin";
+        /*String role="admin";
         
         if( (p instanceof Client)){
         role ="client";
@@ -112,8 +115,8 @@ public void modifierMdp (Utilisateur p) throws SQLException {
         }
         else if(p instanceof Organisateur){
         role ="organisateur";
-        }
-        String requete = "UPDATE `utilisateur` SET `nomUtilisateur`= ?,`prenomUtilisateur`=?,`email`=?,`genre`=?,`numTelephone`=?,`adresse`=?,`role`=?,`nbPoint`=?,`cin`=? WHERE `idUtilisateur`=?";
+        }*/
+        String requete = "UPDATE `utilisateur` SET `nomUtilisateur`= ?,`prenomUtilisateur`=?,`email`=?,`genre`=?,`numTelephone`=?,`adresse`=?,`role`=?,`nbPoint`=?,`cin`=?,`image`=? WHERE `idUtilisateur`=?";
         try {
            pst = connection.prepareStatement(requete);
            
@@ -125,10 +128,12 @@ public void modifierMdp (Utilisateur p) throws SQLException {
             
             pst.setInt(5,p.getNumTelephone());
             pst.setString(6,p.getAdresse());
-            pst.setString(7,role);
+            pst.setString(7,p.getRole());
             pst.setInt(8, 0);
             pst.setInt(9, p.getCin());
-            pst.setInt(10, p.getIdUtilisateur());
+             pst.setBytes(10, p.getImage());
+            pst.setInt(11, p.getIdUtilisateur());
+           
             pst.executeUpdate();
             System.out.println("Mise à jour effectuée avec succès");
         } catch (SQLException ex) {
@@ -179,6 +184,7 @@ List<Utilisateur> liste = new ArrayList();
                   org.setNumTelephone(resultat.getInt("numTelephone"));
                   org.setAdresse(resultat.getString("adresse"));
                   org.setCin(resultat.getInt("cin"));
+                  org.setImage(resultat.getBytes("image"));
 
                 liste.add(org);
             }
@@ -191,27 +197,37 @@ List<Utilisateur> liste = new ArrayList();
        
     }        
 public Utilisateur chercherUtilisateurParCin(int cin) {
-         Organisateur org = new Organisateur();
-        String requete = "SELECT * FROM `utilisateur` WHERE cin =? and role=?";
+         Utilisateur p = new Utilisateur();
+         String role="admin";
+        
+        if( (p instanceof Client)){
+        role ="client";
+        }
+        else if (p instanceof Admin){
+        role ="admin";
+        }
+        else if(p instanceof Organisateur){
+        role ="organisateur";}
+        String requete = "SELECT * FROM `utilisateur` WHERE cin =? ";
         try {
             pst = connection.prepareStatement(requete);
             pst.setInt(1, cin);
-            pst.setString(2,"organisateur");
+            //pst.setString(2,role);
             ResultSet resultat = pst.executeQuery();
             while (resultat.next()) {
-                org.setIdUtilisateur(resultat.getInt(1));
-                  org.setNomUtilisateur(resultat.getString("nomUtilisateur"));
-                  org.setPrenomUtilisateur(resultat.getString("prenomUtilisateur"));
-                  org.setEmail(resultat.getString("email"));
-                  org.setMotDePasse(resultat.getString("motDePasse"));
-                  org.setGenre(resultat.getString("genre"));
-                  org.setRole(resultat.getString("role"));
+                p.setIdUtilisateur(resultat.getInt(1));
+                  p.setNomUtilisateur(resultat.getString("nomUtilisateur"));
+                  p.setPrenomUtilisateur(resultat.getString("prenomUtilisateur"));
+                  p.setEmail(resultat.getString("email"));
+                  p.setMotDePasse(resultat.getString("motDePasse"));
+                  p.setGenre(resultat.getString("genre"));
+                  p.setRole(resultat.getString("role"));
                   
-                  org.setNumTelephone(resultat.getInt("numTelephone"));
-                  org.setAdresse(resultat.getString("adresse"));
-                  org.setCin(resultat.getInt("cin"));
+                  p.setNumTelephone(resultat.getInt("numTelephone"));
+                  p.setAdresse(resultat.getString("adresse"));
+                  p.setCin(resultat.getInt("cin"));
             }
-            return org;
+            return p;
 
         } catch (SQLException ex) {
             //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -262,7 +278,7 @@ public boolean chercherUtilisateurParCinMail(int cin,String email) throws SQLExc
 
 public void inscrire(Utilisateur user){
     
-    String requete1 ="INSERT INTO `utilisateur` (`nomUtilisateur`, `prenomUtilisateur`, `email`, `motDePasse`, `genre`, `numTelephone`, `adresse`, `role`, `nbPoint`,`cin`) VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?) ";
+    String requete1 ="INSERT INTO `utilisateur` (`nomUtilisateur`, `prenomUtilisateur`, `email`, `motDePasse`, `genre`, `numTelephone`, `adresse`, `role`, `nbPoint`,`cin`,`image`) VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?,?) ";
    
         try {
              pst =connection.prepareStatement(requete1);
@@ -276,6 +292,7 @@ public void inscrire(Utilisateur user){
             pst.setString(8,"client");
             pst.setInt(9,0);
             pst.setInt(10, user.getCin());
+            pst.setBytes(11,new byte[0]);
             pst.executeUpdate();
             
            
@@ -316,7 +333,7 @@ public void inscrire(Utilisateur user){
                   user.setNumTelephone(resultat.getInt("numTelephone"));
                   user.setAdresse(resultat.getString("adresse"));
                   user.setCin(resultat.getInt("cin"));
-                  
+                  user.setImage(resultat.getBytes("image"));
                   
               
                    return user;   
@@ -328,6 +345,58 @@ public void inscrire(Utilisateur user){
      
    
     }
-    
+    public void ajouterImg(byte[] imageData) throws SQLException {
+        
+        String requete1 ="INSERT INTO `utilisateur` (`nomUtilisateur`, `prenomUtilisateur`, `email`, `motDePasse`, `genre`, `numTelephone`, `adresse`, `role`, `nbPoint`,`cin`,`image`) VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?,?) ";
+        
+    try {
+             pst =connection.prepareStatement(requete1);
+             
+             
+             
+            
+           
+             pst.setString(1,"hhh");
+            pst.setString(2,"dddd");
+            pst.setString(3,"ddd");
+            pst.setString(4,"dddddd");
+            pst.setString(5,"dddddd");
+            pst.setInt(6,0);
+            pst.setString(7,"ddd");
+            pst.setString(8,"client");
+            pst.setInt(9,0);
+            pst.setInt(10,0);
+            pst.setBytes(11,imageData);
+            pst.executeUpdate();
+            
+           
+            System.out.println("compte ajouté");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+      
+    }
+    public byte[] recupererImg() throws SQLException {
+        
+        byte[] imageData;
+        String requete = "SELECT image FROM `utilisateur` WHERE idUtilisateur=? ";
+        
+            pst = connection.prepareStatement(requete);
+            pst.setInt(1, 66);
+            
+            //pst.setString(3,role);
+            ResultSet resultat = pst.executeQuery();
+            while (resultat.next()) {
+                
+               
+                  imageData=(resultat.getBytes("image"));
+                
+            
+            return imageData;
+
+   }
+            return null;
+        }
+
     }
 

@@ -23,6 +23,10 @@ public class Organisateur extends Utilisateur{
     public Organisateur(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, int numTelephone, String adresse, String role, int cin) {
         super(nomUtilisateur, prenomUtilisateur, email, motDePasse, genre, numTelephone, adresse, role, cin);
     }
+
+    public Organisateur(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, int numTelephone, String adresse, String role, int cin, byte[] image) {
+        super(nomUtilisateur, prenomUtilisateur, email, motDePasse, genre, numTelephone, adresse, role, cin, image);
+    }
     
     
 }

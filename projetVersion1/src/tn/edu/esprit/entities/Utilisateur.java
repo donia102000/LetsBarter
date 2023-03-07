@@ -21,6 +21,7 @@ public class Utilisateur {
     protected String adresse;
     protected String role;
     protected int cin;
+    protected byte[] image;
 
     public Utilisateur() {
     }
@@ -167,6 +168,28 @@ public class Utilisateur {
     public String toString() {
         return "Nom : " + nomUtilisateur + "\nPrenom : " + prenomUtilisateur + "\nE-mail : " + email + "\nTelephone : " + numTelephone + "\nAdresse : " + adresse + "\nRole : " + role + "\nCin : " + cin ;
     }
+
+    public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String email, String motDePasse, String genre, int numTelephone, String adresse, String role, int cin, byte[] image) {
+        this.nomUtilisateur = nomUtilisateur;
+        this.prenomUtilisateur = prenomUtilisateur;
+        this.email = email;
+        this.motDePasse = motDePasse;
+        this.genre = genre;
+        this.numTelephone = numTelephone;
+        this.adresse = adresse;
+        this.role = role;
+        this.cin = cin;
+        this.image = image;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+    
 
    
     

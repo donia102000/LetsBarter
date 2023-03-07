@@ -14,13 +14,13 @@
 
 <AnchorPane id="AnchorPane" fx:id="connecter" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: 00000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.LoginFXMLControllerr">
    <children>
-      <AnchorPane layoutY="-8.0" prefHeight="812.0" prefWidth="619.0" style="-fx-background-color: #F1EDDF;">
+      <AnchorPane layoutY="-8.0" prefHeight="812.0" prefWidth="597.0" style="-fx-background-color: #F1EDDF;">
          <children>
             <PasswordField fx:id="motDePasse" layoutX="165.0" layoutY="343.0" prefHeight="48.0" prefWidth="242.0" promptText="mot de passe">
                <font>
                   <Font size="19.0" />
                </font></PasswordField>
-            <Label layoutX="69.0" layoutY="72.0" prefHeight="144.0" prefWidth="499.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
+            <Label layoutX="60.0" layoutY="44.0" prefHeight="144.0" prefWidth="499.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
                <font>
                   <Font name="Forte" size="100.0" />
                </font>
@@ -42,7 +42,7 @@
                <font>
                   <Font size="19.0" />
                </font></TextField>
-            <Button fx:id="inscrire" layoutX="204.0" layoutY="612.0" mnemonicParsing="false" onAction="#inscrireFunction" prefHeight="35.0" prefWidth="163.0" style="-fx-background-color: 0000000;" text="S'inscrire" underline="true">
+            <Button fx:id="inscrire" layoutX="137.0" layoutY="617.0" mnemonicParsing="false" onAction="#inscrireFunction" prefHeight="52.0" prefWidth="298.0" style="-fx-background-color: 0000000;" text="Créer un compte" underline="true">
                <font>
                   <Font name="Forte" size="29.0" />
                </font></Button>
@@ -61,14 +61,24 @@
                   <Image url="@../Images/fermer-a-cle.png" />
                </image>
             </ImageView>
+            <Label layoutX="274.0" layoutY="149.0" prefHeight="78.0" prefWidth="309.0" style="-fx-background-color: 000000;" text="Donnez une seconde vie à vos objets !" textFill="#bc764b">
+               <font>
+                  <Font name="Forte" size="19.0" />
+               </font>
+            </Label>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </AnchorPane>
-      <ImageView fitHeight="347.0" fitWidth="384.0" layoutX="703.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="470.0" fitWidth="402.0" layoutX="761.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Images/Capture%20d'écran_20230201_082702.png" />
+            <Image url="@../Images/signin-image.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="253.0" fitWidth="266.0" layoutX="467.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Mon%20projet.png" />
          </image>
       </ImageView>
    </children>

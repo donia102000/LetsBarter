@@ -49,7 +49,7 @@
                   <Image url="@../Images/email.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="61.0" fitWidth="54.0" layoutX="69.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="61.0" fitWidth="54.0" layoutX="83.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/fermer-a-cle.png" />
                </image>
@@ -59,19 +59,34 @@
                   <Font size="19.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="verifMdp" layoutX="165.0" layoutY="483.0" prefHeight="48.0" prefWidth="242.0" promptText="mot de passe">
+            <PasswordField fx:id="verifMdp" layoutX="165.0" layoutY="483.0" prefHeight="48.0" prefWidth="242.0" promptText="Confirmer mot de passe">
                <font>
                   <Font size="19.0" />
                </font>
             </PasswordField>
+            <ImageView fitHeight="61.0" fitWidth="54.0" layoutX="83.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/fermer-a-cle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="61.0" fitWidth="54.0" layoutX="83.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/id-card.png" />
+               </image>
+            </ImageView>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </AnchorPane>
-      <ImageView fitHeight="347.0" fitWidth="384.0" layoutX="703.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="315.0" fitWidth="311.0" layoutX="805.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Images/Capture%20d'écran_20230201_082702.png" />
+            <Image url="@../Images/mot-de-passe-oublie.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="253.0" fitWidth="266.0" layoutX="486.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Mon%20projet.png" />
          </image>
       </ImageView>
    </children>

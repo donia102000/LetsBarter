@@ -5,7 +5,9 @@
  */
 package tn.edu.esprit.gui;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,10 +30,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import tn.edu.esprit.entities.Organisateur;
 import tn.edu.esprit.entities.Utilisateur;
 import tn.edu.esprit.services.UtilisateurService;
+import tn.edu.esprit.util.Utility;
+import tn.edu.esprit.verification.VerifierChamps;
 
 
 
@@ -44,7 +51,8 @@ import tn.edu.esprit.services.UtilisateurService;
 public class AdminAcceuiFXMLController implements Initializable {
  @FXML
     private Label lblprenom;
-
+@FXML
+    private ImageView imageView;
     @FXML
     private Label lblnom;
 
@@ -65,7 +73,7 @@ public class AdminAcceuiFXMLController implements Initializable {
     private Label lblgenre;
 
     @FXML
-    private Label lblanniver;
+    private Label lblCin;
 
     @FXML
     private Button btnmodif;
@@ -84,6 +92,19 @@ public class AdminAcceuiFXMLController implements Initializable {
     private Button btnStatistiqueParDate;
     @FXML
     private Button btnprofil;
+    @FXML
+    private TextField rechercheTf;
+
+    @FXML
+    private Button rechercherBtn;
+    @FXML
+    private Label lbl;
+    @FXML
+    private Button supprimerBtn;
+    
+    byte[] imageData;
+    Image image;
+    Utilisateur org = new Utilisateur();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
      try {
@@ -96,6 +117,7 @@ public class AdminAcceuiFXMLController implements Initializable {
          @Override
          public void changed(ObservableValue<? extends Utilisateur> observable, Utilisateur oldValue, Utilisateur newValue) {
          currentFood =listView.getSelectionModel().getSelectedItem();
+         if(currentFood!=null){
          lblnom.setText(currentFood.getNomUtilisateur());
          lblprenom.setText(currentFood.getPrenomUtilisateur());
          lblcontact.setText(currentFood.getEmail());
@@ -103,12 +125,24 @@ public class AdminAcceuiFXMLController implements Initializable {
          lblgenre.setText(currentFood.getGenre());
          lbladresse.setText(currentFood.getAdresse());
          lbltel.setText(String.valueOf(currentFood.getNumTelephone()));
+         lblCin.setText(String.valueOf(currentFood.getCin()));
+         imageData =currentFood.getImage();
+    // Conversion des données de l'image en un objet Image
+      InputStream in = new ByteArrayInputStream(imageData);
+      image = new Image(in);
+       imageView.setImage(image);
+         }
          }
      });
     }    
     
     
-         
+         public void SwitchToAcceuil (ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminAcceuilOfficielFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();}
      
      
     public void switchToAjouterOrganisateur(ActionEvent event) throws IOException{
@@ -157,5 +191,70 @@ public class AdminAcceuiFXMLController implements Initializable {
                         primaryStage.setScene(scene);
                         primaryStage.show();
      }
+@FXML
+    public void rechercher() throws SQLException{
+        if(rechercheTf.getText().isEmpty()){
+            lbl.setText("vous devez entrer le cin");
+        }
+        else if(VerifierChamps.isTelephoneValide(rechercheTf.getText())==false){
+        lbl.setText("Champs invalide !");
+        }
+        else
+        {   
+            lbl.setText("");
+            org=searchUserByCin(ser.getAll(), Integer.parseInt(rechercheTf.getText()));
+            System.out.println(org);
+            if(org.getCin()==Integer.parseInt(rechercheTf.getText())){
+               listView.getItems().clear();
+               listView.getItems().add(org); 
+               lblnom.setText(org.getNomUtilisateur());
+         lblprenom.setText(org.getPrenomUtilisateur());
+         lblcontact.setText(org.getEmail());
+         
+         lblgenre.setText(org.getGenre());
+         lbladresse.setText(org.getAdresse());
+         lbltel.setText(String.valueOf(org.getNumTelephone()));
+         lblCin.setText(String.valueOf(org.getCin()));
+         imageData =org.getImage();
+    // Conversion des données de l'image en un objet Image
+      InputStream in = new ByteArrayInputStream(imageData);
+      image = new Image(in);
+       imageView.setImage(image);
+            }
+            else{
+                lbl.setText("Organisateur introuvable!");
+                listView.getItems().clear();
+                clearFields();
+            }
+            }}
+    
+    public Utilisateur searchUserByCin(List<Utilisateur> userList, int cin) {
 
+        return userList.stream()
+                .filter(user -> user.getCin()== cin)
+                .findFirst()
+                .orElse(null);
+    }
+   @FXML
+    public void supprimer() throws SQLException{
+        
+    ser.supprimer(Integer.parseInt(lblCin.getText()));
+    clearFields();
+        lbl.setText("L'organisateur est supprimé avec succès");
+        listView.getItems().clear();
+        listView.getItems().addAll(ser.getAll());
+        
+    
+    }
+    public void clearFields(){
+    lblnom.setText("");
+         lblprenom.setText("");
+         lblcontact.setText("");
+         
+         lblgenre.setText("");
+         lbladresse.setText("");
+         lbltel.setText("");
+         lblCin.setText("");
+    
+    }
 }

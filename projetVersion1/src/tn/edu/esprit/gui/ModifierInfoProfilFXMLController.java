@@ -5,8 +5,12 @@
  */
 package tn.edu.esprit.gui;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -22,6 +26,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import tn.edu.esprit.services.UtilisateurService;
 import tn.edu.esprit.util.Utility;
@@ -32,7 +39,11 @@ import tn.edu.esprit.verification.VerifierChamps;
  * @author Donia
  */
 public class ModifierInfoProfilFXMLController implements Initializable {
+  @FXML
+    private ImageView imageView;
 
+    @FXML
+    private Button chercherImgBtn;
      @FXML
     private Button btnmodif;
 
@@ -92,7 +103,9 @@ ObservableList<String> liste=FXCollections.observableArrayList("Homme","Femme");
       
      @FXML
     private Label lbl;
-    
+    byte[] imageData;
+    String url = null;
+    Image image;
      UtilisateurService service =new UtilisateurService();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -105,7 +118,19 @@ ObservableList<String> liste=FXCollections.observableArrayList("Homme","Femme");
     tfemail.setText(Utility.utilisateur.getEmail());
     tftel.setText(String.valueOf(Utility.utilisateur.getNumTelephone()));
     tfgenre.setPromptText(Utility.utilisateur.getGenre());
-    }    
+     imageData =Utility.utilisateur.getImage();
+    // Conversion des données de l'image en un objet Image
+      InputStream in = new ByteArrayInputStream(imageData);
+       image = new Image(in);
+       imageView.setImage(image);
+      
+    }    public void SwitchToAcceuil (ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminAcceuilOfficielFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
     public void switchToAjouterOrganisateur(ActionEvent event) throws IOException{
     Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterOrganisateurFXML.fxml"));
                         Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -195,9 +220,41 @@ ObservableList<String> liste=FXCollections.observableArrayList("Homme","Femme");
         
         Utility.utilisateur.setNumTelephone(Integer.parseInt(tftel.getText()));
         Utility.utilisateur.setGenre(tfgenre.getValue().toString());
-        
+   image = imageView.getImage();
+//String url = null;
+if (image != null) {
+    url = image.impl_getUrl();
+    if ( url != null && url.startsWith("file:")) {
+        url = url.substring(5);
+    }
+}
+// Récupération des données de l'image
+
+if (url != null) {
+    try {
+        File file = new File(url);
+        imageData = Files.readAllBytes(file.toPath());
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+        Utility.utilisateur.setImage(imageData);
     service.modifier(Utility.utilisateur);
     lbl.setText("");
+        }
+    }
+     @FXML
+    private void chooseImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir une image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.gif"),
+                new FileChooser.ExtensionFilter("Tous les fichiers", "*.*"));
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            image = new Image(selectedFile.toURI().toString());
+            imageView.setImage(image);
+            
         }
     }
 }
