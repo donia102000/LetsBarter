@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/AdminAcceuiFXMLController.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/services/UtilisateurService.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ClientModifierMdpFXMLController.java</file>
@@ -13,6 +14,10 @@
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ClientProfilFXMLController.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/InscrireFXMLController.java</file>
             <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/OrganisateurModifierInfoProfilFXMLController.java</file>
+=======
+            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/gui/AfficherController.java</file>
+            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/gui/Ajouter1Controller.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

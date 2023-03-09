@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="794.0" prefWidth="1227.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.ReservationOrganisateurController">
+   <children>
+      <Pane layoutX="958.0" prefHeight="794.0" prefWidth="282.0" style="-fx-background-color: #F1EDDF;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="41.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/01104-19-integration-microsoft-teams-project-planning-683x500-1.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="3.0" layoutY="-5.0" prefHeight="94.0" prefWidth="292.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
+               <font>
+                  <Font name="Forte" size="58.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnAcceuil" layoutX="61.0" layoutY="135.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="183.0" style="-fx-background-color: #ab8165;" text="Acceuil" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRetourEvenement" layoutX="61.0" layoutY="228.0" mnemonicParsing="false" onAction="#RetourEv" prefHeight="51.0" prefWidth="183.0" style="-fx-background-color: #ab8165;" text="Gérer évènements" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnTrie" layoutX="65.0" layoutY="328.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="183.0" style="-fx-background-color: #ab8165;" text="Réservation trié" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fitHeight="103.0" fitWidth="107.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="94.0" fitWidth="98.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo%20projettt.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnAfficher" alignment="CENTER" layoutX="456.0" layoutY="697.0" mnemonicParsing="false" onAction="#AffichageReservationParEvent" prefHeight="49.0" prefWidth="154.0" style="-fx-background-color: #ab8165 #ab8165;" text="Afficher" textFill="WHITE">
+         <font>
+            <Font name="Forte" size="25.0" />
+         </font>
+      </Button>
+      <Label layoutX="121.0" layoutY="145.0" prefHeight="51.0" prefWidth="312.0" style="-fx-background-color: 000000;" text="Liste des évènements:" textFill="#bf9d86">
+         <font>
+            <Font name="Forte" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="610.0" layoutY="141.0" prefHeight="57.0" prefWidth="334.0" style="-fx-background-color: 000000;" text="Liste des réservations:" textFill="#bf9d86">
+         <font>
+            <Font name="Forte" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="288.0" layoutY="37.0" prefHeight="57.0" prefWidth="474.0" style="-fx-background-color: 000000;" text="Liste réservations par évènement" textFill="#bf9d86">
+         <font>
+            <Font name="Forte" size="34.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="536.0" layoutY="224.0" prefHeight="440.0" prefWidth="419.0" style="-fx-background-color: #ab8165 #ab8165;">
+         <children>
+            <ListView fx:id="list_reservation" layoutX="5.0" layoutY="7.0" prefHeight="427.0" prefWidth="405.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="7.0" layoutY="224.0" prefHeight="440.0" prefWidth="518.0" style="-fx-background-color: #ab8165 #ab8165;">
+         <children>
+            <ListView fx:id="list_evenement" layoutX="5.0" layoutY="7.0" prefHeight="427.0" prefWidth="508.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

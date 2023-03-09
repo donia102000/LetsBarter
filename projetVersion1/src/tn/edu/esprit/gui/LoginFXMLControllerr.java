@@ -120,7 +120,10 @@ public class LoginFXMLControllerr implements Initializable {
                 }
                     System.out.println("client");
                     System.err.println(user.getIdUtilisateur());
-                    Parent root = FXMLLoader.load(getClass().getResource("../gui/ClientAccueilFXML.fxml"));
+                   // Parent root = FXMLLoader.load(getClass().getResource("../gui/ClientAccueilFXML.fxml"));
+                   Parent root = FXMLLoader.load(getClass().getResource("../gui/ListeAnnonceController.fxml"));
+                   
+                           
                         Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
                         Scene scene = new Scene(root);
                         primaryStage.setScene(scene);

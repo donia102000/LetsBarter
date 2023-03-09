@@ -44,6 +44,21 @@
                   <Image url="@../Images/profil.png" />
                </image>
             </ImageView>
+            <Button fx:id="lblAcceuil1" layoutX="23.0" layoutY="327.0" mnemonicParsing="false" onAction="#SwitchToAjouEve" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Ajouter evenement" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="lblAcceuil11" layoutX="23.0" layoutY="394.0" mnemonicParsing="false" onAction="#SwitchToGestionEv" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Gestion des evenements" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="lblAcceuil12" layoutX="23.0" layoutY="462.0" mnemonicParsing="false" onAction="#SwitchToConsulterReservationORG" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Consulter les reservations" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <Label layoutX="179.0" layoutY="133.0" prefHeight="57.0" prefWidth="812.0" style="-fx-background-color: 000000;" text="Bienvenue dans l'interface d'organisation d'evenement !" textFill="#bf9d86">
