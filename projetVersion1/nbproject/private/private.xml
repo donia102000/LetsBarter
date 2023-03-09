@@ -3,21 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/AdminAcceuiFXMLController.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/services/UtilisateurService.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ClientModifierMdpFXMLController.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ModifierMdpFXMLController.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ClientProfilFXML.fxml</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/LoginFXMLControllerr.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/MotDepasseOublieFXMLController.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/ClientProfilFXMLController.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/InscrireFXMLController.java</file>
-            <file>file:/C:/Users/Donia/Documents/NetBeansProjects/projetVersion1/src/tn/edu/esprit/gui/OrganisateurModifierInfoProfilFXMLController.java</file>
-=======
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/gui/AfficherController.java</file>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/gui/Ajouter1Controller.java</file>
->>>>>>> Stashed changes
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/PropositionFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/PropositionReçuController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/services/IServicePropositionAchat.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/services/IServicePropositionTroc.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/entities/Annonce.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/AnnonceFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/services/ServiceAnnonce.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/ListeAnnonceControllerController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/AnnoncePFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/test/ClassFXMain.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/LoginFXMLControllerr.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/entities/Favoris.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/services/IServiceFavoris.java</file>
         </group>
     </open-files>
 </project-private>

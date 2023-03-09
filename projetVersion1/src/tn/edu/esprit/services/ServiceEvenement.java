@@ -54,20 +54,7 @@ public class ServiceEvenement implements IService <Evenement>{
         }
     }
     
-    public static final String ACCOUNT_SID = "AC5f06b27f454b1f253ae4bbd9c04e77e1";
-    public static final String AUTH_TOKEN = "39e42a0fdce8c4b20884c98c7cd0e973";
-        
-    public void SendSms(){
-    
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-        Message msg = Message.creator(
-                new PhoneNumber("+21658310822"),
-                new PhoneNumber("+12764444527"),
-                ("Un nouveau évènement a étè ajouté \n Consulter notre plateforme pour plus de détails"))
-                .create();
-        System.out.println(msg.getSid());
-        
-        }
+  
     
     public void notifierClient() {
         String k = "SELECT * FROM utilisateur where `role` ="+"client";
@@ -75,7 +62,7 @@ public class ServiceEvenement implements IService <Evenement>{
             Statement st = cnx.createStatement();
          ResultSet rs = st.executeQuery(k);
          while(rs.next()){
-             SendSms();
+            // SendSms();
          }
         }catch(Exception e){
             System.out.print(e);

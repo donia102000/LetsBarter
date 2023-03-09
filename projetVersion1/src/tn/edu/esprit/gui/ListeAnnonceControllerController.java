@@ -102,7 +102,17 @@ public class ListeAnnonceControllerController implements Initializable {
     private TextField adresseField;
            @FXML
     private TextArea commentaireTextArea;
+@FXML
+    private Button detailAnnonceBtn;
 
+    @FXML
+    private Button PropositionRecuBtn;
+
+    @FXML
+    private Button propositionEnvoye;
+
+    @FXML
+    private Button listeFavoriBtn;
     @FXML
     private Button updateButton;
     @FXML
@@ -367,6 +377,35 @@ public class ListeAnnonceControllerController implements Initializable {
                         primaryStage.setScene(scene);
                         primaryStage.show();
      }
+               public void SwitchToDetailAnnonce(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/AnnoncePFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
+               public void SwitchToPropositionRecu(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/PropositionReçu.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
+               public void SwitchToPropositionEnvoye(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/ListeProposition.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
+               public void SwitchToFavori(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/ListFavorisFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
+               
    
     @FXML
      void search (ActionEvent event){

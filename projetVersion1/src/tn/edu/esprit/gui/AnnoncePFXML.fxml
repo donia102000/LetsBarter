@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="922.0" style="-fx-background-color: #ab8169;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.AnnoncePFXMLController">
+   <children>
+      <Button fx:id="btn_ajt" layoutX="195.0" layoutY="455.0" mnemonicParsing="false" onAction="#AjouterFavoris" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #FFF1B8;" text="Ajouter aux favoris">
+         <font>
+            <Font name="Arial Bold Italic" size="15.0" />
+         </font></Button>
+      <Pane layoutX="594.0" prefHeight="644.0" prefWidth="314.0" style="-fx-background-color: #FFF1B8;">
+         <children>
+            <Label contentDisplay="CENTER" layoutX="91.0" layoutY="261.0" prefHeight="35.0" prefWidth="133.0" text="Obba Arij" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextArea layoutX="27.0" layoutY="310.0" prefHeight="55.0" prefWidth="260.0" text="Bonjour je suis le troqueur &#10;contactez moi pour plus d'échanges" />
+            <Label layoutX="109.0" layoutY="379.0" prefHeight="27.0" prefWidth="131.0" text="Adresse mail ">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="406.0" text="obbaarij@gmail.com">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="57.0" layoutY="25.0">
+               <image>
+                  <Image url="@../../../../Images/profil.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Button fx:id="btn_prop1" layoutX="195.0" layoutY="516.0" mnemonicParsing="false" onAction="#AjouterProposition" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #FFF1B8;" text="Une Proposition ?">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font></Button>
+      <Label fx:id="lb2" alignment="CENTER" layoutX="258.0" layoutY="322.0" text="Moyen de transport" />
+      <Label fx:id="lb3" alignment="CENTER" layoutX="243.0" layoutY="356.0" text="16 rue Andalous Bardo-&gt;Tunis" />
+      <Label layoutX="403.0" layoutY="253.0" />
+      <Label fx:id="lb4" alignment="CENTER" layoutX="291.0" layoutY="393.0" text=" Bonne état" />
+      <Label fx:id="lb1" alignment="CENTER" layoutX="272.0" layoutY="287.0" text="Peugeot 208" />
+      <Label layoutX="177.0" layoutY="287.0" text="Nom">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="161.0" layoutY="322.0" text="Catégorie">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="167.0" layoutY="356.0" text="Adresse">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="167.0" layoutY="390.0" text="Description">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <ImageView fitHeight="208.0" fitWidth="297.0" layoutX="155.0" layoutY="45.0">
+         <image>
+            <Image url="@../../../../Images/voiture.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="195.0" layoutY="573.0" mnemonicParsing="false" onAction="#capture" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #FFF1B8;" text="Capturer l'annonce">
+         <font>
+            <Font name="Arial Bold Italic" size="15.0" />
+         </font></Button>
+   </children>
+</Pane>

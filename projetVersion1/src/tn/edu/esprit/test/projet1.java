@@ -1,9 +1,13 @@
+package tn.edu.esprit.test;
+
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.edu.esprit.tests;
 
 import java.sql.SQLException;
 import tn.edu.esprit.entities.Evenement;
@@ -30,13 +34,13 @@ public class projet1 {
        Reservation r1 = new Reservation(5,1,1);
        Reservation r2 = new Reservation(7,6,1);
        Reservation r3 = new Reservation(1,2,8);
-         System.out.println(    se.selectionneeNbrPlaceM(1));
+        // System.out.println(    se.selectionneeNbrPlaceM(1));
       //  System.out.println(sr.afficherParEvenement(1));
         //sr.afficherParEvenement(1).forEach(x->x.getNbrPace());
-         System.out.println(sr.afficherParNbrPlace(1));
-         int x;
-       x=  sr.afficherParNbrPlace(1).stream().reduce(0, (a, b) -> a + b);
-         System.out.println(x);
+        // System.out.println(sr.afficherParNbrPlace(1));
+         //int x;
+       //x=  sr.afficherParNbrPlace(1).stream().reduce(0, (a, b) -> a + b);
+        // System.out.println(x);
         //sr.afficherParEvenement(1)
       // se.supprimer(114);
       // System.out.println(se.afficher());
@@ -45,6 +49,8 @@ public class projet1 {
      //  sr.ajouter(r3);
      // sr.supprimer(10);
      // System.out.println(sr.afficherParEvenement(5));
+    // ServiceEvenement ser= new ServiceEvenement();
+    // ser.SendSms();
       
         
     }

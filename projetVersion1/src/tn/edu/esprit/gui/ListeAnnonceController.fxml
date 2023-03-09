@@ -59,12 +59,22 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnmodif1111" layoutX="22.0" layoutY="476.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Details_Annonce" textFill="#f8f8f8">
+                  <Button fx:id="detailAnnonceBtn" layoutX="22.0" layoutY="476.0" mnemonicParsing="false" onAction="#SwitchToDetailAnnonce" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Details_Annonce" textFill="#f8f8f8">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnmodif11111" layoutX="23.0" layoutY="533.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Proposition_Reçu" textFill="#f8f8f8">
+                  <Button fx:id="PropositionRecuBtn" layoutX="23.0" layoutY="533.0" mnemonicParsing="false" onAction="#SwitchToPropositionRecu" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Proposition_Reçu" textFill="#f8f8f8">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="propositionEnvoye" layoutX="23.0" layoutY="584.0" mnemonicParsing="false" onAction="#SwitchToPropositionEnvoye" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Proposition_Envoyées" textFill="#f8f8f8">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="listeFavoriBtn" layoutX="23.0" layoutY="637.0" mnemonicParsing="false" onAction="#SwitchToFavori" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste favoris" textFill="#f8f8f8">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
