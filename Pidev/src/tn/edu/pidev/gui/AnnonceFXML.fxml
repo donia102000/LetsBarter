@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.pidev.gui.AnnonceFXMLController">
+   <children>
+      <Button fx:id="btn_ajt" layoutX="79.0" layoutY="479.0" mnemonicParsing="false" onAction="#AjouterFavoris" prefHeight="31.0" prefWidth="192.0" text="Ajouter aux favoris" />
+      <Pane layoutX="536.0" layoutY="116.0" prefHeight="452.0" prefWidth="348.0" style="-fx-background-color: #FAD678;">
+         <children>
+            <Button layoutX="14.0" layoutY="399.0" mnemonicParsing="false" onAction="#contacter" prefHeight="31.0" prefWidth="146.0" text="Contact " />
+            <Button layoutX="188.0" layoutY="399.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="146.0" text="Profil" />
+            <Label contentDisplay="CENTER" layoutX="108.0" layoutY="248.0" prefHeight="35.0" prefWidth="133.0" text="Ahmed Ali" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextArea layoutX="55.0" layoutY="291.0" prefHeight="88.0" prefWidth="239.0" text="Bonjour je suis le troqueur &#10;visitez mon profil pour consulter &#10;plus d'échanges" />
+         </children>
+      </Pane>
+      <Button fx:id="btn_prop1" layoutX="68.0" layoutY="544.0" mnemonicParsing="false" onAction="#AjouterProposition" prefHeight="31.0" prefWidth="192.0" text="Une Proposition ?" />
+      <Label fx:id="lb2" layoutX="159.0" layoutY="285.0" text="Moyen de transport" />
+      <Label fx:id="lb3" layoutX="136.0" layoutY="312.0" text="16 rue Andalous Bardo-&gt;Tunis" />
+      <Label layoutX="403.0" layoutY="253.0" />
+      <Label fx:id="lb4" layoutX="149.0" layoutY="342.0" text=" Bonne état" />
+      <Label fx:id="lb1" layoutX="188.0" layoutY="243.0" text="Peugeot 208" />
+      <Label layoutX="79.0" layoutY="243.0" text="Nom:" />
+      <Label layoutX="62.0" layoutY="285.0" text="Catégorie" />
+      <Label layoutX="45.0" layoutY="312.0" text="Adresse" />
+      <Label layoutX="45.0" layoutY="342.0" text="Description" />
+      <ImageView fitHeight="106.0" fitWidth="200.0" layoutX="36.0" layoutY="72.0">
+         <image>
+            <Image url="@../../../../images/v2.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="371.0" layoutY="544.0" mnemonicParsing="false" onAction="#capture" prefHeight="31.0" prefWidth="118.0" text="Capture" />
+   </children>
+</Pane>
