@@ -78,13 +78,32 @@ public class AjouterReservClientController implements Initializable {
             Reservation reservation = new Reservation();
             reservation.setNbrPace(Integer.parseInt(nbrPlace.getText()));
             reservation.setEvenement(evenementSelectionnee);
+            int nbreplaceMax;
+            nbreplaceMax= se.selectionneeNbrPlaceM(evenementSelectionnee.getId_evenement());
+             
+        
+        
+         int nbreplace;
+       nbreplace=  sr.afficherParNbrPlace(evenementSelectionnee.getId_evenement()).stream().reduce(0, (a, b) -> a + b);
+         System.out.println(nbreplace);
+         int diff =nbreplace+Integer.parseInt(nbrPlace.getText());
+         if(diff<=nbreplaceMax){
             sr.ajouter(reservation);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Réservation ajoutée avec succée");
             alert.setHeaderText(null);
             alert.setContentText("Réservation ajoutée avec succée");
+            alert.showAndWait();}
+         
+        
+           else{
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nombre place complet");
+            alert.setHeaderText(null);
+            alert.setContentText("Nombre place complet");
             alert.showAndWait();
-        }
+           }
+           }
     }
     
   

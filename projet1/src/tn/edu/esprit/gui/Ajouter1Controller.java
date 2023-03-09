@@ -7,8 +7,11 @@ package tn.edu.esprit.gui;
 
 
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -74,45 +77,107 @@ public class Ajouter1Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+
          
     }  
+    private String getFormattedDateFromDatePicker(DatePicker datePicker) {
+  //Get the selected date
+  LocalDate selectedDate = datePicker.getValue();
+  //Create DateTimeFormatter
+  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+  //Convert LocalDate to formatted String
+  return selectedDate.format(formatter);
+}
+    public static boolean stringTest (String Nom){
+
+
+        for (int i = 0; i < Nom.length(); i++) {
+            char ch = Nom.charAt(i);
+         if (!(ch >= 'a' && ch <= 'z'|| ch >= 'A' && ch <= 'Z'))
+         {
+            return false;
+         }
+        }
+        return  true;
+     }
+
+    public static boolean isValidMatricule(String matricule) {
+    // Vérifier la longueur minimale du mot de passe
+    if (matricule.length() != 8) {
+        return false;
+    }
+
+    // Vérifier s'il y a au moins un chiffre dans le mot de passe
+    boolean containsDigit = false;
+    for (int i = 0; i < matricule.length(); i++) {
+        if (Character.isDigit(matricule.charAt(i))) {
+            containsDigit = true;
+            break;
+        }
+    }
+    if (!containsDigit) {
+        return false;
+    }
+
+    // Vérifier s'il y a au moins une lettre majuscule dans le mot de passe
+    boolean containsUpperCase = false;
+    for (int i = 0; i < matricule.length(); i++) {
+        if (Character.isUpperCase(matricule.charAt(i))) {
+            containsUpperCase = true;
+            break;
+        }
+    }
+    if (!containsUpperCase) {
+        return false;
+    }
+
+    // Vérifier s'il y a au moins une lettre minuscule dans le mot de passe
+    boolean containsLowerCase = false;
+    for (int i = 0; i < matricule.length(); i++) {
+        if (Character.isLowerCase(matricule.charAt(i))) {
+            containsLowerCase = true;
+            break;
+        }
+    }
+    if (!containsLowerCase) {
+        return false;
+    }
+
+    // Si toutes les vérifications sont réussies, retourner true
+    return true;
+}
      @FXML
     public void AjouterEvenement(ActionEvent event) throws IOException {
         if((matricule.getText().isEmpty()) || (libelle.getText().isEmpty()) || (lieu.getText().isEmpty()) || (date.getEditor().getText().isEmpty()) || (nbrPlaceMax.getText().isEmpty())){
            Alert a = new Alert(Alert.AlertType.ERROR, "Veillez remplir tous les champs!!", ButtonType.OK);
            a.showAndWait();
         }
-        else if(!matricule.getText().matches("^[a-zA-Z]{2,3}[a-zA-Z]$") && matricule.getText().length() > 8){
-            Alert a = new Alert(Alert.AlertType.ERROR, "Matricule doit étre de 8 chiffres et lettres", ButtonType.OK);
+
+        else if(!isValidMatricule(matricule.getText())){
+            Alert a = new Alert(Alert.AlertType.ERROR, "Matricule invalide", ButtonType.OK);
             a.showAndWait();
             matricule.clear();
         }
-        else if(!libelle.getText().matches("^[a-zA-Z0-9]$") && libelle.getText().length() > 10){
-            Alert a = new Alert(Alert.AlertType.ERROR, "Libelle doit étre de 10 chiffres et lettres", ButtonType.OK);
+        
+        else if(!stringTest(libelle.getText())){
+            Alert a = new Alert(Alert.AlertType.ERROR, "Libelle doit contenir que des lettres", ButtonType.OK);
             a.showAndWait();
             libelle.clear();
         }
-        else if(!lieu.getText().matches("^[a-zA-Z]$")){
+        else if(!stringTest(lieu.getText())){
             Alert a = new Alert(Alert.AlertType.ERROR, "Lieu doit contenir que de lettres", ButtonType.OK);
             a.showAndWait();
             lieu.clear();
         }
-        else if(!nbrPlaceMax.getText().matches("^[0-9]$")){
+        else if(!nbrPlaceMax.getText().matches("[0-9]+")){
             Alert a = new Alert(Alert.AlertType.ERROR, "Nombre de place max doit contenir que des chiffres ", ButtonType.OK);
             a.showAndWait();
             nbrPlaceMax.clear();
-        }
-//       if((){
-//           Alert a = new Alert(Alert.AlertType.ERROR, "Matricule doit contenir que des chiffres!!", ButtonType.OK);
-//           a.showAndWait();  
-//       }
-//       if(matricule.getText().length() !=8){
-//           Alert a = new Alert(Alert.AlertType.ERROR, "Matricule doit étre de 8 chiffres!!", ButtonType.OK);
-//           a.showAndWait();  
-//       }
+        }   
+        
         else{
            ServiceEvenement se = new ServiceEvenement();
-           Evenement e = new Evenement (matricule.getText(),libelle.getText(),date.getEditor().getText(),lieu.getText(),nbrPlaceMax.getText());
+           Evenement e = new Evenement (matricule.getText(),libelle.getText(),getFormattedDateFromDatePicker(date),lieu.getText(),nbrPlaceMax.getText(),1);
            se.ajouter(e);
            //se.SendSms();
            Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -121,7 +186,7 @@ public class Ajouter1Controller implements Initializable {
            alert.setContentText("Evenement ajoutée avec succée");
            alert.showAndWait();
        }
-
+         System.out.println(getFormattedDateFromDatePicker(date));
     }
 
     
@@ -146,6 +211,5 @@ public class Ajouter1Controller implements Initializable {
 
 
 
-    
-}
+    }   
 

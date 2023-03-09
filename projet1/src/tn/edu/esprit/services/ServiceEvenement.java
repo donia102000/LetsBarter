@@ -30,7 +30,7 @@ public class ServiceEvenement implements IService <Evenement>{
     public void ajouter(Evenement e) {
         
         try {
-            String req = "INSERT INTO `evenement` (`matricule`,`libelle`,`date`, `lieu`, `nbrPlaceMax`) VALUES ('" + e.getMatricule()+ "','" + e.getLibelle()+ "','" + e.getDate()+ "','" + e.getLieu()+ "','" + e.getNbrPlaceMax()+ "')";
+            String req = "INSERT INTO `evenement` (`matricule`,`libelle`,`date`, `lieu`, `nbrPlaceMax`,`idUtilisateur`) VALUES ('" + e.getMatricule()+ "','" + e.getLibelle()+ "','" + e.getDate()+ "','" + e.getLieu()+ "','" + e.getNbrPlaceMax()+ "','" + e.getIdUtilisateur()+ "')";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("Evenement created !");
@@ -125,6 +125,23 @@ public class ServiceEvenement implements IService <Evenement>{
                 e = new Evenement(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7));
             }
         } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return e;
+    }
+    
+    public int selectionneeNbrPlaceM(int id) {
+        
+     int e=0 ;
+     try{
+        String req="select `nbrPlaceMax` from `evenement` where `idEvenement` = "+id;
+        Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+              e= rs.getInt(1);
+            }
+        }catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
 

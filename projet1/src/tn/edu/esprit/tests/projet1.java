@@ -5,6 +5,7 @@
  */
 package tn.edu.esprit.tests;
 
+import java.sql.SQLException;
 import tn.edu.esprit.entities.Evenement;
 import tn.edu.esprit.entities.Reservation;
 import tn.edu.esprit.services.ServiceEvenement;
@@ -19,7 +20,7 @@ public class projet1 {
     /**
      * @param args the command line arguments
      */
-     public static void main(String[] args) {
+     public static void main(String[] args) throws SQLException {
        ServiceEvenement se = new ServiceEvenement();
        ServiceReservation sr = new ServiceReservation();
 //       Evenement e1 = new Evenement("200","Event54","04/03/2023","Ariana","1200",1);
@@ -29,7 +30,14 @@ public class projet1 {
        Reservation r1 = new Reservation(5,1,1);
        Reservation r2 = new Reservation(7,6,1);
        Reservation r3 = new Reservation(1,2,8);
-      // se.ajouter(e1);
+         System.out.println(    se.selectionneeNbrPlaceM(1));
+      //  System.out.println(sr.afficherParEvenement(1));
+        //sr.afficherParEvenement(1).forEach(x->x.getNbrPace());
+         System.out.println(sr.afficherParNbrPlace(1));
+         int x;
+       x=  sr.afficherParNbrPlace(1).stream().reduce(0, (a, b) -> a + b);
+         System.out.println(x);
+        //sr.afficherParEvenement(1)
       // se.supprimer(114);
       // System.out.println(se.afficher());
       // se.modifier(5, "Ev55","27/03/2023","Mateur",900); //l'ajout des attributs

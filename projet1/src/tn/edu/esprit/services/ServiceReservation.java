@@ -81,7 +81,42 @@ public class ServiceReservation implements IService <Reservation>{
 
         return list;
     }
+     public List<Integer> afficherParNbrPlace(int idEvent) {
+        List<Integer> list = new ArrayList<>();
+        try {
+            String req = "Select `nbrPlace` from `reservation` WHERE `idEvenement` ="+idEvent;
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                int nbre;
+                  nbre =rs.getInt(1);
+                list.add(nbre);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
 
+        return list;
+    }
+
+     public List<Reservation> afficherParClient(int idClient) {
+        List<Reservation> list = new ArrayList<>();
+        try {
+            String req = "Select * from `reservation` WHERE `idUtilisateur` ="+idClient;
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                Reservation r = new Reservation(rs.getInt("idReservation"),rs.getInt("nbrPlace"),rs.getInt("idUtilisateur"),rs.getInt("idEvenement"));
+                list.add(r);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return list;
+    }
+     
+     
  
 
     @Override
