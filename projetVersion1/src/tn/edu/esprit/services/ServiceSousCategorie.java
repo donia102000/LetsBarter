@@ -6,9 +6,11 @@
 package tn.edu.esprit.services;
 
 
+import tn.edu.esprit.entities.Reclamation;
 import tn.edu.esprit.entities.SousCategorie;
-import tn.edu.esprit.util.MyConnector;
+import tn.edu.esprit.util.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,28 +19,48 @@ import java.util.List;
 
 
 /**
- *
+ *   
  * @author Dell
  */
 public   class ServiceSousCategorie implements IService <SousCategorie> {
      
-      Connection cnx = MyConnector.getInstance().getConnection();
+    
+      Connection cnx = DataSource.getInstance().getCnx();
 
-   
+       DataSource instance = DataSource.getInstance(); 
+
   
         
-
+ 
 
   
     public void ajouter(SousCategorie sc) {
-         try {
-            String req = "INSERT INTO `sous_categorie` (`libelle`) VALUES ('" + sc.getLibelle() + "')";  
+       /*  try {
+            String req = "INSERT INTO `sous_categorie` ( `libelle`, `idCategorie`) VALUES (" + sc.getLibelle() + ","+sc.getId()+")";  
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("Sous-categorie creer !");
         } catch (SQLException ex) { 
             System.out.println(ex.getMessage());
-        }
+        }*/
+         
+         
+                        String requete2 = "INSERT INTO sous_categorie (libelle,idCategorie)"
+                       + "VALUES(?,?)";
+              try{
+               PreparedStatement pst = new DataSource().getCnx().prepareStatement(requete2);
+                    pst.setString(1, sc.getLibelle());
+                    pst.setInt(2, sc.getIdCategorie());
+
+
+
+                  pst.executeUpdate();
+                  System.out.println("votre sous-categorie est ajouté");
+                  
+            } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    
+    }
     }
 
     public void modifier(SousCategorie sc) {
@@ -87,7 +109,7 @@ public   class ServiceSousCategorie implements IService <SousCategorie> {
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
                 SousCategorie sc = new SousCategorie(rs.getInt("id"), 
-                		rs.getString("libelle"));
+                		rs.getString("libelle"));                                            
                 sousCategories.add(sc); 
             }
         } catch (SQLException ex) {
@@ -95,6 +117,11 @@ public   class ServiceSousCategorie implements IService <SousCategorie> {
         }
         return sousCategories; 
     } 
+
+   
+    public void modifierReclamation(Reclamation reclamation, String role) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public void supprimer(int id) throws SQLException {
@@ -109,4 +136,4 @@ public   class ServiceSousCategorie implements IService <SousCategorie> {
 
 
   
-  
+   

@@ -3,15 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/services/UtilisateurService.java</file>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/entities/Reclamation.java</file>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/util/Utility.java</file>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/services/HistoriqueConnexionService.java</file>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/entities/Client.java</file>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/entities/Categorie.java</file>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/entities/SousCategorie.java</file>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/services/IService.java</file>
-            <file>file:/C:/Users/Donia/Documents/GitHub/LetsBarter/projetVersion1/src/tn/edu/esprit/services/ServiceCategorie.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/PropositionFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/PropositionReçuController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/services/IServicePropositionAchat.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/services/IServicePropositionTroc.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/entities/Annonce.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/AnnonceFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/services/ServiceAnnonce.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/ListeAnnonceControllerController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/AnnoncePFXMLController.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/test/ClassFXMain.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/gui/LoginFXMLControllerr.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/entities/Favoris.java</file>
+            <file>file:/C:/Users/Donia/Desktop/version%20git/version%20ghazoua%20nourhene%20donia/projetVersion1/src/tn/edu/esprit/services/IServiceFavoris.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,9 +5,9 @@
  */
 package tn.edu.esprit.entities;
 
-import java.awt.Image;
+
 import java.util.ArrayList;
-import javafx.scene.control.TextField;
+
 
 /**
  *
@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
      public  int idCat ; 
        public  String nomCategorie ; 
 
-      
+//      private byte[] logo;
 
        private ArrayList<SousCategorie> sousCategories;
 

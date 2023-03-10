@@ -115,7 +115,7 @@ public void openModifInterface(ActionEvent event) {
         stage.show();
 
     } catch (IOException e) {
-        e.printStackTrace();
+        e.printStackTrace(); 
     }
 } 
 @FXML
@@ -139,7 +139,7 @@ public void openModifInterface2(ActionEvent event) {
 public void openModifInterface3(ActionEvent event) {
     try {
         // Load the Modif.fxml file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Afficher.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCat.fxml"));
         Parent root = loader.load();
 
         // Show the Modif.fxml interface
@@ -151,7 +151,10 @@ public void openModifInterface3(ActionEvent event) {
     } catch (IOException e) {
         e.printStackTrace();
     }
-}
+} 
+
+
+
 }
 
 

@@ -202,8 +202,9 @@ public class StatistiqueParDateController implements Initializable {
     // Crée un document PDF et l'ajoute à une page
     Document pdfDoc = null;
     LocalDateTime currentDateTime = LocalDateTime.now();
-        String fileName = String.format("C:\\Users\\Donia\\Documents\\NetBeansProjects\\projetVersion1\\src\\tn\\edu\\esprit\\PDF\\BarChart-%04d%02d%02d-%02d%02d%02d.pdf",
-            currentDateTime.getYear(), currentDateTime.getMonthValue(), currentDateTime.getDayOfMonth(),
+      // String fileName = String.format("C:\\Users\\Donia\\Documents\\NetBeansProjects\\projetVersion1\\src\\tn\\edu\\esprit\\PDF\\BarChart-%04d%02d%02d-%02d%02d%02d.pdf",
+         String fileName = String.format("C:\\Users\\Donia\\Desktop\\version git\\version ghazoua nourhene donia\\projetVersion1\\src\\tn\\edu\\esprit\\PDF\\BarChart-%04d%02d%02d-%02d%02d%02d.pdf",
+      currentDateTime.getYear(), currentDateTime.getMonthValue(), currentDateTime.getDayOfMonth(),
             currentDateTime.getHour(), currentDateTime.getMinute(), currentDateTime.getSecond());
 try {
         Rectangle pageSize = new Rectangle((float)chartImage.getWidth()+100,(float)chartImage.getHeight()+100);

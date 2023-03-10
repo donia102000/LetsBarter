@@ -7,12 +7,15 @@ package tn.edu.esprit.gui;
 
 import tn.edu.esprit.entities.Reclamation;
 import tn.edu.esprit.services.Servicereclamation;
+import jakarta.mail.MessagingException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +24,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 /**
  * FXML Controller class
  *
@@ -29,10 +33,11 @@ import javafx.scene.control.Alert.AlertType;
 public class ajouterRecController implements Initializable {
 @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
+       ObservableList<String> L = FXCollections.observableArrayList("recommondation","rembourssement","Annulation","gratitude") ; 
+        combo.setItems(L) ;  
     }  
-    @FXML
-    private TextField dateRec;
+   
     @FXML
     private TextField typeRec;
     @FXML
@@ -43,12 +48,21 @@ public class ajouterRecController implements Initializable {
     private TextField numTel;
     @FXML
     private TextField email;
+
     @FXML
-    private TextField etatRec;
+    private TextArea texto ; 
     @FXML
-    private TextArea descriptionRec;
+    private Button btnajouter;  
+    
+     @FXML
+   private ComboBox combo;
+
+    
     @FXML
-    private Button btnajouter;
+    void select(ActionEvent event) {
+     String s = combo.getSelectionModel().getSelectedItem().toString();  
+    }
+
 
     /**
      * Initializes the controller class.
@@ -85,13 +99,13 @@ public class ajouterRecController implements Initializable {
 }
 
     @FXML
-    private void ajouter(ActionEvent event) {
+    private void ajouter(ActionEvent event) throws MessagingException {
         
                boolean test=true;
 
          
-        if (name.getText().isEmpty()||  email.getText().isEmpty()|| etatRec.getText().isEmpty()|| descriptionRec.getText().isEmpty()|| 
-                typeRec.getText().isEmpty() || infoProduit.getText().isEmpty() || dateRec.getText().isEmpty()) {
+        if (name.getText().isEmpty()||  email.getText().isEmpty()||  texto.getText().isEmpty()|| 
+                 infoProduit.getText().isEmpty() ) { 
               Alert alert1 = new Alert(AlertType.WARNING);
              alert1.setTitle("oops");
              alert1.setHeaderText(null);
@@ -99,15 +113,15 @@ public class ajouterRecController implements Initializable {
              alert1.showAndWait();
               
                  }
-        else if (!isValidDate(dateRec.getText())) {
-            
-        // Affichage d'une alerte en cas de saisie de date invalide
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Erreur de saisie");
-        alert.setHeaderText(null);
-        alert.setContentText("Veuillez saisir une date valide (format : yyyy-mm-dd)!");
-        alert.showAndWait();
-    } 
+//        else if (!isValidDate(dateRec.getText())) {
+//            
+//        // Affichage d'une alerte en cas de saisie de date invalide
+//        Alert alert = new Alert(AlertType.ERROR);
+//        alert.setTitle("Erreur de saisie");
+//        alert.setHeaderText(null);
+//        alert.setContentText("Veuillez saisir une date valide (format : yyyy-mm-dd)!");
+//        alert.showAndWait();
+//    } 
         
         else if(isValid(email.getText())==false) {
              
@@ -134,27 +148,34 @@ public class ajouterRecController implements Initializable {
              
                 }
         else {
-            String DateRec = dateRec.getText()  ; 
+//            String DateRec = dateRec.getText()  ; 
        
-        String   TypeRec = typeRec.getText() ; 
+       String   TypeRec = (String) combo.getValue(); 
         String   InfoProduit = infoProduit.getText(); 
         
         String  Name = name.getText() ; 
         int NumTel = Integer.parseInt(numTel.getText());  
         String Email = email.getText(); 
-        String EtatRec = etatRec.getText() ; 
-        String Description = descriptionRec.getText() ;
+        String EtatRec = "non traitée " ;  
+        String Texto = texto.getText() ;
         
-        Reclamation r = new Reclamation ( DateRec ,Description,TypeRec, InfoProduit , Name , NumTel ,Email ,EtatRec ) ; 
-        // instanciation
+     //   Reclamation r = new Reclamation ( Texto,TypeRec, InfoProduit , Name , NumTel ,Email ,EtatRec ) ; 
+    // Reclamation r = new Reclamation(TypeRec, InfoProduit, Name, NumTel, Email, EtatRec, Texto); 
+    
+     Reclamation r = new Reclamation ( Texto ,TypeRec, InfoProduit , Name , NumTel ,Email ,EtatRec ) ;  
+        // instanciation 
         System.out.println(r.toString());
            Servicereclamation b  = new Servicereclamation();  
        
-       b.ajouter(r,Email);    
+       b.ajouterRec(r); 
+       String Subject ="reclamation";
+       String To=Email;
+       String Body="La reclamation a été ajoutée avec succès !\n un mail vous a été envoyé ";
+       b.sendEmail(To, Subject,Body);
          Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText(null);
-        alert.setContentText("La reclamation a été ajoutée avec succès !\nMail bien envoyé à " );
+        alert.setContentText("La reclamation a été ajoutée avec succès !\n un mail vous a été envoyé  " ); 
         alert.showAndWait();
         }
     } 

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="561.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.ListeAnnonceControllerController1">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="1.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: FFFFFFF;">
+         <children>
+            <AnchorPane fx:id="" layoutX="1016.0" prefHeight="802.0" prefWidth="198.0" style="-fx-background-color: #F1EDDF;">
+               <children>
+                  <Button fx:id="btnajouter1" layoutX="23.0" layoutY="205.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Ajouter_Annonce" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="lblAcceuil" layoutX="23.0" layoutY="146.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Acceuil" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="57.0" fitWidth="46.0" layoutX="76.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/power-off.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="lbldeconnexion" layoutX="38.0" layoutY="74.0" mnemonicParsing="false" style="-fx-background-color: 00000000000000000;" text="Se deconnecter" />
+                  <Button fx:id="btnretour" layoutX="94.0" layoutY="690.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="74.0" style="-fx-background-color: 00000000000;" />
+                  <ImageView fitHeight="57.0" fitWidth="54.0" layoutX="91.0" layoutY="708.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/left-arrow.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnmodif1" layoutX="23.0" layoutY="267.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste Annonces" textFill="#f8f8f8">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Label layoutX="25.0" layoutY="51.0" prefHeight="57.0" prefWidth="334.0" style="-fx-background-color: 000000;" text="Nos Annonces" textFill="#bf9d86">
+               <font>
+                  <Font name="Forte" size="34.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="536.0" layoutY="70.0" prefHeight="638.0" prefWidth="469.0" style="-fx-background-color: #ab8165;">
+               <children>
+                  <AnchorPane layoutX="28.0" layoutY="14.0" prefHeight="592.0" prefWidth="414.0" style="-fx-background-color: #F1EDDF;">
+                     <children>
+                        <VBox layoutX="30.0" layoutY="13.0" prefHeight="440.0" prefWidth="334.0" spacing="10.0">
+                           <children>
+                              <TextField fx:id="titreField" prefHeight="51.0" prefWidth="258.0" promptText="titre" />
+                              <TextField fx:id="categorieField" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="284.0" promptText="categorie" />
+                              <TextField fx:id="sousField" prefHeight="46.0" prefWidth="284.0" promptText="sous_categorie" />
+                              <TextArea fx:id="descriptionField" prefHeight="76.0" prefWidth="334.0" promptText="Description" />
+                              <TextField fx:id="valeurField" layoutX="10.0" layoutY="85.0" prefHeight="49.0" prefWidth="284.0" promptText="valeur" />
+                              <TextField fx:id="imageField" />
+                              <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="parcourirButton" alignment="CENTER" mnemonicParsing="false" prefHeight="56.0" prefWidth="123.0" style="-fx-background-color: #ab8165;" text="Modifier Image" textFill="#fff9f9">
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="adresseField" layoutX="10.0" layoutY="185.0" prefHeight="43.0" prefWidth="284.0" promptText="adresse" />
+                              <TextField fx:id="telField" prefHeight="48.0" prefWidth="284.0" promptText="tel" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <ListView fx:id="listView" layoutX="25.0" layoutY="183.0" prefHeight="466.0" prefWidth="477.0" />
+           
+       
+    
+            <Button fx:id="updateButton" alignment="CENTER" layoutX="662.0" layoutY="725.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="123.0" style="-fx-background-color: #ab8165;" text="Modifier" textFill="#fff9f9">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="recherche" layoutX="66.0" layoutY="128.0" prefHeight="37.0" prefWidth="225.0" promptText="Recherche" />
+            <ImageView fx:id="dislikeIcon" fitHeight="35.0" fitWidth="40.0" layoutX="10.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="likeIcon" fitHeight="35.0" fitWidth="46.0" layoutX="314.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+                 
+            </ImageView>
+            <Button fx:id="deleteButton" alignment="CENTER" layoutX="806.0" layoutY="725.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="123.0" style="-fx-background-color: #ab8165;" text="Supprimer" textFill="#fff9f9">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="updateButton1" alignment="CENTER" layoutX="299.0" layoutY="128.0" mnemonicParsing="false" onAction="#search" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #ab8165;" text="Rechercher" textFill="#fff9f9">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_sort" alignment="CENTER" layoutX="406.0" layoutY="128.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ab8165;" text="Trier" textFill="#fff9f9">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="37.0" fitWidth="40.0" layoutX="25.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Documents/GestionAnnonce/src/edu/GestionAnnonce/gui/1546.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="updateButton2" alignment="CENTER" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToR" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: #ab8165;" text="Retour" textFill="#fff9f9">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

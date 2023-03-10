@@ -6,26 +6,32 @@
 package tn.edu.esprit.services;
 
 import tn.edu.esprit.entities.Categorie;
-import tn.edu.esprit.util.MyConnector;
+import tn.edu.esprit.entities.Reclamation;
+import tn.edu.esprit.entities.SousCategorie;
+import tn.edu.esprit.util.DataSource;
 import java.sql.Connection; 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;  
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
  * @author Dell 
  */
-    public class ServiceCategorie implements  IService <Categorie > {  
+    public  class ServiceCategorie implements  IService <Categorie > {  
 
-
-        Connection cnx;
+//
+       
+        Connection cnx; 
 
         public ServiceCategorie(){
 
-        cnx = MyConnector.getInstance().getConnection();
+        cnx = DataSource.getInstance().getCnx();
         }
         @Override
         public void ajouter(Categorie c) {
@@ -85,7 +91,7 @@ import java.util.List;
                  System.out.println("Categorie supprimée !");
                }
                else {
-                     System.out.println("categorie  non trouvée !");
+                     System.out.println("categorie on non trouvée !");
                  }
             } catch (SQLException ex) { 
                 System.out.println(ex.getMessage());
@@ -99,22 +105,9 @@ import java.util.List;
 
 
 
-        
-        public Categorie trouverParId(int id) { 
-
-              Categorie categorie = null;
-            try {
-                String req = "SELECT * FROM `categorie` WHERE `id` = " + id;
-                Statement st = cnx.createStatement();
-                ResultSet rs = st.executeQuery(req);
-                if (rs.next()) {
-                    categorie = new Categorie(rs.getInt("id"), rs.getString("nomCategorie") ) ; 
-                }
-            } catch (SQLException ex) { 
-                System.out.println(ex.getMessage());
-            }
-            return categorie;
-        }  
+   
+      
+      
 
 
         public List<Categorie> trouverTous() {
@@ -125,7 +118,8 @@ import java.util.List;
                 Statement st = cnx.createStatement();
                 ResultSet rs = st.executeQuery(req);
                 while (rs.next()) {
-                    Categorie categorie = new Categorie(rs.getInt("id"), rs.getString("nomCategorie")); 
+                    Categorie categorie = new Categorie(rs.getInt("id"),
+                                    rs.getString("nomCategorie")); 
 
                     categories.add(categorie);
                 }
@@ -133,7 +127,22 @@ import java.util.List;
                 System.out.println(ex.getMessage());
             }
             return categories;
-        }
+        }  
+        
+        
+        
+//        public List<Categorie> findByTitle(String title){
+//        ServiceCategorie y = new ServiceCategorie();
+//    List<Categorie> result =y.trouverTous().stream().filter((p)->p.getNomCategorie().toUpperCase().contains(.toUpperCase())).collect(Collectors.toList());
+//    return result;
+// 
+//    }
+//        
+
+  
+    public void modifierReclamation(Reclamation reclamation, String role) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public void supprimer(int id) throws SQLException {
@@ -144,8 +153,15 @@ import java.util.List;
     public List<Categorie> getAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    }
 
+  
+        
+             }
+ 
+  
+
+        
+  
 
 
 

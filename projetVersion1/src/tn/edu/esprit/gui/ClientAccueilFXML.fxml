@@ -47,11 +47,6 @@
                   <Image url="@../Images/profil.png" />
                </image>
             </ImageView>
-            <Button fx:id="ajouterRecBtn" layoutX="22.0" layoutY="276.0" mnemonicParsing="false" onAction="#SwitchToAjouterRec" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Ajouter reclamtion" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
       <Label layoutX="135.0" layoutY="116.0" prefHeight="57.0" prefWidth="171.0" style="-fx-background-color: 000000;" text="Bienvenue !" textFill="#bf9d86">

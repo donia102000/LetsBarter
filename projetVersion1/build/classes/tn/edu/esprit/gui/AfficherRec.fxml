@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.AfficherRecController">
+   <children>
+      <Pane layoutX="837.0" prefHeight="794.0" prefWidth="363.0" style="-fx-background-color: #FFF1B8;">
+         <children> 
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="93.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/logoapp.png" />
+               </image> 
+            </ImageView>
+            <ComboBox fx:id="ComboEtat" layoutX="66.0" layoutY="584.0" prefHeight="44.0" prefWidth="215.0" promptText="Etat" />
+            <Text fx:id="tfetat" layoutX="58.0" layoutY="730.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="85.13671875" />
+            <Button fx:id="Modifier" layoutX="116.0" layoutY="652.0" mnemonicParsing="false" onAction="#ModifierEtat" prefHeight="31.0" prefWidth="131.0" style="-fx-background-color: #ab8165;" text="tariter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="supprimerRec" layoutX="58.0" layoutY="417.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="31.0" prefWidth="215.0" style="-fx-background-color: #ab8165;" text="supprimer la réclamation" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="36.0" layoutY="481.0" mnemonicParsing="false" onAction="#SortByDate" prefHeight="20.0" prefWidth="266.0" style="-fx-background-color: #ab8165;" text="afficher les reclamations récentes" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+   
+         </children>
+      </Pane>
+      <Label layoutX="197.0" layoutY="111.0" prefHeight="57.0" prefWidth="426.0" style="-fx-background-color: 000000;" text="la liste des réclamations" textFill="#bf9d86">
+         <font>
+            <Font name="Forte" size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="10.0" layoutY="10.0" prefHeight="81.0" prefWidth="385.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
+         <font>
+            <Font name="Forte" size="72.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfSearch" layoutX="589.0" layoutY="76.0" />
+      <ListView fx:id="listRec" layoutX="66.0" layoutY="180.0" prefHeight="540.0" prefWidth="624.0" /> 
+   </children>
+</AnchorPane>

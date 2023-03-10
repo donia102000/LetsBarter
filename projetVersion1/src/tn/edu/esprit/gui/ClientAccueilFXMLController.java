@@ -73,11 +73,4 @@ public class ClientAccueilFXMLController implements Initializable {
                         primaryStage.setScene(scene);
                         primaryStage.show();
      }
-     public void SwitchToAjouterRec (ActionEvent event) throws IOException{
-    Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterRec.fxml"));
-                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                        Scene scene = new Scene(root);
-                        primaryStage.setScene(scene);
-                        primaryStage.show();
-     }
 }

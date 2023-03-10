@@ -26,13 +26,13 @@ public class NewFXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("AjouterRec.fxml")) ;         
-            Scene scene = new Scene(root); 
+        try {  
+            Parent root = FXMLLoader.load(getClass().getResource("AjouterSousCat.fxml")) ;               
+            Scene scene = new Scene(root);   
             
-            primaryStage.setTitle("gestion des categories");   
-            primaryStage.setScene(scene); 
-            primaryStage.show();
+            primaryStage.setTitle("let's Barter");    
+            primaryStage.setScene(scene);   
+            primaryStage.show(); 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pidev.gui;
+package tn.edu.esprit.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;

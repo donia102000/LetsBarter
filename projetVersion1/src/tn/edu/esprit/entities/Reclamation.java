@@ -16,14 +16,29 @@ public class Reclamation {
     
     
     private  int id ; 
-private String date_reclamation; 
-    private  String  description ; 
+private Date date_reclamation; 
+    private  String  texto; 
     private String type ; //rembrourssement , recommondation , compensation, reparation 
     private  String info_produit ; // des informations sur le produit ou le service qui fait l'objet de la réclamation, telles que la marque, le modèle, le numéro de série ou le numéro de commande.
     private String nom_prenom; 
     private  int tel ; 
     private  String email ;  
     private String etat ; 
+
+  
+    //texto, type, info_produit, nom_prenom, tel, mail ,etat
+
+    public Reclamation(String texto, String type, String info_produit, String nom_prenom, int tel, String email, String etat) {
+        this.texto = texto;
+        this.type = type;
+        this.info_produit = info_produit;
+        this.nom_prenom = nom_prenom;
+        this.tel = tel;
+        this.email = email;
+        this.etat = etat;
+    }
+    
+
 
     public int getId() {
         return id;
@@ -33,22 +48,23 @@ private String date_reclamation;
         this.id = id;
     }
 
-    public String getDate_reclamation() {
+    public Date getDate_reclamation() {
         return date_reclamation;
     }
 
-    public void setDate_reclamation(String date_reclamation) {
+    public void setDate_reclamation(Date date_reclamation) {
         this.date_reclamation = date_reclamation;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTexto() {
+        return texto;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
 
+   
     public String getType() {
         return type;
     }
@@ -94,20 +110,10 @@ private String date_reclamation;
     public Reclamation() {
     } 
 
-    public Reclamation(String date, String description, String type, String info_produit,String nom_prenom, int tel, String email, String etat) {
-        this.date_reclamation=date;
-        this.description = description;
-        this.type = type;
-        this.info_produit = info_produit;
-                this.nom_prenom = nom_prenom;
+   
 
-        this.tel = tel;
-        this.email = email;
-        this.etat = etat;
-    }
-
-    public Reclamation(String description, String info_produit, String nom_prenom, int tel, String email, String etat) {
-        this.description = description;
+    public Reclamation(String texto, String info_produit, String nom_prenom, int tel, String email, String etat) {
+        this.texto=texto; 
         this.info_produit = info_produit;
         this.nom_prenom = nom_prenom;
         this.tel = tel;
@@ -123,9 +129,26 @@ private String date_reclamation;
         this.tel = tel;
     }
 
+    public Reclamation(String etat) {
+        this.etat = etat;
+    } 
+    
+
  
-    public Reclamation(String TypeRec, String InfoProduit, String Name, int NumTel, String Email, String EtatRec, String Description) {
-         this.description = description;
+    public Reclamation(String TypeRec, String InfoProduit, String Name, int NumTel, String Email, String EtatRec, String texto) {
+      this.texto=this.texto; 
+        this.type = type;
+        this.info_produit = info_produit;
+        this.nom_prenom = nom_prenom;
+        this.tel = tel;
+        this.email = email;
+        this.etat = etat;
+    }
+
+    public Reclamation(int id,Date date_reclamation, String texto, String type, String info_produit, String nom_prenom, int tel, String email, String etat) {
+        this.id = id;
+        this.date_reclamation = date_reclamation;
+        this.texto = texto;
         this.type = type;
         this.info_produit = info_produit;
         this.nom_prenom = nom_prenom;
@@ -136,7 +159,7 @@ private String date_reclamation;
 
     @Override
     public String toString() {
-        return "Reclamation{" + "id=" + id + ", date_reclamation=" + date_reclamation + ", description=" + description + ", type=" + type + ", info_produit=" + info_produit + ", nom_prenom=" + nom_prenom + ", tel=" + tel + ", email=" + email + ", etat=" + etat + '}';
+        return "Reclamation{" + "id=" + id + ", date_reclamation=" + date_reclamation + ", texto=" + texto + ", type=" + type + ", info_produit=" + info_produit + ", nom_prenom=" + nom_prenom + ", tel=" + tel + ", email=" + email + ", etat=" + etat + '}';
     }
 
    

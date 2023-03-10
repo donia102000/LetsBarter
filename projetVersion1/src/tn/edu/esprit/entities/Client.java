@@ -7,11 +7,7 @@ package tn.edu.esprit.entities;
 
 import java.sql.Date;
 
-
 /***
-=======
-/**
->>>>>>> Stashed changes
  *
  * @author Donia
  */
