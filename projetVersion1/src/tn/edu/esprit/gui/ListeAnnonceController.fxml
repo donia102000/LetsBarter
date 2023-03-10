@@ -37,9 +37,9 @@
                   <Image url="@../Images/profil.png" />
                </image>
             </ImageView>
-                  <Button fx:id="lbldeconnexion" layoutX="38.0" layoutY="74.0" mnemonicParsing="false" style="-fx-background-color: 00000000000000000;" text="Se deconnecter" />
-                  <Button fx:id="btnretour" layoutX="94.0" layoutY="690.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="74.0" style="-fx-background-color: 00000000000;" />
-                  <ImageView fitHeight="57.0" fitWidth="54.0" layoutX="91.0" layoutY="708.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                  <Button fx:id="lbldeconnexion" layoutX="38.0" layoutY="74.0" mnemonicParsing="false" onAction="#SwitchToDeconnexion" style="-fx-background-color: 00000000000000000;" text="Se deconnecter" />
+                  <Button fx:id="btnretour" layoutX="99.0" layoutY="730.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="74.0" style="-fx-background-color: 00000000000;" />
+                  <ImageView fitHeight="57.0" fitWidth="54.0" layoutX="95.0" layoutY="733.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/left-arrow.png" />
                      </image>
@@ -75,6 +75,11 @@
                      </font>
                   </Button>
                   <Button fx:id="listeFavoriBtn" layoutX="23.0" layoutY="637.0" mnemonicParsing="false" onAction="#SwitchToFavori" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Liste favoris" textFill="#f8f8f8">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="ajouterRecBtn" layoutX="23.0" layoutY="681.0" mnemonicParsing="false" onAction="#SwitchToAjouterReclamation" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Ajouter reclamation" textFill="#f8f8f8">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

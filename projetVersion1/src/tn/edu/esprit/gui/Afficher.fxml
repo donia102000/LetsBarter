@@ -45,7 +45,7 @@
       </Pane>
       <ImageView fitHeight="94.0" fitWidth="105.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/logo%20projettt.png" />
+            <Image url="@../Images/Capture%20d'écran_20230201_082702.png" />
          </image>
       </ImageView>
       <ListView fx:id="list_evenement" layoutX="480.0" layoutY="235.0" prefHeight="458.0" prefWidth="482.0" />

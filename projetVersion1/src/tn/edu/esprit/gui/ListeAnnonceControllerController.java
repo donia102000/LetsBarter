@@ -83,7 +83,8 @@ public class ListeAnnonceControllerController implements Initializable {
     private ListView<Annonce> listView;
  @FXML
     private TextField titreField;
-
+ @FXML
+    private Button lbldeconnexion;
     @FXML
     private TextField categorieField;
      @FXML
@@ -104,7 +105,8 @@ public class ListeAnnonceControllerController implements Initializable {
     private TextArea commentaireTextArea;
 @FXML
     private Button detailAnnonceBtn;
-
+@FXML
+    private Button ajouterRecBtn;
     @FXML
     private Button PropositionRecuBtn;
 
@@ -405,8 +407,21 @@ public class ListeAnnonceControllerController implements Initializable {
                         primaryStage.setScene(scene);
                         primaryStage.show();
      }
+               public void SwitchToDeconnexion(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/LoginFXML.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
                
-   
+   public void SwitchToAjouterReclamation(ActionEvent event) throws IOException{
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/ajouterRec.fxml"));
+                        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+     }
     @FXML
      void search (ActionEvent event){
         String title = recherche.getText();

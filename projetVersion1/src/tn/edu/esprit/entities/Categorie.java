@@ -5,31 +5,35 @@
  */
 package tn.edu.esprit.entities;
 
+
 import java.util.ArrayList;
+
 
 /**
  *
- * @author NOURHENE
- */
-public class Categorie {
-    public  int idCat ;
-       public  String nomCategorie ;
 
-      private byte[] logo;
+    */
+   public class Categorie { 
+
+
+     public  int idCat ; 
+       public  String nomCategorie ; 
+
+//      private byte[] logo;
 
        private ArrayList<SousCategorie> sousCategories;
 
-   //     public Image logo ;
+   //     public Image logo ; 
 
        public Categorie() {
            sousCategories = new ArrayList<SousCategorie>();
-       }
+       } 
 
     public Categorie(int idCat, String nomCategorie, ArrayList<SousCategorie> sousCategories) {
         this.idCat = idCat;
         this.nomCategorie = nomCategorie;
         this.sousCategories = sousCategories;
-    }
+    } 
 
     public Categorie(int idCat, String nomCategorie) {
         this.idCat = idCat;
@@ -40,7 +44,7 @@ public class Categorie {
         this.nomCategorie = nomCategorie;
     }
      
-   
+    
 
     public int getIdCat() {
         return idCat;
@@ -73,6 +77,20 @@ public class Categorie {
 
 
 
-   
+    
        
-}
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+

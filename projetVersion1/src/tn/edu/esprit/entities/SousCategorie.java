@@ -7,11 +7,34 @@ package tn.edu.esprit.entities;
 
 /**
  *
- * @author NOURHENE
+ * @author Dell
  */
-public class SousCategorie {
-     private  int id ;
-private  String libelle ;
+public class SousCategorie  {   
+     
+ private  int id ; 
+private  String libelle ; 
+private int idCategorie;
+
+    public int getIdCategorie() { 
+        return idCategorie;
+    }
+
+    public SousCategorie(int id, String libelle, int idCategorie) {
+        this.id = id;
+        this.libelle = libelle;
+        this.idCategorie = idCategorie;
+    }
+
+    public SousCategorie(String libelle, int idCategorie) {
+        this.libelle = libelle;
+        this.idCategorie = idCategorie;
+    }
+
+
+
+    public void setIdCategorie(int idCategorie) {
+        this.idCategorie = idCategorie;
+    }
 
     public SousCategorie() {
     }
@@ -39,7 +62,5 @@ private  String libelle ;
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
-
-   
 
 }

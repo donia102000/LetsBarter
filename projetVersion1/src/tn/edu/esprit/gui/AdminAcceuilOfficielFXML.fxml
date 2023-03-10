@@ -59,6 +59,21 @@
                   <Image url="@../Images/profil.png" />
                </image>
             </ImageView>
+            <Button fx:id="gererCategBtn" layoutX="26.0" layoutY="501.0" mnemonicParsing="false" onAction="#SwitchToGererCategorie" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="gérer les catégories" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="AfficherReclaBtn" layoutX="23.0" layoutY="562.0" mnemonicParsing="false" onAction="#SwitchToAffichRec" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="afficher les réclamations " textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="ConsulterStatRecBtn" layoutX="23.0" layoutY="622.0" mnemonicParsing="false" onAction="#SwitchConsulterStat" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="consulter stat-Reclamation" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <Label layoutX="216.0" layoutY="134.0" prefHeight="57.0" prefWidth="656.0" style="-fx-background-color: 000000;" text="Bienvenue dans l'interface d'administration !" textFill="#bf9d86">

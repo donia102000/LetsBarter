@@ -194,19 +194,19 @@ public class Ajouter1Controller implements Initializable {
     @FXML
     private void RetourEv(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Afficher.fxml"));
-        Stage mainStage = new Stage();
-        Scene scene = new Scene(root);
-        mainStage.setScene(scene);
-        mainStage.show();
+        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
     }
     
     @FXML
     private void RetourReserv(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ReservationOrganisateur.fxml"));
-        Stage mainStage = new Stage();
-        Scene scene = new Scene(root);
-        mainStage.setScene(scene);
-        mainStage.show();
+        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
     }
 
 
