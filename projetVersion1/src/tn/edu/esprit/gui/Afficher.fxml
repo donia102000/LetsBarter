@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="809.0" prefWidth="1266.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.AfficherController">
+   <children>
+      <Pane layoutX="972.0" prefHeight="809.0" prefWidth="294.0" style="-fx-background-color: #F1EDDF;">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="34.0" layoutY="543.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/01104-19-integration-microsoft-teams-project-planning-683x500-1.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="4.0" layoutY="20.0" prefHeight="85.0" prefWidth="300.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
+               <font>
+                  <Font name="Forte" size="60.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnAcceuil" layoutX="54.0" layoutY="138.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="207.0" style="-fx-background-color: #ab8165;" text="Acceuil" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnTrie" layoutX="56.0" layoutY="230.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="207.0" style="-fx-background-color: #ab8165;" text="Affichage par tri" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRetourReservation" layoutX="56.0" layoutY="315.0" mnemonicParsing="false" onAction="#RetourReserv" prefHeight="51.0" prefWidth="207.0" style="-fx-background-color: #ab8165;" text="Liste réservations" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fitHeight="94.0" fitWidth="105.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Capture%20d'écran_20230201_082702.png" />
+         </image>
+      </ImageView>
+      <ListView fx:id="list_evenement" layoutX="480.0" layoutY="235.0" prefHeight="458.0" prefWidth="482.0" />
+      <AnchorPane layoutX="20.0" layoutY="233.0" prefHeight="464.0" prefWidth="453.0" style="-fx-background-color: #ab8165 #ab8165;">
+         <children>
+            <AnchorPane layoutX="16.0" layoutY="29.0" prefHeight="391.0" prefWidth="422.0" style="-fx-background-color: #F1EDDF;">
+               <children>
+                  <VBox layoutX="80.0" layoutY="26.0" prefHeight="327.0" prefWidth="285.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="matricule" prefHeight="51.0" prefWidth="258.0" promptText="Matricule" />
+                        <TextField fx:id="libelle" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="284.0" promptText="Libellé" />
+                        <DatePicker fx:id="date" prefHeight="53.0" prefWidth="286.0" promptText="Date " />
+                        <TextField fx:id="lieu" layoutX="10.0" layoutY="35.0" prefHeight="56.0" prefWidth="284.0" promptText="Lieu" />
+                        <TextField fx:id="nbrPlaceMax" layoutX="10.0" layoutY="85.0" prefHeight="53.0" prefWidth="284.0" promptText="Nombre de place Maximum" />
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="49.0" fitWidth="47.0" layoutX="20.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/adresse.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="25.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/2693507.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="51.0" layoutX="29.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/3447545.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="59.0" layoutX="14.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/1024px-UK_road_A1200.svg.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="24.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/4290520.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Label layoutX="345.0" layoutY="38.0" prefHeight="57.0" prefWidth="474.0" style="-fx-background-color: 000000;" text="Gestion des évènements" textFill="#bf9d86">
+         <font>
+            <Font name="Forte" size="34.0" />
+         </font>
+      </Label>
+      <TextField fx:id="chercher" layoutX="363.0" layoutY="168.0" prefHeight="40.0" prefWidth="258.0" promptText="Rechercher.." />
+      <Label layoutX="209.0" layoutY="160.0" prefHeight="57.0" prefWidth="136.0" style="-fx-background-color: 000000;" text="Rechercher:" textFill="#bf9d86">
+         <font>
+            <Font name="Forte" size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRechercher" alignment="CENTER" layoutX="672.0" layoutY="165.0" mnemonicParsing="false" onAction="#RechercherEvenement" prefHeight="31.0" prefWidth="189.0" style="-fx-background-color: #ab8165 #ab8165;" text="Rechercher" textFill="WHITE">
+         <font>
+            <Font name="Forte" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAjouter" alignment="CENTER" layoutX="129.0" layoutY="735.0" mnemonicParsing="false" onAction="#goToAjoutPage" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ab8165 #ab8165;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="Forte" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSupprimer" alignment="CENTER" layoutX="425.0" layoutY="735.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ab8165 #ab8165;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="Forte" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnModifier" alignment="CENTER" layoutX="708.0" layoutY="735.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="183.0" style="-fx-background-color: #ab8165 #ab8165;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="Forte" size="25.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

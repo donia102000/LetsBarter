@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: 000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.esprit.gui.OrganisateurModifierMdpFXMLController">
+   <children>
+      <Label layoutX="126.0" prefHeight="97.0" prefWidth="355.0" style="-fx-background-color: 000000;" text="Let's Barter" textFill="#ab8165">
+         <font>
+            <Font name="Forte" size="72.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="134.0" fitWidth="119.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Capture%20d'écran_20230201_082702.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="1006.0" prefHeight="802.0" prefWidth="198.0" style="-fx-background-color: #F1EDDF;">
+         <children>
+            
+            <Button fx:id="lblAcceuil" layoutX="23.0" layoutY="228.0" mnemonicParsing="false" onAction="#SwitchToAcceuil" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: #ab8165;" text="Acceuil" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="57.0" fitWidth="46.0" layoutX="76.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/power-off.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="lbldeconnexion" layoutX="38.0" layoutY="74.0" mnemonicParsing="false" onAction="#deconnecter" style="-fx-background-color: 00000000000000000;" text="Se deconnecter" />
+            <Button fx:id="btnretour" layoutX="94.0" layoutY="690.0" mnemonicParsing="false" onAction="#SwitchToProfil" prefHeight="87.0" prefWidth="74.0" style="-fx-background-color: 00000000000;" />
+            <ImageView fitHeight="57.0" fitWidth="54.0" layoutX="91.0" layoutY="708.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/left-arrow.png" />
+               </image>
+            </ImageView>
+            
+            
+            <Button fx:id="btnprofil" layoutX="63.0" layoutY="175.0" mnemonicParsing="false" onAction="#SwitchToProfil" style="-fx-background-color: 0000;" text="Compte" />
+            <ImageView fitHeight="63.0" fitWidth="55.0" layoutX="72.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/profil.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="79.0" layoutY="123.0" prefHeight="57.0" prefWidth="334.0" style="-fx-background-color: 000000;" text="Modifier mot de passe" textFill="#bf9d86">
+         <font>
+            <Font name="Forte" size="34.0" />
+         </font>
+      </Label>
+      <Button fx:id="modifInfobtn" layoutX="32.0" layoutY="207.0" mnemonicParsing="false" onAction="#switchToModifierInfo" prefHeight="37.0" prefWidth="182.0" style="-fx-background-color: #ab8165;" text="Gérer votre compte" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="modMdpbtn" layoutX="32.0" layoutY="268.0" mnemonicParsing="false" onAction="#switchToModifierMdp" prefHeight="37.0" prefWidth="182.0" style="-fx-background-color: #ab8165;" text="Modifier mot de passe" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="420.0" layoutY="217.0" prefHeight="239.0" prefWidth="469.0" style="-fx-background-color: #FAD678;">
+         <children>
+            <AnchorPane layoutX="28.0" layoutY="17.0" prefHeight="200.0" prefWidth="414.0" style="-fx-background-color: #F1EDDF;">
+               <children>
+                  <VBox layoutX="80.0" layoutY="26.0" prefHeight="134.0" prefWidth="284.0" spacing="10.0">
+                     <children>
+                        <PasswordField fx:id="tfmdp" prefHeight="61.0" prefWidth="284.0" promptText="Nouveau mot de passe " />
+                        <PasswordField fx:id="tfmdpverif" prefHeight="62.0" prefWidth="284.0" promptText="verification du mot de passe " />
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="80.0" fitWidth="46.0" layoutX="21.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/fermer-a-cle.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="80.0" fitWidth="46.0" layoutX="21.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/fermer-a-cle.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnmodifier" alignment="CENTER" layoutX="519.0" layoutY="530.0" mnemonicParsing="false" onAction="#mofifier" prefHeight="67.0" prefWidth="271.0" style="-fx-background-color: #FAD678;" text="Modifier mot de passe">
+         <font>
+            <Font name="Forte" size="22.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbl" alignment="CENTER" layoutX="358.0" layoutY="480.0" prefHeight="31.0" prefWidth="593.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Separator layoutX="247.0" layoutY="197.0" orientation="VERTICAL" prefHeight="200.0" />
+   </children>
+</AnchorPane>
